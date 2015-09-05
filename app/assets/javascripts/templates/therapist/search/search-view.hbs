@@ -1,0 +1,61 @@
+<div class="search-result-container full-width">
+  <div class="slogan">
+    <h2 class="super-large-title">
+      Need to talk?
+    </h2>
+    <h3 class="large-title">
+      Talk to a therapist online using live video.
+    </h3>
+  </div>
+
+  <!--define the request-search-->
+  <div class="request-search">
+    <ul class="request-search-content clearfix">
+      <li>
+        <select data-placeholder="Specialty" class="select-chosen search-therapist-input" id="speciality-txt">
+          <option value=""></option>
+          <option value="">All Specialties</option>
+          {{#each speciality_cdes}}
+          <option value="{{speciality_id}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        <select data-placeholder="Provider Type" class="select-chosen search-therapist-input" id="provider-txt">
+          <option value=""></option>
+          <option value="">All Providers</option>
+          {{#each license_type_cdes}}
+          <option value="{{abbreviation_id}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        <select data-placeholder="Payment Type" class="select-chosen search-therapist-input" id="payment-txt">
+          <option value=""></option>
+          <option  value="">All Payment Types</option>
+          {{#each insurance_companies}}
+          <option value="{{id}}">{{payers_name}}</option>
+          {{/each}}
+          <option value="">Out-of-pocket</option>
+        </select>
+      </li>
+      <li>
+        <input type="text" placeholder="Zipcode/State" class="form-control" id="state-txt">
+      </li>
+      <li>
+        <input type="text" placeholder="Find by Name" class="form-control search-therapist-input" id="name-txt"/>
+      </li>
+    </ul>
+    <div class="search-btn-wrap">
+      <a href="" class="btn btn-info btn-lg">Find a Therapist</a>
+    </div>
+  </div>
+  <!--define the profile-content group and pagination-->
+  <div class="summary-profile-content">
+    <div class="basic-profile-info">
+      <ul class="overview-profile-content" id="search-therapist-list">
+
+      </ul>
+    </div>
+  </div>
+</div>

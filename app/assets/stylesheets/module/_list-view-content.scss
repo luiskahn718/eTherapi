@@ -1,0 +1,161 @@
+.appointment-listview {
+	margin-bottom: 60px;
+	.tab-pane {
+		background-color: #fff;
+		padding: 20px 20px 0 20px;
+		border: 1px solid #dbe1e8;
+		border-top: none;
+	}
+	.nav-tabs {
+		padding: 0 20px;
+		a {
+			padding: 10px 30px;
+			color: #000;
+			background-color: #dbe1e8;
+			@include light-font;
+			font-size: 18px;
+		}
+	}
+	.list-view {
+		&.row {
+			margin: 0;
+		}
+	}
+}
+
+// set background for the content of appointment list view
+.listview-content {
+	.sidebar-user-avatar {
+		width: 32px;
+		height: 32px;
+		margin-left: 0;
+		margin-right: 6px;
+		margin-top: 10px;
+		padding: 0;
+
+		img {
+			@include radius(50%);
+		}
+	}
+
+	> .btn-container {
+		margin-bottom: 20px;
+		@include clearfix();
+		.btn {
+			float: right;
+		}
+	}
+
+	.appointment-content-wrap {
+		margin-bottom: 20px;
+
+	}
+
+	.block-data-header,
+	.data-row {
+		.cell-wrapper {
+			height: 52px;
+		}
+	}
+	.upcoming-appt,
+	.request-appt {
+		.data-row {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+}
+
+.view-all {
+	float: right;
+	margin-top: 10px;
+	text-decoration: underline;
+}
+
+.cell-wrapper {
+	display: table;
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.l-user {
+	.content-container.has-sidebar {
+		.affix-menu-nav.affix {
+			width: 19%;
+		}
+	}
+
+	.content-container.full-width {
+		.affix-menu-nav.affix {
+			width: 23%;
+		}
+	}
+	.affix-menu-nav {
+		&.affix-top {
+			top: 0!important;
+		}
+		top: 65px;
+	}
+}	
+
+#upcoming-section .cell .btn-warning {
+  display: none;
+}
+// media queries
+@media screen and (max-width: 1200px) { 
+	.l-user {
+		.content-container.has-sidebar {
+
+			.aside-content,
+			.pri-content,
+			.pri-content-def,
+			.affix-menu-nav.affix {
+				width: 100%;
+			}
+
+			.affix-menu-nav {
+				position: relative;
+			}
+
+			.pri-content,
+			.pri-content-def {
+				margin-top: 30px;
+			}
+
+			.pri-content {
+				padding: 0;
+			}
+
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.l-user {
+		.content-container.full-width {
+			.aside-content,
+			.pri-content,
+			.pri-content-def,
+			.affix-menu-nav.affix {
+				width: 100%;
+			}
+
+			.affix-menu-nav {
+				position: relative;
+			}
+
+			.pri-content,
+			.pri-content-def {
+				margin-top: 30px;
+			}
+			
+			.pri-content {
+				padding: 0;
+			}
+
+		}
+	}	
+}

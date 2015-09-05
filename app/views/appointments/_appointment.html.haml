@@ -1,0 +1,21 @@
+= content_tag_for(:li, appointment) do |appointment|
+  - if appointment.status != 'd'
+    = appointment.date
+    Status :
+    %strong 
+      = appointment.status
+    |
+    = link_to 'Cancel appointment', appointment, :method => :delete, :data => {:confirm => "Are you sure?"}
+    |
+    - if appointment.status =='c'
+      |
+      = link_to 'Join Session', session_join_path(appointment.id), :data => {:confirm => "Are you sure?"}
+    %div      
+    Invitees :
+    - appointment.invitees.each do |invitee|
+      %strong Name:
+      = invitee.display_name
+      - if invitee.id == @profile.id && appointment.status == 'p' 
+        = link_to 'Accept', accept_appointment_path(appointment.id) 
+        = link_to 'Edit', edit_appointment_path(appointment.id)
+      

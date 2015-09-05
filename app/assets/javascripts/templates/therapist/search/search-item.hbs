@@ -1,0 +1,58 @@
+<div class="index-profile-content clearfix {{#if profile.youtube_link}}embed-video{{/if}}">
+  <div class="left-content direction">
+    <div class="avatar-container">
+      {{#if profile.youtube_link}}
+      <div class="video-container">
+        <iframe src="{{convertYoutube profile.youtube_link}}" frameborder="0" allowfullscreen="true" width="100%" height="100%">
+        </iframe>
+      </div>
+      {{else}}
+      <div class="photo">
+        <a href="/therapist/{{therapist_id}}/profile" class="img-thumbnail">
+          <img src="{{checkAvatar120 picture_filelink.url gender}}" alt="avatar" />
+        </a>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="right-content direction">
+    <hgroup>
+      <h3 class="medium-title">
+        <a href="/therapist/{{therapist_id}}/profile" style="color:#585858;">{{first_name}} {{last_name}}</a>
+      </h3>
+      <div class="status">
+        {{convertLicenseName therapist_licenses.0.license_type 0}}
+      </div>
+    </hgroup>
+    <p class="search-about-me-section">
+      {{cutText profile.about_me}}
+    </p>
+    <div class="sub-content no-gutter">
+      <div class="basic-info direction">
+        <div class="large-title top-info">
+          <i class="fa fa-dollar">
+          </i>
+          {{profile.hourly_rate_max}}
+        </div>
+        <div class="bottom-info">
+          {{session_duration}} minutes
+        </div>
+      </div>
+      <div class="insurance-info direction">
+        <div class="top-info">
+          Insurance Accepted
+        </div>
+        <div class="bottom-info">
+          {{#each therapist_accept_assurances}}
+            {{convertInsuranceName insurance_payer_id @index}}
+          {{/each}}
+        </div>
+      </div>
+      <div class="wrap-button direction">
+        <a href="/therapist/{{therapist_id}}/profile" class="btn btn-info">
+          View Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

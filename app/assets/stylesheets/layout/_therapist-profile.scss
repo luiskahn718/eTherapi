@@ -1,0 +1,322 @@
+.public-profile-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 54px;
+
+  .personal-detail {
+    width: 65.4%;
+  }
+  .relative-info {
+    width: 34.6%;
+
+    .video-container {
+      background-color: #fff;
+      padding: 5px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      width: 100%;
+      height: 220px;
+
+      iframe{
+        padding-right: 10px;
+      }
+
+    }
+
+  }
+  .user-avatar-section {
+    min-width: 600px;
+  }
+
+  // hidden video-container when user didn't upload any of video
+  .invisible {
+    visibility: hidden;
+  }
+
+}
+
+.public-layout {
+
+
+  // style the show-item list
+  .show-item {
+    clear: both;
+    > li {
+      float: left;
+      display: inline-block;
+    }
+  }
+  // style user-avatar-section
+  .user-avatar-section {
+    .img-rounded {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      z-index: 100;
+
+      img {
+        @include radius(4px);
+      }
+
+    }
+
+  }
+
+  .user-avatar {
+    float: left;
+    padding: 5px;
+    width: 230px;
+    height: 230px;
+    background-color: #fff;
+    @include radius(4px);
+  }
+
+  .avatar-action {
+    margin-top: 110px;
+    margin-left: 20px;
+    i {
+      display: inline-block;
+    }
+  }
+
+  .user-name,
+  .user-status {
+    color: #fff;
+  }
+  .user-name {
+
+    .group-addon-lg {
+      i {
+        font-size: 30px;
+      }
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .user-status {
+    @include normal-font;
+    font-size: 18px;
+  }
+
+  // style history block
+  .history {
+    .large-title {
+      margin-bottom: 20px;
+    }
+    margin: 30px 0;
+    p {
+      @include normal-font;
+      font-size: 14px;
+      color: #000;
+      word-wrap: break-word;
+    }
+  }
+
+  .insurance-plan {
+    form {
+      padding-top: 0;
+
+      .form-group {
+        border-top: none;
+      }
+    }
+  }
+
+  // reset padding form-group in block
+  .block {
+    .form-group {
+      padding-left: 0;
+      padding-bottom: 10px;
+      border-top: 1px dashed #eaedf1;
+      border-bottom: 0;
+
+      &:last-child {
+        padding-bottom: 15px;
+      }
+    }
+  }
+
+  // remove top border of form-group in patient-payment page
+  #patient-payment-container {
+    .form-group {
+      border-top: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .treatment-approach,
+  .demographics-served,
+  .language-spoken {
+    .form-group {
+      border-top: 0;
+    }
+  }
+
+  .credentials {
+
+    .check-sign {
+      margin-right: 6px;
+      @include normal-font;
+      font-size: 16px;
+      color: #394263;
+    }
+  }
+
+  .check-sign {
+    .fa {
+      color: #179d00;
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+
+
+  // style video
+  .video-container {
+
+
+    iframe{
+      src: url("http://www.youtube.com/embed/XGSy3_Czz8k");
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+  }
+}
+
+
+
+.relative-info {
+  form {
+    padding-top: 30px;
+
+    .message-me-btn,
+    button {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .tips-info {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cash,
+    .time,
+    .calendarium,
+    .date-info {
+      color: #3a3b3b;
+    }
+
+    .cash {
+      @include bold-font;
+      font-size: 24px;
+    }
+
+    .time,
+    .calendarium {
+      margin-top: 10px;
+      i {
+        color: #717273;
+      }
+    }
+
+    .time,
+    .calendarium,
+    .date-info {
+      @include normal-font;
+      font-size: 18px;
+    }
+
+    .time {
+      i{
+        margin-right: 15px;
+      }
+    }
+    .cash,
+    .calendarium {
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    .time-tips {
+      @include bold-font;
+      font-size: 12px;
+    }
+
+  }
+
+
+
+}
+
+
+.insurance-plan {
+  .bootstrap-tagsinput {
+    input {
+      width: 100px;
+    }
+  }
+}
+
+// style hidden-box
+
+.avatar-container,
+.video-container {
+  .hidden-box {
+    width: 100%;
+    left: 0;
+    top: 186px;
+    height: 45px;
+
+  }
+}
+
+.therapist-edit-profile .chosen-container-multi .search-field input {
+  width: 52px!important;
+}
+.therapist-edit-profile .insurance-plan .chosen-container-multi .search-field input {
+  width: 106px!important;
+}
+
+
+// media-query
+@media screen and (max-width: 992px) {
+  .public-profile-container {
+    .personal-detail,
+    .relative-info {
+      width: 100%;
+    }
+  }
+
+  .invisible {
+    display: none;
+  }
+
+  .public-profile-container {
+    .relative-info {
+      .video-container {
+        height: 350px;
+      }
+    }
+  }
+
+  .public-layout {
+    .main-content {
+      margin: 0;
+    }
+  }
+}
+.hidden-calendar {
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
+  display: block!important;
+}

@@ -1,0 +1,165 @@
+// define column for appointment list view therapist and patient
+.col-style {
+	float: left;
+}
+
+// past or cancled appointment block
+.past-appointment {
+	.status-col {
+		width: 15.217%;
+	}
+
+	.user-col {
+		width: 27.173%;
+	}
+
+	.date-col {
+		width: 13.586%;
+	}
+
+	.time-col {
+		width: 11.684%;
+	}
+
+	.payment-col {
+		width: 21.195%;
+		min-height: 52px;
+	}
+
+	.options-col {
+		width: 11.141%;
+		min-width: 77px;
+		min-height: 52px;
+		.btn-action {
+			min-width: 80px;
+			display: block;
+		}
+	}
+}
+
+// upcomming and request appointments
+.status-col {
+	width: 20.38%;
+}
+
+.user-col {
+	width: 26.358%;
+}
+
+.date-col {
+	width: 14.13%;
+}
+
+.time-col {
+	width: 25%;
+}
+
+.options-col {
+	width: 14.13%;
+	.btn-action {
+		min-width: 102px;
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.option-link-wrap {
+		text-align: center;
+		margin-top: -9px;
+	}
+	.btn-action,
+	.option-link-wrap {
+		display: block;
+	}
+}
+
+// for patient appointment list view
+.patient-appointment {
+	.action-view-col {
+		min-width: 94px;
+	}
+}
+
+.action-change-col {
+	width: 7.936%;
+}
+
+.past-appointment {
+	.action-view-col {
+		float: right;
+		margin-right: 8px;
+	}
+}
+
+// media queries
+@media (min-width: 1200px) and (max-width: 1400px) {
+	.content-container.has-sidebar {
+		// for appointment list view
+		.time-col {
+			width: 20%;
+		}
+		.options-col {
+			width: 19.13%;
+		}
+		// past appointment in therapist
+		.past-appointment {
+			.user-col {
+				width: 24.173%;
+			}
+			.time-col {
+				width: 14%;
+			}
+			.payment-col {
+				width: 18.195%;
+			}
+			.options-col {
+				width: 14.13%; 
+			}
+		}
+		// for patient account page
+		.patient-account {
+			.action-col {
+				width: 19.206%;
+			}
+			.expires-card-col {
+				width: 21.515%;
+			}
+		} 
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.content-container.full-width {
+		// for appointment list view
+		.time-col {
+			width: 21%;
+		}
+		.options-col {
+			width: 18.13%;
+		}
+		// past appointment in therapist
+		.past-appointment {
+			.time-col {
+				width: 11%;
+			}
+			.user-col {
+				width: 26.173%;
+			}
+			.payment-col {
+				width: 19.195%;
+			}
+			.options-col {
+				width: 14.13%;
+			}
+		}
+		// for patient account page
+		.patient-account {
+			.action-col {
+				width: 18.206%;
+			}
+			.expires-card-col {
+				width: 22.515%;
+			}
+		} 
+	}
+}

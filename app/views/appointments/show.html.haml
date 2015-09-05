@@ -1,0 +1,23 @@
+%p
+  %strong Therapist:
+  = @therapist.display_name
+
+- if !@patient.blank?
+  %p
+    %strong Patient:
+    = @patient.display_name
+
+%p
+  %strong On:
+  = @appointment.date
+
+%p
+  %strong Start at:
+  = @appointment.start_time
+%p
+  %strong End at:
+  = @appointment.end_time
+= link_to 'Edit', edit_appointment_path(@appointment)
+= link_to 'Delete', appointment_path(@appointment), :method => :delete
+|
+\#{link_to 'Back', appointments_path}

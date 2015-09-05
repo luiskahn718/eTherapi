@@ -1,0 +1,24 @@
+%h1 Therapist Search
+
+= form_tag therapist_searchresult_path, :method => 'get' do
+  = field_set_tag do
+    = label_tag :speciality, 'Speciality : '
+    = select_tag :speciality, options_from_collection_for_select(SpecialityCde.all, "speciality_id", "name"), include_blank: true
+    %br
+    = label_tag :therapist_type, 'Therapist Type : '
+    = select_tag :therapist_type, options_for_select([["MFT", "MFT"], ["Psychologist", "psy"]]), include_blank: true
+    %br
+    = label_tag :payment_type, 'Payment type : '
+    = select_tag :payment_type, options_for_select([["Cash", "cash"], ["Visa", "visa"], ["Mastercard", "mc"], ["American Express", "amex"]]), include_blank: true
+    %br
+    = label_tag :state, 'State : '
+    = select_tag :state, options_from_collection_for_select(StateCde.where("state_type = 'state'").load, "state_id", "name"), include_blank: true
+    %br
+    = label_tag :zipcode, 'Zipcode : '
+    = text_field_tag :zipcode
+    %br
+    = label_tag :name, 'Name : '
+    = text_field_tag :name
+    name search hint : enter [firstname lastname]
+    %br
+    = submit_tag 'Find'

@@ -1,0 +1,294 @@
+
+<div class="patient-account">
+  <!--sub header-->
+  <div class="content-header">
+    <div class="header-section subtitle">
+      <h1>
+        <i class="icon-archive2">
+        </i>
+        Account
+      </h1>
+      <small>
+        The information on this page is strictly confidential and will be visible only to you.
+      </small>
+    </div>
+  </div>
+  <div class="row no-gutter">
+    <div class="aside-content affix-menu-nav col-md-3">
+      <div class="slave-nav">
+        <div class="list-group nav">
+          <a href="javascript:void(0)" class="list-group-item active">
+            <h4 class="list-group-item-heading">
+              Billing
+            </h4>
+          </a>
+          <a href="javascript:void(0)" class="list-group-item">
+            <h4 class="list-group-item-heading">
+              Change Password
+            </h4>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pri-content col-md-9">
+      <div class="block">
+        <div class="block-title">
+          <h2>
+            Billing
+          </h2>
+        </div>
+        <div class="block-data-wrap">
+          <header class="block-data-header">
+            <div class="card-number-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  Card Number
+                </span>
+              </div>
+            </div>
+            <div class="name-card-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  Name on Card
+                </span>
+              </div>
+            </div>
+            <div class="expires-card-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  Expires
+                </span>
+              </div>
+            </div>
+          </header>
+
+          <div class="block-data" id="list-card-wrapper">
+
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="add-more pull-right">
+          + Add Debit/Credit Card
+        </a>
+      </div>
+      <div class="block">
+        <div class="block-title">
+          <h2>
+            Change Password
+          </h2>
+        </div>
+        <form class="form-horizontal">
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              New Password
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="password" class="form-control input-md" id="pwd-txt"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="fa fa-asterisk">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Confirm New Password
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="password" class="form-control input-md" id="confirm-pwd-txt"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="fa fa-asterisk">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown" id="pwd-error-txt"></div>
+            </div>
+          </div>
+          <div class="form-group form-action">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="button" class="btn btn-info btn-large" id="save-pwd-btn">
+                Save Password
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal" id="patient-add-card">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">
+          &times;
+        </button>
+        <modal-title>
+          Add Debit/Credit Card
+        </modal-title>
+      </div>
+      <div class="modal-body larger-bottom">
+        <div id="err-stripe-msg"></div>
+        <form method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-5">
+              Card Number
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="card-number-txt"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-5">
+              Name on Card
+            </label>
+            <div class="col-md-6">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="card-name-txt" />
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-5">
+              Expiration Date
+            </label>
+            <div class="col-md-6 multi-column">
+              <div class="row">
+                <div class="col-md-6">
+                  <select type="text" data-placeholder="Select" class="form-control select-chosen input-md" id="card-exp-mon">
+                    <!---->
+                    <option></option>
+                    <option>
+                      01
+                    </option>
+                    <option>
+                      02
+                    </option>
+                    <option>
+                      03
+                    </option>
+                    <option>
+                      04
+                    </option>
+                    <option>
+                      05
+                    </option>
+                    <option>
+                      06
+                    </option>
+                    <option>
+                      07
+                    </option>
+                    <option>
+                      08
+                    </option>
+                    <option>
+                      09
+                    </option>
+                    <option>
+                      10
+                    </option>
+                    <option>
+                      11
+                    </option>
+                    <option>
+                      12
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <select type="text" data-placeholder="Select" class="form-control select-chosen input-md" id="card-exp-year">
+                    <option></option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                    <option>2031</option>
+                    <option>2032</option>
+                    <option>2033</option>
+                    <option>2034</option>
+                    <option>2035</option>
+                    <option>2036</option>
+                    <option>2037</option>
+                    <option>2038</option>
+                    <option>2039</option>
+                    <option>2040</option>
+                    <option>2041</option>
+                    <option>2042</option>
+                    <option>2043</option>
+                    <option>2044</option>
+                    <option>2045</option>
+                    <option>2046</option>
+                    <option>2047</option>
+                    <option>2048</option>
+                    <option>2049</option>
+                    <option>2050</option>
+                    <option>2051</option>
+                    <option>2052</option>
+                    <option>2053</option>
+                    <option>2054</option>
+                    <option>2055</option>
+                    <option>2056</option>
+                    <option>2057</option>
+                    <option>2058</option>
+                    <option>2059</option>
+                    <option>2060</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-5">
+              CVC
+            </label>
+            <div class="col-md-3">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="cvc_txt"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <p class="help-block error-message"></p>
+            </div>
+          </div>
+          <div class="form-group form-actions">
+            <div class="col-md-6 col-md-offset-5">
+              <button type="button" class="btn btn-info btn-large" id="save-card-btn">
+                Save Card
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

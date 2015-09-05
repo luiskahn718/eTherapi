@@ -1,0 +1,5 @@
+%h1 Tell us a little about your insurances
+= @patient.patient_insurance.build
+= render layout: 'form' do | patient_form |
+  %h3 Insurances          
+  = render :partial => "shared/patient_profile_insurance", :locals => {:patient => @patient, :patient_form => patient_form}

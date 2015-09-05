@@ -1,0 +1,40 @@
+/ Custom this files
+!!!
+%html
+  %head
+    %title Etherapi
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    %link(href="/favicon.ico" rel="shortcut icon")
+    = stylesheet_link_tag    "main", media: "all"
+  %body
+    .page-container.l-user#session-log-container
+      %header.main-header.navbar.navbar-default.navbar-fixed-top
+        .navbar-header.logo-wrapper
+          %h1
+            %a{href:"/", id:"main-logo"}etherapi
+        .navbar-right#session-status-wrapper
+          %a{class:"btn btn-warning navbar-btn", id:"start-session-btn"} Start Session
+          %a{class:"btn btn-warning navbar-btn ended-time-txt", id:"offline-txt", href: 'javascript:void(0)'} Patient has not arrived yet.
+          %a{class:"btn btn-warning navbar-btn ended-time-txt", id:"ended-txt", href: 'javascript:void(0)'} This appointment has ended.
+
+      .main-container
+        .content-container.has-sidebar.full-width
+          .sub-header-wrap
+            .notice.themed-background-warning#sub-header-notification{style:"display:none;"}
+              %button.close{type: "button"} ×
+              %span.content
+            .sub-header-section
+
+        .content-container.full-width
+          .main-content
+            = yield
+    %script{src: "/assets/classie.js"}
+
+    = include_gon
+    = requirejs_include_tag "app"
+    = csrf_meta_tags

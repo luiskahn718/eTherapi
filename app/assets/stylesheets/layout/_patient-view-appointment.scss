@@ -1,0 +1,66 @@
+.patient-view-appt{
+	.pri-content-def {
+		.block-title {
+			margin-bottom: 15px;
+		}
+	}
+
+	.description-col {
+		width: 85.227%;
+		.notice {
+			@include bold-font;
+		}
+	}
+
+	.price-col {
+		width: 14.772%;
+	}
+
+	.data-row {
+		.description-col {
+			color: #585858;
+		}
+	}
+
+	.block-data-footer {
+		border-top: 1px solid #eaedf1;
+		padding-top: 4px;
+		@include bold-font;
+		font-size: 16px;
+		@include clearfix();
+		.description-col {
+			color: #000;
+		}
+	}
+
+	.cell-wrapper {
+		height: 52px;
+	}
+
+	.more-data {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		p {
+			margin: 0;
+		}
+	}
+
+	.block-details {
+		margin-top: 18px;
+		margin-bottom: 20px;
+		@include semi-bold-font;
+		color: #6d6d6d;
+		p {
+			margin-bottom: 5px;
+		}
+		.notice {
+			color: #3b393a;
+		}
+	}
+
+	.block-data {
+		.data-row:nth-child(odd) {
+			background-color: #fff;
+		}
+	}
+}	

@@ -1,0 +1,15 @@
+= javascript_include_tag "nested_form"
+= nested_form_for @therapist, url: wizard_path, :method => :put do |therapist_form|
+  - if @therapist.errors.any?
+    .error_messages
+      %h2
+        = pluralize(@therapist.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @therapist.errors.full_messages.each do |msg|
+          %li= msg
+  = yield therapist_form
+  .actions
+    = therapist_form.submit "Continue"
+    or 
+    = link_to "skip this step", next_wizard_path

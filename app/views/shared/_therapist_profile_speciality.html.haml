@@ -1,0 +1,9 @@
+.field
+  = therapist_form.fields_for :therapist_speciality do |speciality_form|
+    .field
+      = speciality_form.label :speciality_id
+      = speciality_form.collection_select(:speciality_id, SpecialityCde.all, :speciality_id, :name, :include_blank => "Select a Speciality" )
+      = speciality_form.select :seq_speciality_cde, options_for_select([["Select One", ""], ["Primary", 1], ["Other", 9]], :selected => speciality_form.object.seq_speciality_cde)
+      = speciality_form.link_to_remove "Remove this speciality"
+  %p
+    = therapist_form.link_to_add "Add a Speciality", :therapist_speciality

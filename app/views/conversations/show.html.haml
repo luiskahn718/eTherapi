@@ -1,0 +1,16 @@
+%h1 Message
+%ul
+  = content_tag_for(:li, conversation.receipts_for(current_user).not_trash) do |receipt|
+    - message = receipt.message
+    - recipient = message.recipients[0]
+    %p
+      - if current_user == recipient
+        From Me
+      - else 
+        From
+        = recipient.display_name
+      %p= message.body
+    %br
+- conversation.mark_as_read(current_user)    
+Reply
+= render 'conversations/show_form', conversation: conversation

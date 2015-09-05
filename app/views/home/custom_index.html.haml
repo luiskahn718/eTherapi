@@ -1,0 +1,288 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+        %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+          %title eTherapi
+          / Bootstrap
+          %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", :rel => "stylesheet"}
+            %link{:href => "css/app.css", :rel => "stylesheet"}
+              /[if lt IE 9]
+                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top.woof-header{:role => "navigation"}
+      .navbar-header
+        %button.navbar-toggle{"data-target" => "#nav", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "#"} eTherapi
+      #nav.collapse.navbar-collapse.nav-right
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => "#"} Contact us
+          %li
+            %a{:href => "#"} For Therapists
+          %li
+            %a{:href => "#"} Login
+          %li
+            %a.btn.btn-primary{:href => "#"} Sign Up
+    #banner
+      .container
+        %h1 Need to talk?
+        %h2 Talk to a therapist online using live video.
+        %form.row
+          .col-md-2.col-md-offset-1
+            %select.form-control
+              %option Specialty 1
+              %option Specialty 2
+              %option Specialty 3
+              %option Specialty 4
+              %option Specialty 5
+          .col-md-2
+            %select.form-control
+              %option Therapist Type
+              %option Therapist Type 2
+              %option Therapist Type 3
+              %option Therapist Type 4
+              %option Therapist Type 5
+          .col-md-2
+            %select.form-control
+              %option Payment Type
+              %option Payment Type 2
+              %option Payment Type 3
+              %option Payment Type 4
+              %option Payment Type 5
+          .col-md-2
+            %input.form-control{:placeholder => "Zip Code/State", :type => "text"}
+          .col-md-2
+            %input.form-control{:placeholder => "Text input", :type => "text"}
+          .col-md-4.col-md-offset-7
+            %a.btn.btn-primary.btn-block.btn-lg{:href => "#"} Find a Therapist
+    .white-wrapper
+      .container.inner
+        .section-title.text-center
+          %h2
+            See Your
+            %strong Therapist
+            Online
+        .col-feat.text-center
+          .row
+            .col-sm-4
+              .icon
+                %span.icon-coffee
+              .text
+                %h5 Convenient and Simple
+                %p Talk to your therapist where and when it suits you. No travel and no waiting rooms.
+            .col-sm-4
+              .icon
+                %span.icon-profile-male
+              .text
+                %h5 Expert Therapists
+                %p Choose from hundreds of reliable and friendly therapists. eTherapi ensures they are fully licensed and experts in their field.
+            .col-sm-4
+              .icon
+                %span.icon-happy
+              .text
+                %h5 Online Therapy Works
+                %p Research shows that online therapy is just as effective as face-to-face visits.
+          .divide30
+          .row
+            .col-sm-4
+              .icon
+                %span.icon-lock
+              .text
+                %h5 Reliable and Secure
+                %p We value your privacy. Our online platform is HIPAA-compliant, reliable, secure and designed with your needs in mind.
+            .col-sm-4
+              .icon
+                %span.icon-key
+              .text
+                %h5 Free to Sign up
+                %p Only pay for the cost of your therapy session. No hidden fees.
+            .col-sm-4
+              .icon
+                %span.icon-chat
+              .text
+                %h5 Amazing Support
+                %p Call us or email us with any questions you might have. We are here to help.
+    .shot-wrapper
+      #shotCarousel.carousel.slide{"data-ride" => "carousel"}
+        / Wrapper for slides
+        .carousel-inner
+          .item.active
+            .container-fluid
+              .row
+                .col-md-7
+                  %img.img-responsive{:alt => "shot", :src => "img/shot-1.png"}
+                .col-md-5
+                  %h3 LARGE SELECTION
+                  %p Hundreds of therapists to choose from. Each therapist has a particular expertise and treatment approach.
+                  %a.btn.btn-primary.btn-lg{:href => "#"} Find a Therapist
+          .item
+            .container-fluid
+              .row
+                .col-md-7
+                  %img.img-responsive{:alt => "shot", :src => "img/shot-2.png"}
+                .col-md-5
+                  %h3 FIND THE RIGHT THERAPIST
+                  %p Detailed therapist profiles to find the best fit. Choose based on expertise, treatment approach, credentials or payment methods accepted.
+                  %a.btn.btn-primary.btn-lg{:href => "#"} Find a Therapist
+          .item
+            .container-fluid
+              .row
+                .col-md-7
+                  %img.img-responsive{:alt => "shot", :src => "img/shot-3.png"}
+                .col-md-5
+                  %h3 LARGE SELECTION
+                  %p Hundreds of therapists to choose from. Each therapist has a particular expertise and treatment approach.
+                  %a.btn.btn-primary.btn-lg{:href => "#"} Find a Therapist
+        %a.left.carousel-control{"data-slide" => "prev", :href => "#shotCarousel", :role => "button"}
+          %img{:alt => "prev", :src => "img/prev.png"}
+        %a.right.carousel-control{"data-slide" => "next", :href => "#shotCarousel", :role => "button"}
+          %img{:alt => "next", :src => "img/next.png"}
+    .white-wrapper
+      .container.inner
+        .section-title.text-center
+          %h2
+            Therapy Made
+            %strong Easy
+        .thin.text-center
+          %p.lead Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+        .divide30
+        .steps
+          %span.timeline-border
+          .step
+            .icon-border
+              %i.icon-key
+            %h5.upper Create a free account
+            %p It's easy, free and only takes a few minutes.
+          .step.even
+            .icon-border
+              %i.icon-search2
+            %h5.upper Find and book
+            %p Search our extensive database to book an appointment with a therapist that suits your needs.
+          .step
+            .icon-border
+              %i.icon-video
+            %h5.upper See your therapist online using live video
+            %p We use the best and most reliable technology. Pay with your health insurance or with a credit or debit card.
+        .actionBtn
+          %a.btn.btn-primary.btn-lg{:href => "#"} Sign Up
+    .testimonial-wrapper
+      .container.inner
+        .section-title.text-center
+          %h2
+            what our
+            %strong customers
+            think
+          %span.icon
+            %span.icon-chat
+        .col-testi.text-center
+          .row
+            .col-md-12
+              #carousel-generic.carousel.slide{"data-ride" => "carousel"}
+                / Indicators
+                %ol.carousel-indicators
+                  %li.active{"data-slide-to" => "0", "data-target" => "#carousel-generic"}
+                  %li{"data-slide-to" => "1", "data-target" => "#carousel-generic"}
+                  %li{"data-slide-to" => "2", "data-target" => "#carousel-generic"}
+                / Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    %blockquote
+                      %p Using Therapy to treat my pre-surgery psychological evaluations has improved my productivity and increased the number of patients i can see daily. The bariatric clinics that i work with can now easily set up appointment with the click of button.
+                      %footer
+                        %img.img-circle{:src => "img/avatar.png"}
+                          %strong Dr. Colleen Long,
+                          %cite{:title => "Source Title"} Licensed Clinical Health Psychologist
+                  .item
+                    %blockquote
+                      %p Using Therapy to treat my pre-surgery psychological evaluations has improved my productivity and increased the number of patients i can see daily. The bariatric clinics that i work with can now easily set up appointment with the click of button.
+                      %footer
+                        %img.img-circle{:src => "img/avatar.png"}
+                          %strong Dr. Colleen Long,
+                          %cite{:title => "Source Title"} Licensed Clinical Health Psychologist
+                  .item
+                    %blockquote
+                      %p Using Therapy to treat my pre-surgery psychological evaluations has improved my productivity and increased the number of patients i can see daily. The bariatric clinics that i work with can now easily set up appointment with the click of button.
+                      %footer
+                        %img.img-circle{:src => "img/avatar.png"}
+                          %strong Dr. Colleen Long,
+                          %cite{:title => "Source Title"} Licensed Clinical Health Psychologist
+    .brands
+      %ul
+        %li
+          %a{:href => "#"}
+            %img{:alt => "yahoo", :src => "img/yahoo.png"}/
+        %li
+          %img{:alt => "craiglist", :src => "img/craiglist.png"}/
+        %li
+          %img{:alt => "visa", :src => "img/visa.png"}/
+        %li
+          %img{:alt => "google", :src => "img/google.png"}/
+        %li
+          %img{:alt => "twitter", :src => "img/twitter.png"}/
+        %li
+          %img{:alt => "bing", :src => "img/bing.png"}/
+    .footer
+      .container
+        .row
+          .col-md-4
+            %h4 Contact us
+            .number 1-800-611-0821
+          .col-md-2
+            %h4 Company
+            %ul.footerlinks
+              %li
+                %a{:href => "#"} About Us
+              %li
+                %a{:href => "#"} Contact Us
+              %li
+                %a{:href => "#"} Terms and Privacy
+          .col-md-2
+            %h4 Discover
+            %ul.footerlinks
+              %li
+                %a{:href => "#"} Find a therapist
+              %li
+                %a{:href => "#"} For Therapists
+              %li
+                %a{:href => "#"} Sign up
+              %li
+                %a{:href => "#"} Sitemap
+          .col-md-4
+            %h4 Join us on
+            %ul.nav
+              %li.tw
+                %a{:href => "#"}
+                  %i.icon-twitter
+              %li.fb
+                %a{:href => "#"}
+                  %i.icon-facebook
+              %li.in
+                %a{:href => "#"}
+                  %i.icon-instagram
+              %li.rs
+                %a{:href => "#"}
+                  %i.icon-rss
+        %p.text-center
+          Online therapy is not appropriate for life-threatening emergencies. For life-threatening emergencies, please go to your nearest emergency room or call 911.
+          Also, the National Suicide Prevention Lifeline at 1-800-273-TALK (8255) is a free 24-hour hotline available to anyone in a suicidal crisis.
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+    %script{:src => "js/classie.js"}
+    %script{:src => "js/AniHeader.min.js"}
+    %script{:src => "js/jquery.parallax-1.1.3.js"}
+    %script{:src => "js/jquery.localscroll-1.2.7-min.js"}
+    %script{:src => "js/jquery.scrollTo-1.4.2-min.js"}
+    :javascript
+      $(document).ready(function(){
+        $('#nav').localScroll(600);
+        $('#banner').parallax("50%", .5);
+        $('.testimonial-wrapper').parallax("50%", .2);
+        $('.shot-wrapper').parallax("50%", .3);
+      })

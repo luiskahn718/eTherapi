@@ -1,0 +1,456 @@
+// style the therapist-cancelled-plusthan page
+.therapist-cancelled-plusthan-container {
+  margin-bottom: 30px;
+
+  .summary-container {
+    .summary-working-session {
+      padding-bottom: 0;
+    }
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+
+
+
+  // style form-control
+  .form-control {
+    height: 42px;
+  }
+
+  // change background color for disable input-group-addon in the "Fee" section
+  .chosen-single,
+  .input-group-addon {
+    background-color: #eee;
+  }
+
+  // style the background-color from duration section follow disable
+  .chosen-single {
+    span {
+      color: #909091;
+    }
+  }
+  .chosen-disabled {
+    opacity: 1 !important;
+  }
+
+
+  .summary-container {
+    // style the input in page
+    .diagnosis-code,
+    .cpt-code {
+
+      input {
+        display: block;
+      }
+    }
+
+    // style the label in page
+    label {
+      color: #585858;
+      text-align: left;
+    }
+  }
+}
+
+
+// style the therapist-cancelled-lessthan page
+.therapis-cancelled-container {
+  margin-bottom: 30px;
+}
+
+// define the general component for the appointment session
+// style the summary note container
+.summary-container {
+
+  // add border for block container
+  .block {
+    border: 1px solid #dbe1e8;
+    &:first-child {
+      border-bottom: none;
+    }
+  }
+
+  // style the distance between form-groups
+
+  .status-group,
+  .date-time-group {
+    margin-bottom: 30px;
+  }
+
+  .service-provide-group,
+  .duration-group,
+  .fee-group,
+  .diagnosis-code-group,
+  .cpt-code-group {
+    margin-bottom: 20px;
+  }
+
+  // style hidden-container class for disable components
+  .hidden-container {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    opacity: .1;
+    background-color: #333;
+    @include radius(4px);
+  }
+
+  .disabled {
+    .hidden-container {
+      display: block;
+    }
+
+    input[placeholder] {
+      text-indent: -9999px;
+    }
+  }
+  // add class processed to disabled all form-groups
+  .processed {
+    .hidden-container {
+      display: block;
+    }
+    .save-detail-btn,
+    .process-payment-btn {
+      display: none;
+    }
+
+    .tagsinput {
+      border: 1px solid #ccc;
+    }
+    .service-provide-description {
+      textarea {
+        margin: 0;
+        border: 1px solid #dbe1e8;
+      }
+    }
+  }
+
+  .diagnosis-code,
+  .cpt-code,
+  .service-provide-description,
+  .duration,
+  .fee {
+    margin-left: 15px;
+  }
+
+  .fee {
+    input {
+      @include radius-position(top, right, 4px !important);
+      @include radius-position(bottom, right, 4px !important);
+    }
+  }
+
+  textarea[disabled] {
+    text-indent: -9999px;
+  }
+  // appearance popover when hover textarea
+  .note-detail-content {
+    width: 66.2%;
+
+    &:hover {
+      .popover {
+        display: block;
+      }
+    }
+  }
+
+  // style span tagsinput
+  .tags-label-content {
+    text-transform: uppercase;
+  }
+
+  // set font and color for all textareas of summary note pre-payment page
+  textarea {
+    @include normal-font;
+    font-size: 13px;
+  }
+
+   // set height for inputs and select-box
+  input[type="text"],
+  .chosen-single {
+    height: 40px;
+  }
+
+  .tagsinput {
+    input {
+      height: 24px;
+    }
+  }
+
+  input[type="text"] {
+    @include normal-font;
+    font-size: 13px;
+    color: #282828;
+  }
+
+
+
+  .form-horizontal.form-bordered .form-group {
+    padding-right: 80px;
+  }
+
+
+  // set font for the content of block-title
+  .block-title {
+    h3 {
+      @include semi-bold-font;
+      font-size: 16px;
+      color: #394263;
+
+      a {
+        @include semi-bold-font;
+        font-size: 16px;
+        color: #1ba4dc;
+
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // define two block for contain the content of page
+  .summary-working-session {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 40px;
+
+
+    // reset margin, padding for form of summary-working
+    form {
+      position: relative;
+      top: -8px;
+      left: 8px;
+    }
+
+
+    label {
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #000;
+    }
+
+    .date,
+    .status {
+      @include bold-font;
+      font-size: 13px;
+      color: #282828;
+      margin-left: 10px;
+    }
+  }
+
+  .summary-note-session {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 86px;
+    border-top: 0;
+
+
+    form {
+      margin: 0;
+    }
+  }
+
+  // style the row to include the button change session
+  .row {
+    margin: 0;
+  }
+  // style position for button change session
+
+
+
+  .previous-arrow,
+  .forward-arrow {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 4px;
+  }
+
+  .fc-header-right {
+    width: 100%;
+
+    [class^="icon-"] {
+      font-weight: bold;
+    }
+
+  }
+
+  .fc-state-active {
+    background-color: #1ba4dc;
+    color: #fff;
+  }
+
+  .fc-text-arrow {
+    margin: .25em .25em;
+    font-size: 1.6em;
+  }
+
+  .fc-button-next {
+    border-left: none;
+  }
+
+
+  // style each of form-group in summary note page
+  .form-group {
+    padding: 0;
+    border-bottom: 0;
+
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+    }
+  }
+
+  // set width for insurance and payment blocks
+  .insurance-verified,
+  .payment-verified {
+    width: 35%;
+
+    span {
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #000;
+    }
+  }
+
+  .insurance-date,
+  .payment-date {
+    width: 65%;
+
+    span,
+    a {
+      font-size: 13px;
+    }
+
+    span {
+      @include semi-bold-font;
+      color: #6d6d6d;
+    }
+
+    a {
+      @include semi-bold-font;
+      color: #1ba4dc;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .insurance-verified-title,
+  .payment-verified-title {
+    margin-left: 10px;
+  }
+
+  .payment {
+    margin-bottom: 20px;
+    margin-top: 6px;
+  }
+
+
+  .process-payment {
+    margin-top: 8px;
+  }
+
+
+
+  // set width for service-provide, duration, fee, diagnosis and CPT code section
+  .service-provide-description,
+  .diagnosis-code,
+  .cpt-code {
+    width: 42.6%;
+  }
+
+  .duration,
+  .fee {
+    width: 28.4%;
+  }
+
+
+
+  // style the Session note title
+  .note-title {
+    h3 {
+      margin-top: 0;
+      padding-left: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #eaedf1;
+
+      @include bold-font;
+      font-size: 18px;
+      color: #585858;
+
+    }
+  }
+
+  // style the specified-note block
+  .specified-note {
+
+    > h3 {
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #000;
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .note-detail {
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-left: 5px;
+      }
+
+      textarea {
+        min-height: 160px;
+      }
+
+    }
+
+
+  }
+
+  // style the popover right
+  .popover {
+    max-width: 310px;
+    left: auto;
+    right: -310px;
+    padding: 15px 20px 15px 15px;
+  }
+
+
+  // style for the diagnosis and CPT code with tagsinput
+  .add-tag {
+    min-height: 96px;
+  }
+
+
+}
+
+
+.fc-state-default {
+  background-color: #fff;
+  color: #909091;
+  text-shadow: none;
+}
+
+// set disable cursor for disabled components
+.post-payment,
+.therapist-cancelled-plusthan-container {
+  .chosen-single,
+  .service-provided,
+  .fee-section,
+  .hidden-container {
+    cursor: not-allowed;
+  }
+}

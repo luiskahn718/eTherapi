@@ -1,0 +1,20 @@
+.field
+  = therapist_form.fields_for :therapist_accept_insurance do |insurance_form|
+    .field
+      = insurance_form.label :insurance_id
+      = insurance_form.collection_select(:insurance_id, InsuranceCompany.all, :insurance_id, :name, :include_blank => "Select a Company" )
+    .field
+      = insurance_form.label :contract_ref_no
+      = insurance_form.text_field :contract_ref_no
+    .field
+      = insurance_form.label :start_date
+      = insurance_form.date_select :start_date, start_year: 2000, end_year: 2050, include_blank: true
+    .field
+      = insurance_form.label :end_date
+      = insurance_form.date_select :end_date, start_year: Date.today.year, end_year: 2050, include_blank: true
+    .field
+      = insurance_form.hidden_field :entity_id
+    = insurance_form.link_to_remove "Remove this insurance"
+    %p
+  %p
+    = therapist_form.link_to_add "Add an insurance", :therapist_accept_insurance

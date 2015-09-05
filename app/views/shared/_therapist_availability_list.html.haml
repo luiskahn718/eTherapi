@@ -1,0 +1,19 @@
+%h3 Single Availability
+- @therapist.get_availabilities.each do |s|
+  - s.each do |o|
+    = o.start_time
+    to
+    = o.end_time
+    %br
+
+%h3 Rucuring Availability
+- @therapist.get_recuring_availabilities(2014, 5).each do |s|
+  %h3 Schedule
+  %br
+  - s.each do |o|
+    = o.start_time
+    to
+    = o.end_time
+    day
+    = o.start_time.strftime("%d/%m/%Y %A %u")
+    %br

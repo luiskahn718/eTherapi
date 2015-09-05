@@ -1,0 +1,25 @@
+- @appointments.each do |a|
+    %strong ID:
+    = link_to "Edit #{a.id}", appointment_path(a.id)
+  
+    %strong Date:
+    = a.date
+    %strong From:
+    = a.start_time
+    %strong To:
+    = a.end_time
+
+    %strong Status:
+    = a.status
+
+    %strong Session Type:
+    = a.session_type
+
+    
+    %strong With:
+    - a.invitees.each do |invitee|
+        %strong Name:
+        = invitee.display_name
+        - if invitee.id == @profile.id && a.status == 'p' 
+            = link_to 'Accept', accept_appointment_path(a.id) 
+    %br 

@@ -1,0 +1,100 @@
+/ Custom this files
+!!!
+%html
+  %head
+    %title Etherapi
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    = stylesheet_link_tag    "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", media: "all"
+    %link(href="/favicon.ico" rel="shortcut icon")
+    = stylesheet_link_tag    "main-homepage", media: "all"
+    = stylesheet_link_tag    "app", media: "all"
+    = stylesheet_link_tag    "homepage-for-therapist", media: "all"
+    = stylesheet_link_tag    "terms", media: "all"
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top.woof-header.terms#main-homepage{role: "navigation"}
+      .navbar-header
+        %button.navbar-toggle{"data-target" => "#nav", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{href: "/"} eTherapi
+      #nav.collapse.navbar-collapse.nav-right
+        %ul.nav.navbar-nav
+          %li
+            %a{href: "#"} Contact us
+          %li
+            %a{href: "/site/therapist"} For Therapists
+          - if current_user
+            %li
+              %a{href: "/appointments"} Appointments
+            - if current_user.account_type.downcase == 'therapist'
+              %li
+                %a{href: "/therapist/#{current_user.getProfileable.user_id}/edit"} #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+            - if current_user.account_type.downcase == 'patient'
+              %li
+                %a{href: "/patient/#{current_user.getProfileable.user_id}/edit"} #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+            %li
+              %a.btn.btn-primary{href: "javascript:void(0)", id: 'logout-btn'} Logout
+          - else
+            %li
+              %a{href: "javascript:void(0)", class: "login-btn"} Login
+            %li
+              %a.btn.btn-primary{href: "javascript:void(0)", class: 'sign-up-btn'} Sign Up
+    = yield
+    #terms-wrapper
+    .footer.terms-footer
+      .container
+        .row
+          .col-md-4
+            %h4 Contact us
+            .number 1-800-611-0821
+          .col-md-2
+            %h4 Company
+            %ul.footerlinks
+              / %li
+              /   %a{href: "#"} About Us
+              %li
+                %a{href: "#"} Contact Us
+              %li
+                %a{href: "/site/terms"} Terms and Privacy
+          .col-md-2
+            %h4 Discover
+            %ul.footerlinks
+              %li
+                %a{href: "/therapist/searchresult"} Find a therapist
+              %li
+                %a{href: "/site/therapist"} For Therapists
+              - if !current_user
+                %li
+                  %a#sign-up-btn{href: "#signup-modal", "data-toggle" => "modal", "data-target" => "#signup-modal"} Sign up
+              / %li
+              /   %a{href: "#"} Sitemap
+          .col-md-4
+            %h4 Join us on
+            %ul.nav
+              %li.tw
+                %a{href: "https://twitter.com/eTherapi", target: "_blank"}
+                  %i.icon-twitter
+              %li.fb
+                %a{href: "https://www.facebook.com/eTherapi", target: "_blank"}
+                  %i.icon-facebook
+              / %li.in
+              /  %a{href: "#"}
+              /    %i.icon-instagram
+              /%li.rs
+              /  %a{href: "#"}
+              /    %i.icon-rss
+        %p.text-center
+          Online therapy is not appropriate for life-threatening emergencies. For life-threatening emergencies, please go to your nearest emergency room or call 911.
+          Also, the National Suicide Prevention Lifeline at 1-800-273-TALK (8255) is a free 24-hour hotline available to anyone in a suicidal crisis.
+    %script{src: "/assets/classie.js"}
+
+    = include_gon
+    = requirejs_include_tag "app"
+    = csrf_meta_tags

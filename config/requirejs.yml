@@ -1,0 +1,116 @@
+modules:
+  - name: 'main'
+#     exclude: ['main']
+# priority: ['main']
+# useStrict: true
+paths:
+  "backbone": 'backbone/backbone'
+  "jquery": 'jquery/dist/jquery'
+  "underscore": 'underscore-amd/underscore'
+  "backbone.babysitter": 'backbone.babysitter/lib/backbone.babysitter'
+  "backbone.wreqr": 'backbone.wreqr/lib/backbone.wreqr'
+  "marionette": 'backbone.marionette/lib/backbone.marionette'
+  "text": 'requirejs-text/text'
+  "handlebars": 'require-handlebars-plugin/Handlebars'
+  "bootstrap": 'bootstrap/dist/js/bootstrap'
+  "dom-ready": 'requirejs-domready/domReady'
+  "backbone-eventbroker": 'backbone-eventbroker'
+  "backbone-validation": 'backbone-validation/dist/backbone-validation-amd'
+  "stickit": 'backbone.stickit/backbone.stickit'
+  "moment": 'moment/moment'
+  "moment-timezone": 'moment-timezone/builds/moment-timezone-with-data'
+  "tags-input": 'bootstrap-tagsinput'
+  "hbs": 'hbs'
+  "datepicker": 'bootstrap-datepicker/js/bootstrap-datepicker'
+  "bootstrap-wysihtml5": 'bootstrap-wysihtml5'
+  "chosen": 'chosen_v1.1.0/chosen.jquery'
+  "typeahead": 'typeahead'
+  "bundle": 'typeahead.js/dist/typeahead.bundle'
+  "maskedInput": 'jquery-maskedinput/dist/jquery.maskedinput'
+  "crop": 'crop'
+  "jstz": 'jstz'
+  "purl": 'purl/purl'
+  "clock": 'jquery.clock'
+  "jquery-ui": 'jquery-ui'
+  "jquery-migrate": 'jquery-migrate'
+  "fullcalendar": 'fullcalendar/dist/fullcalendar'
+  "aniHeader": 'AniHeader.min'
+  "parallax": 'jquery.parallax-1.1.3'
+  "localscroll": 'jquery.localscroll-1.2.7-min'
+  "scrollTo": 'jquery.scrollTo-1.4.2-min'
+  "placeholders": 'placeholders.min'
+
+shim:
+  'jquery':
+    exports: '$'
+
+  'underscore':
+    exports: '_'
+
+  'bootstrap':
+    deps: ['jquery']
+
+  'datepicker':
+    deps: ['jquery']
+
+  'classie':
+    deps: ['jquery']
+
+  'aniHeader':
+    deps: ['jquery']
+
+  'parallax':
+    deps: ['jquery']
+
+  'localscroll':
+    deps: ['jquery']
+
+  'scrollTo':
+    deps: ['jquery']
+
+  'wysihtml5':
+    deps: ['jquery']
+
+  'chosen':
+    deps: ['jquery']
+
+  'typeahead':
+    deps: ['jquery']
+
+  'bundle':
+    deps: ['jquery']
+
+  'maskedInput':
+    deps: ['jquery']
+
+  'backbone.babysitter':
+    deps: ['backbone']
+
+  'backbone.wreqr':
+    deps: ['backbone']
+
+  'backbone':
+    deps: ['jquery', 'underscore']
+    exports: 'Backbone'
+
+  'marionette':
+    deps: ['backbone','backbone.babysitter', 'backbone.wreqr']
+    exports: 'Marionette'
+
+  'backbone-eventbroker':
+    deps: ['backbone']
+
+  'backbone-validation':
+    deps: ['backbone']
+
+  'stickit':
+    deps: ['jquery', 'backbone']
+
+  'tags-input':
+    deps: ['jquery']
+
+  'crop':
+    deps: ['jquery']
+
+findNestedDependencies: true
+wrap: true

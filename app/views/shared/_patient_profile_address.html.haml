@@ -1,0 +1,63 @@
+%table{:style=>"border: 1px; width: 100%", :border=>"1"}
+  %tr
+    %td{:style=>"width: 50%"}
+      %h2 Address
+    %td{:style=>"width: 50%"}
+      %h2 Mailing address
+  %tr
+    %td
+      .field
+        = patient_form.label :address1
+        %br/
+        = patient_form.text_field :address1
+        
+      .field
+        = patient_form.label :address2
+        %br/
+        = patient_form.text_field :address2
+        
+      .field
+        = patient_form.label :city
+        %br/
+        = patient_form.text_field :city
+    
+      .field
+        = patient_form.label :state_cde
+        %br/
+        = patient_form.collection_select(:state_cde, StateCde.all, :id, :name, :include_blank => "Select a State" )
+      .field
+        = patient_form.label :zipcode
+        %br/
+        = patient_form.text_field :zipcode
+      .field
+        = patient_form.label :country_cde
+        %br/
+        = patient_form.collection_select(:country_cde, CountryCde.all, :id, :name, :include_blank => "Select a Country" )
+    %td
+      .field
+        = patient_form.label :mail_address1
+        %br/
+        = patient_form.text_field :mail_address1
+        
+      .field
+        = patient_form.label :mail_address2
+        %br/
+        = patient_form.text_field :mail_address2
+        
+      .field
+        = patient_form.label :mail_city
+        %br/
+        = patient_form.text_field :mail_city
+    
+      .field
+        = patient_form.label :mail_state_cde
+        %br/
+        = patient_form.collection_select(:mail_state_cde, StateCde.all, :id, :name, :include_blank => "Select a State" )
+      .field
+        = patient_form.label :mail_zipcode
+        %br/
+        = patient_form.text_field :mail_zipcode
+      .field
+        = patient_form.label :mail_country_cde
+        %br/
+        = patient_form.collection_select(:mail_country_cde, CountryCde.all, :id, :name, :include_blank => "Select a Country" )

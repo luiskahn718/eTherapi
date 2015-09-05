@@ -1,0 +1,3 @@
+class TreatmentApproachCde < ActiveRecord::Base
+
+end

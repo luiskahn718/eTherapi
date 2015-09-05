@@ -1,0 +1,310 @@
+<!--define the insurance-detail-modal-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="insurance-detail-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Insurance Information</modal-title>
+         </div>
+         <div class="modal-body">
+            <form method="post" class="form-horizontal form-bordered clearfix">
+               <!--Coverage Verified -->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coverage Verified</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{coverage_verified}}</p>
+                  </div>
+               </div>
+               <!--Coverage Checked on -->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coverage Checked on</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.create_at}}</p>
+                  </div>
+               </div>
+               <!--name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Health insurance name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{health_insurance_name}}</p>
+                  </div>
+               </div>
+               <!--Insurance ID-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Insurance ID</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{insurance_ID}}</p>
+                  </div>
+               </div>
+               <!--Plan Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Plan Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{plan_name}}</p>
+                  </div>
+               </div>
+               <!--Copay-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Copay</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.copay}}</p>
+                  </div>
+               </div>
+               <!--Coinsurance-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coinsurance</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.coinsurance}}</p>
+                  </div>
+               </div>
+               <!--Deductible Remaining-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Deductible Remaining</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.deductible}}</p>
+                  </div>
+               </div>
+               <!--Relationship-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Relationship to the policyhoder</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_relationship}}</p>
+                  </div>
+               </div>
+               <!--First Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder First Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_first_name}}</p>
+                  </div>
+               </div>
+
+               <!--Last Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder Last Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_last_name}}</p>
+                  </div>
+               </div>
+               <!--Birth Date-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder Birth Date</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_dob}}</p>
+                  </div>
+               </div>
+               <!--policyholder's Address-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's Address</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_address1}}</p>
+                  </div>
+               </div>
+               <!--City-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's City</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_city}}</p>
+                  </div>
+               </div>
+               <!--State-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's State</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_state_cde}}</p>
+                  </div>
+               </div>
+               <!--Zip Code-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's Zip Code</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_zip_cde}}</p>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!--define the process-modal for process payment button-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="summary-note-process-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Are you sure?</modal-title>
+         </div>
+         <div class="modal-body">
+            <p>Are you sure you want to process the payment for this appointment? Once the payment is processed, you will not be able to modify session duration, fee, diagnosis and CPT codes, and you will need to call eTherapi Customer Support for any change.</p>
+            <div class="wrap-send-btn"><button type="button" class="btn btn-success" id="process-payment-btn"><span>Yes, Process The Payment</span></button><a href="#" class="text-danger" data-dismiss="modal">No, go back</a></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--define the session summary note pre-payment-->
+<div class="{{#if cancel_over_24}}therapist-cancelled-plusthan-container{{else}} {{#if confirmed}} {{else}}therapis-cancelled-container{{/if}}{{/if}}">
+   <div class="summary-container">
+      <!--define the content-header of the pre-payment page-->
+      <div class="content-header">
+         <div class="header-section">
+            <h1>Appointment Summary<i><img src="/images/icon/icon-lg-calendar-17.png" alt="calendar" /></i></h1>
+         </div>
+      </div>
+      <div class="row">
+         <div class="summary-working-session block col-md-12">
+            <!--define the working session block-->
+            <div class="block-title">
+               <h3>Session with <a href="/therapist/patient/{{patient_id}}">{{patient_name}}</a></h3>
+            </div>
+            <!--define the component for changing session (previous or next session)-->
+
+            <div class="row">
+               <div class="fc-header-right pull-right"><span unselectable="on" class="fc-button fc-button-prev fc-state-default fc-corner-left"><span class="previous-arrow"><i class="icon-arrow-left11"></i></span></span><span unselectable="on" class="fc-button fc-button-next fc-state-default fc-state-active fc-corner-right"><span class="forward-arrow"><i class="icon-uniEA17"></i></span></span></div>
+            </div>
+
+            <!--define the form for summary content note session-->
+            <form method="post" class="form-horizontal form-bordered clearfix {{#if apptProcessed}}processed{{/if}}" id="appointment-details-form">
+                  <!--date time-->
+                  <div class="form-group date-time-group">
+                     <label class="col-md-3 control-label">Date and time</label>
+                  <div class="col-md-9">
+                     <p class="date form-control-static" id="apppointment-times">{{convertTimeDate date start_time}}, {{convertTimeHour date start_time}}-{{convertTimeHour date end_time 'A' therapist_declared_duration start_time}}</p>
+                  </div>
+               </div>
+               <!--status-->
+               <div class="form-group status-group">
+                  <label class="col-md-3 control-label">Status</label>
+                  <div class="col-md-9">
+                     <p class="status form-control-static">{{status status}}</p>
+                  </div>
+               </div>
+               <!--Service provided-->
+               <div class="form-group service-provide-group">
+                  <label class="col-md-3 control-label">Service provided</label>
+                  <div class="col-md-5 service-provide-description no-gutter">
+                     <textarea placeholder="Enter a description of the service provided here." id="provided-notes-txt" class="form-control" {{#if cancel_over_24}}disabled{{/if}}>{{session.service_provided_notes}}</textarea>
+                     <div class="hidden-container"></div>
+                  </div>
+               </div>
+               <!--duration-->
+               <div class="form-group duration-group">
+                  <label class="col-md-3 control-label">Duration</label>
+                  <div class="col-md-3 no-gutter duration">
+                     <div class="hidden-container"></div>
+                     <select id="duration-txt" class="select-chosen form-control" {{#if cancel_over_24}}disabled{{/if}}>
+                        <option value="0" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 0}}{{else}}{{checkSelectedChosen duration 0}}{{/if}}>0 min</option>
+                        <option value="15" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 15}}{{else}}{{checkSelectedChosen duration 15}}{{/if}}>15 mins</option>
+                        <option value="30" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 30}}{{else}}{{checkSelectedChosen duration 30}}{{/if}}>30 mins</option>
+                        <option value="45" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 45}}{{else}}{{checkSelectedChosen duration 45}}{{/if}}>45 mins</option>
+                        <option value="60" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 60}}{{else}}{{checkSelectedChosen duration 60}}{{/if}}>60 mins</option>
+                        <option value="75" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 75}}{{else}}{{checkSelectedChosen duration 75}}{{/if}}>75 mins</option>
+                        <option value="90" {{#if session.therapist_declared_duration}}{{checkSelectedChosen session.therapist_declared_duration 90}}{{else}}{{checkSelectedChosen duration 90}}{{/if}}>90 mins</option>
+                     </select>
+                  </div>
+               </div>
+               <!--fee-->
+               <div class="form-group fee-group">
+                  <label class="col-md-3 control-label">Fee</label>
+                  <div class="col-md-3 fee no-gutter">
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                        <input type="text" id="fee-txt" class="form-control" {{#if cancel_over_24}}disabled{{/if}} value="{{#if session.changed_fee_amt}}{{convertNumb session.changed_fee_amt}}{{else}}{{convertNumb processed_amt}}{{/if}}"/>
+                     </div>
+                     <div class="hidden-container"></div>
+                     <div class="help-block animation-slideDown">Fee must be an integer number!</div>
+                  </div>
+               </div>
+               <!--diagnosis code-->
+               <div class="form-group diagnosis-code-group">
+                  <label class="col-md-3 control-label">Diagnosis codes</label>
+                  <div class="diagnosis-code col-md-5 no-gutter">
+                     <div class="tagsinput col-md-9 {{#if cancel_over_24}}disabled{{/if}}">
+                        <div class="hidden-container"></div>
+                        <div class="add-tag"><input placeholder="Add code" id="diagnosis-appointment-code-txt" {{#if cancel_over_24}}disabled{{/if}} value="{{session.icd10_codes}}"/></div>
+                        <div class="tags_clear"></div>
+                     </div>
+                  </div>
+               </div>
+               <!--CPT codes-->
+               <div class="form-group cpt-code-group">
+                  <label class="col-md-3 control-label">CPT codes</label>
+                  <div class="cpt-code col-md-5 no-gutter">
+                     <div class="tagsinput col-md-9 {{#if cancel_over_24}}disabled{{/if}}">
+                        <div class="hidden-container"></div>
+                        <div class="add-tag"><input placeholder="Add code" id="cpt-appointment-txt" {{#if cancel_over_24}}disabled{{/if}} value="{{session.cpt_codes}}"/></div>
+                        <div class="tags_clear"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <!--verify insurance-->
+                  {{#if patient_ins_eligibility_id}}
+                  <div class="insurance col-md-9 col-md-offset-3">
+                     <div class="insurance-verified pull-left"><span><i class="hi hi-ok-sign"></i><span class="insurance-verified-title">Insurance Eligibility Verified</span></span></div>
+                     <div class="insurance-date col-md-7 pull-left"><span>{{authDate processed_auth_date}} <a data-toggle="modal" data-target="#insurance-detail-modal" href="#">View insurance plan details</a></span></div>
+                  </div>
+                  {{/if}}
+                  <!--verify the payment-->
+                  <div class="payment col-md-9 col-md-offset-3">
+                     <div class="payment-verified pull-left">
+                        <span><i class="fa fa-credit-card"></i><span class="payment-verified-title">Payment {{#if apptProcessed}}Processed{{else}}Authorized{{/if}}</span></span>
+                     </div>
+                     <div class="payment-date col-md-7 pull-left">
+                        <span><span id="processed-times">{{authDate processed_auth_date}}</span> ({{retrieve.card.type}} XXXX-XXXX-XXXX-{{retrieve.card.last4}}) for amount $<span id="card-amount">{{#if session.changed_fee_amt}}{{convertNumb session.changed_fee_amt}}{{else}}{{convertNumb processed_amt}}{{/if}}</span></span>
+                     </div>
+                  </div>
+                  {{#if cancel_over_24}}
+                  {{else}}
+                  <div class="save-detail col-md-9 col-md-offset-3"><button type="button" class="btn btn-info save-detail-btn" id="save-session-details-btn">Save Session Details</button></div>
+                  <div class="process-payment col-md-9 col-md-offset-3">
+                     <button data-toggle="modal" data-target="#summary-note-process-modal" type="button" class="btn btn-success process-payment-btn" id="show-process-payment">Process Payment</button>
+                     <p id="err-stripe-msg" style="text-align:left;"></p>
+                  </div>
+                  {{/if}}
+               </div>
+            </form>
+         </div>
+
+         {{#if confirmed}}
+         <!--define the Session Note block-->
+         <div class="summary-note-session block col-md-12">
+            <div class="note-title">
+               <h3>Session Notes</h3>
+            </div>
+            <form method="post" class="form-horizontal form-bordered">
+               <div class="note-content">
+                  <div class="specified-note">
+                     <h3>Progress Note</h3>
+                     <div class="note-detail">
+                        <div class="row">
+                           <div class="note-detail-content col-md-8"><textarea placeholder="Enter your notes here." class="form-control" id="progress-note-txt"></textarea>
+                              <div class="popover right">
+                                 <div class="arrow"></div>
+                                 <div class="pop-over-content">Progress Notes are visible only to you and will be stored on our secure servers.</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="specified-note">
+                     <h3>Additional Notes</h3>
+                     <div class="note-detail">
+                        <div class="row">
+                           <div class="note-detail-content col-md-8"><textarea placeholder="Enter additional notes here." class="form-control" id="additional-note-txt"></textarea>
+                              <div class="popover right">
+                                 <div class="arrow"></div>
+                                 <div class="pop-over-content">Additional session notes are visible only to you and will be stored on our secure servers, seperatly from Progress Notes.</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <button type="button" class="save-session-btn btn btn-info" id="save-appointment-notes">Save Notes</button>
+            </form>
+         </div>
+         {{/if}}
+      </div>
+   </div>
+</div>
+<script src="/assets/typeahead.js"></script>

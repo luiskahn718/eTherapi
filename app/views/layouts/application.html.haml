@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Etherapi
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %div{:class => "sidebar-partial sidebar-visible-lg sidebar-no-animations", :id => "page-container"}
+      %sidebar{:id => "sidebar"}
+        = render :partial => 'shared/navigation'
+        #flash-display
+          - flash.each do |type, msg|
+            %div{:class => "alert alert-#{type == :notice ? "success" : type == :alert ? "danger" : type} fadeout", "data-dismiss" => "alert"}
+              %button.close &times;
+              = msg if msg.is_a?(String)
+    %p
+      - if !current_user.blank?
+        User Name :
+        %strong
+          = current_user.getProfileable.display_name
+    = yield

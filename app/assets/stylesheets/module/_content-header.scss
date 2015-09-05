@@ -1,0 +1,42 @@
+// define the content-header of website
+.content-header {
+  margin: 0 -30px 30px;
+
+  .header-section {
+    padding: 30px 30px;
+  }
+
+  .banner {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  h1 {
+    @include light-font;
+    font-size: 36px;
+    color: #394263;
+
+    i {
+      margin-top: -20px;
+      font-size: 70px;
+    }
+  }
+
+  .subtitle {
+    h1 {
+      margin-bottom: 10px;
+    }
+    
+    i {
+      margin-top: 0;
+    }
+  }
+
+  // define the sub-header for content-header
+  small {
+    @include light-font;
+    font-size: 17px;
+    color: #777;
+  }
+
+}

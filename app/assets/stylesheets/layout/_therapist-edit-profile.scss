@@ -1,0 +1,535 @@
+.therapist-edit-profile {
+
+  padding-bottom: 45px;
+
+  // set margin bottom for each of block
+  .block,
+  .cancellation {
+    margin-bottom: 30px;
+  }
+
+  // set up position of icon content-header for this page
+  .content-header {
+    i {
+      margin-top: 0;
+    }
+  }
+
+  .block-title {
+    h2 {
+      padding-left: 20px;
+    }
+  }
+
+  > .row {
+    margin: 0;
+  }
+
+  // reset padding for form-group
+  .form-group {
+    border: 0;
+    padding: 0;
+  }
+
+  // edit padding and margin for each of form-group
+  .language-spoken,
+  .insurance-plan,
+  .pricing,
+  .specialties,
+  .additional-expertise,
+  .treatment-approach,
+  .demographic-served,
+  .practice,
+  .school-degree,
+  .association {
+    padding-top: 20px;
+  }
+
+  .treatment {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .specialties,
+  .additional-expertise,
+  .demographic-served,
+  .treatment-approach {
+
+    .chosen-wrapper {
+      width: 95%;
+    }
+
+    padding-left: 0 !important;
+  }
+
+  .pricing-offer {
+    margin-top: 6px;
+  }
+
+  .cancellation {
+    padding-top: 10px;
+    .popover.right {
+      left: auto;
+      right: 0;
+      top: -25px;
+    }
+  }
+
+  .language-spoken {
+    padding-bottom: 28px;
+  }
+
+  .insurance-plan {
+    padding-bottom: 20px;
+  }
+
+
+  .language-spoken,
+  .insurance-plan {
+
+    .chosen-wrapper {
+      min-width: 350px;
+    }
+    .popover.right {
+      right: -330px;
+      top: -14px;
+    }
+  }
+
+
+  .license-group {
+    margin-top: 15px;
+  }
+
+  // style form
+  .specialties-form {
+    position: relative;
+    left: -20px;
+    top: -20px;
+    padding-left: 20px;
+
+  }
+
+
+  .expertise {
+    .title {
+      padding-left: 0;
+    }
+  }
+
+  .title.school-block-title {
+    margin-top: 35px;
+  }
+
+  .title.association-block-title {
+    margin-top: 45px;
+  }
+
+
+  .title.language-title {
+    margin-top: 14px;
+  }
+
+  // style editor
+  .editor-group {
+    margin-top: 20px;
+  }
+
+  // style padding of buttons
+  button {
+    padding: 8px 28px;
+  }
+
+
+
+
+  input[type="text"] {
+    @include normal-font;
+    font-size: 13px;
+  }
+
+
+
+  // style the text color of select box
+  .chosen-container {
+    .chosen-single {
+      height: 40px !important;
+    }
+  }
+
+  // navbar
+  .edit-profile-nav {
+
+    width: 24%;
+    // remove the forward arrow in the navbar
+    a:hover::after {
+      border-width: 0;
+    }
+    // style for the navbar of the therapist-edit-profile
+    ul {
+      background-color: #fff;
+    }
+
+    li {
+      @include normal-font;
+      font-size: 16px;
+      color: #909091;
+
+
+    }
+
+  }
+  // content
+  .edit-profile-content {
+    width: 76%;
+
+    > form {
+      margin: 0;
+    }
+
+  }
+
+  .profile-button-group,
+  .record-video {
+    margin-bottom: 20px;
+  }
+
+
+  // set position for buttons
+  .profile-button-group {
+    text-align: right;
+
+    > .btn-success {
+      margin-right: 10px;
+      padding: 8px 28px;
+    }
+
+  }
+
+
+  // style the avatar container and youtube video section
+  .introduction-video {
+    margin-top: 48px;
+  }
+
+
+  .video-group {
+    width: 34%;
+  }
+
+
+  .record-video {
+    width: 390px;
+    margin-top: 20px;
+    margin-left: 20px;
+
+    input[type="text"] {
+      height: 40px;
+    }
+
+    .solid-text {
+      span {
+        @include normal-font;
+        font-size: 13px;
+        color: #bfbfbf;
+      }
+    }
+
+
+
+
+    .record-btn {
+      width: 100%;
+      padding: 8px 28px;
+      margin-bottom: 10px;
+
+      @include normal-font;
+      font-size: 16px;
+    }
+
+
+    label {
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #000;
+      margin-bottom: 12px;
+    }
+  }
+
+  // fix the position of user-avatar-section
+
+  .avatar-action {
+    margin-left: 30px;
+    float: left;
+  }
+
+  .user-avatar-upload {
+    margin-top: 30px;
+  }
+
+  .user-avatar-delete {
+    margin-top: 10px;
+  }
+
+  // style text for checkbox
+  .checkbox {
+    span {
+      @include normal-font;
+      font-size: 13px;
+      color: #6d6d6d;
+    }
+  }
+
+
+  // style the popovers for making hover section
+
+  .popover {
+    left: auto;
+    right: -310px;
+    top: -10px;
+    padding: 15px 30px 15px 15px;
+    min-width: 310px;
+  }
+
+
+  .school-degree {
+    .popover.right {
+      right: -250px;
+      top: 15px;
+    }
+  }
+
+
+
+  .include-popover:hover{
+    .popover.right {
+      display: block;
+    }
+  }
+
+  .popover.top {
+    display: none;
+  }
+
+
+
+
+  // style editor
+  .editor-group {
+
+    > textarea {
+      display: block;
+    }
+
+    > input {
+      display: none;
+    }
+
+    li[class="dropdown"],
+    a[data-wysihtml5-command="formatBlock"],
+    a[data-wysihtml5-command="insertImage"] {
+      display: none;
+    }
+
+
+    // set line-height consistently at each of icon of editor
+    .fa {
+      line-height: 1.4;
+    }
+  }
+
+  // style for the "pricing" section
+  .cash,
+  .solid-text,
+  .time {
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .solid-text {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  // style the sub-title for each of block
+  .title {
+    @include bold-font;
+    font-size: 18px;
+    color: #6e6e6e;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eaedf1;
+  }
+
+
+  // style tagsinput
+  .tagsinput {
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 42px !important;
+    padding-top: 10px;
+  }
+
+
+
+  .credential {
+    padding-bottom: 100px;
+    margin-bottom: 24px;
+  }
+
+  // style the content of license table
+
+  .total-block-data {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .state {
+    width: 14.178%;
+  }
+
+  .license-type {
+    width: 29%;
+  }
+
+  .license {
+    width: 24.68%;
+    .form-group {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .expiration {
+    width: 21.12%;
+  }
+
+  .end-row {
+    margin-right: 0;
+    padding-top: 20px;
+
+    a {
+
+      span {
+        display: inline-block;
+        font-size: 13px;
+
+        color: #b2b2b2;
+
+      }
+
+      i {
+        color: #b2b2b2;
+        font-size: 13px;
+      }
+
+      &:hover {
+        color: #adafb2;
+        text-decoration: none;
+      }
+
+
+    }
+
+  }
+
+
+  // style the content of schools table
+  .text-filling {
+    width: 94%;
+
+    > .cell-wrapper {
+      width: 100%;
+    }
+
+  }
+
+
+  // set font for header column text
+
+  .total-block-data {
+
+    header {
+
+      span {
+        @include normal-font;
+        font-size: 16px;
+      }
+
+    }
+
+  }
+
+
+  // style for the link add more
+  .add-more {
+    float: right;
+    margin-top: 6px;
+    @include semi-bold-font;
+    font-size: 13px;
+
+  }
+
+  .association {
+    .add-more {
+      margin-top: 15px;
+    }
+  }
+
+  // hidden the first row cancel sign in the table
+  .license-group,
+  .association,
+  .school-degree {
+    .striped-row {
+      &:first-child {
+        .end-row {
+          a {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+// style the modal upload image
+#profile-upload-modal,
+#th-intake-modal,
+#patient-add-card {
+  min-height: 515px;
+  width: 100%;
+  top: -100%;
+  z-index: 99999999;
+  margin: 0 auto;
+  position: fixed;
+  padding: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .expertise {
+    .include-popover:hover {
+      .popover.right {
+        display: none;
+      }
+      .popover.top {
+        display: block;
+        bottom: auto;
+        top: -80px;
+        left: 220px;
+      }
+    }
+  }
+
+
+  .therapist-edit-profile {
+    .profile-button-group {
+      text-align: left;
+    }
+  }
+
+}

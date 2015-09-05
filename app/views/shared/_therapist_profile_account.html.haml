@@ -1,0 +1,70 @@
+%h3 Avatar
+=image_tag(therapist.picture_filelink.to_s, size: "200x300")
+.field
+  = therapist_form.label :avatar
+  %br/
+  = therapist_form.file_field :picture_filelink
+
+.field
+  = therapist_form.label :first_name
+  %br/
+  = therapist_form.text_field :first_name
+  
+.field
+  = therapist_form.label :last_name
+  %br/
+  = therapist_form.text_field :last_name
+  
+.field
+  = therapist_form.label :middle_name
+  %br/
+  = therapist_form.text_field :middle_name
+
+.field
+  = therapist_form.label :nick_name
+  %br/
+  = therapist_form.text_field :nick_name
+
+.field
+  = therapist_form.label :npi_no
+  %br/
+  = therapist_form.text_field :npi_no
+
+.field
+  = therapist_form.label :gender
+  %br/
+  = therapist_form.select :gender, options_for_select([["Select One", ""], ["Male", "M"], ["Female", "F"]], :selected => therapist_form.object.gender)
+ 
+.field
+  = therapist_form.label :timezone
+  %br/
+  = therapist_form.collection_select(:timezone, TimezoneCde.all, :id, :name, :include_blank => "Select a TimeZone" )
+  
+.field
+  = therapist_form.label :phone_work
+  %br/
+  = therapist_form.text_field :phone_work
+
+.field
+  = therapist_form.label :phone_home
+  %br/
+  = therapist_form.text_field :phone_home
+
+.field
+  = therapist_form.label :phone_mobile
+  %br/
+  = therapist_form.text_field :phone_mobile
+.field
+  = therapist_form.label :session_duration
+  %br/
+  = therapist_form.select :session_duration, options_for_select([["Select One", ""], ["5", 5], ["10", 10], ["15", 15], ["20", 20], ["25", 25], ["30", 30], ["35", 35], ["40", 40], ["45", 45], ["50", 50], ["55", 55], ["60", 60]], :selected => therapist_form.object.session_duration)
+  
+.field
+  = therapist_form.label :normal_wrk_start_time
+  %br/
+  = therapist_form.text_field :normal_wrk_start_time
+.field
+  = therapist_form.label :normal_wrk_end_time
+  %br/
+  = therapist_form.text_field :normal_wrk_end_time
+    

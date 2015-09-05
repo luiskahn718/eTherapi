@@ -1,0 +1,16 @@
+= content_tag_for(:li, conversation) do |conversation|
+  %p
+    - link = link_to conversation.last_message.body, conversation
+    - if !conversation.last_message.is_read?(current_user)
+      %strong= link
+    - else  
+      = link_to link
+    (
+    = conversation.count_messages
+    messages )
+    | Message sent to : 
+    - recipient = conversation.last_message.recipients[0]
+    - if current_user == recipient
+      Me
+    - else 
+      = recipient.display_name

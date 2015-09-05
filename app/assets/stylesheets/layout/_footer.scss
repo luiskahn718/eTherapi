@@ -1,0 +1,130 @@
+/*
+** for user
+*/
+
+// small footer
+.sub-footer {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  background-color: #fff;
+  border-top: solid 1px #dbe1e8;
+}
+
+.footer {
+  background: #3d4144;
+  padding: 50px 0;
+  color: #959595;
+  p {
+    margin-top: 50px; 
+    font-size: 14px;
+  }
+  h4 {
+    font-weight: 700; 
+    font-size: 20px; 
+    margin-bottom: 30px;
+  }
+  .nav {
+    > li {
+      float: left; 
+      margin-right: 20px; 
+      margin-bottom: 20px;
+      &.tw{
+        >a {
+          &:hover, &:focus {
+            color: #2aa9e0; 
+            border: 2px solid #2aa9e0; 
+            background: rgba(0,0,0,.2);
+          }
+        } 
+      }
+      &.fb{
+        >a {
+          &:hover, &:focus {
+            color: #3b5998; 
+            border: 2px solid #3b5998;
+            background: rgba(0,0,0,.2);
+          }
+        } 
+      }
+      &.rs{
+        >a {
+          &:hover, &:focus {
+            color: #e19126; 
+            border: 2px solid #e19126; 
+            background: rgba(0,0,0,.2);
+          }
+        } 
+      }
+      &.gp{
+        >a {
+          &:hover, &:focus {
+            color: #d44936; 
+            border: 2px solid #d44936; 
+            background: rgba(0,0,0,.2); 
+          }
+        } 
+      }
+
+      > a {
+        position: relative;
+        width:40px; 
+        color: #989898; 
+        height:40px; 
+        padding: 0px; 
+        font-size: 20px; 
+        text-align: center; 
+        line-height: 35px; 
+        -webkit-border-radius: 25px; 
+        border-radius: 25px; 
+        background-clip: padding-box; 
+        border: 2px solid #989898; 
+        -webkit-transition: all 0.2s ease-out; 
+        -moz-transition: all 0.2s ease-out; 
+        -o-transition: all 0.2s ease-out; 
+        transition: all 0.2s ease-out;
+        &:hover {
+          background: none;
+        }
+      }
+
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+  .number {
+    font-size: 40px; 
+    font-weight: 700; 
+    line-height: 130%;
+  }
+  .footerlinks {
+    margin: 0; 
+    padding: 0;
+    li {
+      list-style: none;
+      a {
+        color: #969696; 
+        line-height: 150%;
+        &:hover {
+          color: #c3c2c2;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1420px) {
+  .footer {
+    .container {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .footer h4 { 
+    margin: 40px 0 10px 0; 
+  }
+}

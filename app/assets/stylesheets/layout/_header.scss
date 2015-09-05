@@ -1,0 +1,213 @@
+/*
+** for user
+*/
+// navigation bar
+header.navbar-default.navbar-fixed-top,
+.main-header.navbar {
+  border: none;
+}
+
+.nav.navbar-nav > li > a {
+  padding: 15px;
+}
+
+.main-header.navbar {
+  background-color: #fff;
+  @include radius(0);
+  @include normal-font;
+  @include box-shadow(0 1px 5px rgba(0,0,0,.2));
+  padding: 0 15px;
+  .logo-wrapper,
+  .header-form {
+    float: left;
+  }
+  .nav {
+    margin-right: -15px;
+    .item-notice {
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+    a,
+    a:focus {
+      color: #757575;
+    }
+    a:focus {
+      background-color: transparent;
+    }
+    a:hover,
+    a:active {
+      background-color: #1ba4dc;
+      color: #fff;
+    }
+    >li:last-child {
+      font-size: 14px;
+      margin-left: 15px;
+    }
+  }
+  .navbar-btn {
+    margin-top: 6px;
+    margin-bottom: 6px
+  }
+}
+
+// user navigation 
+.private-nav {
+  display: none;
+}
+.public-nav {
+  display: block;
+}
+.logged-in {
+  .private-nav {
+    display: block;
+  }
+  .public-nav {
+    display: none;
+  }
+}
+
+// logo
+.logo-wrapper {
+  margin-top: 8px;
+  margin-right: 8.333%;
+  h1 {
+    margin: 0;
+  }
+  #main-logo {
+    background: url("../images/etherapi-logo.png") no-repeat 0 0;
+    text-indent: -9999px;
+    width: 131px;
+    height: 35px;
+    display: inline-block;
+  }
+}
+
+// header form
+.header-form {
+  padding: 0;
+  .search-client,
+  .add-client {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .search-client {
+    width: 240px;
+    margin-right: 10px;
+    color: #999;
+  }
+  .add-client {
+    background-color: #0099d8;
+    color: #fff;
+    i {
+      font-size: 13px;
+      margin-bottom: 4px;
+      margin-right: 5px;
+    }
+  }
+  .chosen-container-single {
+    // select chosen
+    .chosen-single {
+      font-size: 15px;
+      height: 36px;
+      b {
+        background: url("../images/jquery.chosen/chosen-sprite.png") no-repeat -34px -24px;
+        width: 13px;
+        height: 20px;
+        margin-top: 10px;
+        top: 0;
+      }
+    }
+  }
+  .chosen-container-active.chosen-with-drop {
+    .chosen-single {
+      b {
+        background-position: -34px -24px;
+      }
+    }
+  }
+}
+
+// sub header
+.sub-header-wrap {
+  .notice {
+    min-height: 60px;
+    padding: 18px 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    word-wrap: break-word;
+    @include normal-font;
+    display: none;
+    .user-name {
+      font-weight: bold;
+    }
+
+    .close {
+      font-size: 26px;
+    }
+
+    &.themed-background-success {
+      .action-notify {
+        display: block;
+      }
+
+      .system-notify {
+        display: none;
+      }
+    }
+
+    &.themed-background-warning {
+      .system-notify {
+        display: block;
+      }
+
+      .action-notify {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-header.navbar {
+    .nav {
+      margin: 0 -15px 0;
+      > li {
+        float: left;
+      } 
+    }
+    .header-form {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .l-user {
+    .header-form {
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .logo-wrapper {
+    margin-right: 6.333%;
+  }
+}
+
+@media screen and (max-width: 1133px) {
+  .l-user {
+    .main-header.navbar {
+      .nav {
+        > li {
+          display: none;
+          &:last-child {
+            display: block;
+          }
+        } 
+      }
+    }
+  }
+}

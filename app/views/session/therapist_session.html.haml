@@ -1,0 +1,56 @@
+/ %h1 Therapist Session
+/ %div{:class => "session session-patient"}
+/   %br
+/   %a{:href => "" + @vseelink}
+/     Start Video Session
+/   
+.video-session
+  .row
+    .aside-content.col-md-4
+      .widget.user-info
+        .widget-advanced
+          .widget-header.name-content.text-center
+            %h3
+              %a{href:"javascript:void(0)", class:"user-name"} #{@gon_appointment["patient"].first_name} #{@gon_appointment["patient"].last_name}
+          .widget-main
+            .widget-image-container
+              %a{href:"javascript:void(0)"} 
+                - if @gon_appointment["patient"].picture_filelink?
+                  %img{src:"#{@gon_appointment["patient"].picture_filelink}?#{Time.now.to_i}", alt:"user avatar", id:"user-avatar", class:"img-circle widget-icon"}/
+                - else
+                  - if @gon_appointment["patient"].gender == 'M'
+                    %img{src:"/images/user-avatar/Avatar-Male65x65.png", alt:"Male avatar", id:"user-avatar", class:"img-circle widget-icon"}/
+                  - else
+                    %img{src:"/images/user-avatar/Avatar-Female65x65.png", alt:"Female avatar", id:"user-avatar", class:"img-circle widget-icon"}/
+            .info-detail
+              %span
+                %i.icon-clock2.integr-icon
+                %span.info-title Current Time:
+                %span#current-time
+            .info-detail
+              %span
+                %i.icon-play-circle.integr-icon
+                %span.info-title Appointment Start Time: 
+                %span#start-time
+            .info-detail
+              %span
+                %i.icon-alarm3.integr-icon  
+                %span.info-title Appointment End Time: 
+                %span#end-time
+      
+      .block.take-session-note
+        .block-title{class:"toggle-link collapsed"}
+          .toggle-title-collapsed
+            %h2 
+              Take Session Notes
+              %i.hi.hi-plus.pull-right
+          .toggle-title
+            %h2 
+              Hide Session Notes
+              %i.hi.hi-minus.pull-right
+
+        .block-content.collapse#session-note
+          %form{action:"", class:"form-horizontal session-note-form"}
+            %textarea{class:"form-control pgh-input", id:"session-note-txt"}
+            .form-actions
+              %button{type:"button", class:"btn btn-info btn-large", id:"save-notes"} Save in Patient Notes

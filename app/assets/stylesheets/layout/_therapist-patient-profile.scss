@@ -1,0 +1,99 @@
+// therapist patient profile
+.therapist-patient-profile {
+	.patient-status {
+		margin: 0 auto;
+		.switch {
+			margin: 0 15px;
+		}
+		.active {
+			@include bold-font;
+			color: #3a3b3b;
+		}
+		span {
+			@include normal-font;
+			color: #bcc2cf;
+		}
+	}
+
+	.info-property {
+		@include bold-font;
+		text-align: right;
+		margin-right: -10px;
+	}
+
+	.info-detail {
+		.row {
+			p {
+				margin-bottom: 10px;
+			}
+			&:last-child {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.block {
+		margin-bottom: 30px;
+	}
+
+	.block-title {
+		h2 {
+			padding-left: 10px;
+		}
+		.standout-title {
+			color: #394263;
+		}
+	}
+
+	// form problem of patient
+	.patient-problem {
+		padding-right: 10px;
+		label {
+			margin-bottom: 10px;
+			@include semi-bold-font;
+		}
+		.popover {
+			left: 100%;
+			width: 262px;
+	    padding: 18px 15px;
+		}
+
+		.popover.right {
+			left: 100%;
+		}
+	}
+}
+
+.l-user {
+	.content-container.full-width {
+		.patient-problem {
+			padding-right: 0px;
+			.popover.right {
+				display: none;
+			}
+
+			.popover.top{
+				top: -82%;
+				left: 55%;
+			}
+		}
+	}
+
+	.content-container.has-sidebar {
+		.patient-problem {
+			.popover.top {
+				display: none;
+			}
+		}
+	}
+}
+
+
+// media queries
+@media screen and (max-width: 992px) {
+	.therapist-patient-profile {
+		.info-detail {
+			margin-top: 30px;
+		}
+	}
+}

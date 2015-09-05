@@ -1,0 +1,227 @@
+
+<div class="patient-payment">
+  <div class="content-header">
+    <div class="banner">
+      <div class="banner-content">
+        <h2>
+          Payment
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="pri-content-def col-md-8">
+      <div class="block block-form">
+        <div class="block-title">
+          <h2>
+            Payment
+          </h2>
+        </div>
+        <div class="block-content">
+          <form class="form-horizontal verify-insurance-form">
+            <div class="form-group form-group-md row">
+              <label class="label-col control-label col-md-4">
+                Payment type
+              </label>
+              <div class="input-col col-md-5">
+                <select data-placeholder="Select Payment Type" class="form-control select-chosen input-md" id="card-chosen">
+                  <option value="">Select Payment Type</option>
+                </select>
+                <div class="help-block animation-slideDown">
+                  Please select your Payment Type!
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-md row">
+              <label class="label-col control-label col-md-4">
+                Insurance plan
+              </label>
+              <div class="input-col col-md-5">
+                <select data-placeholder="Select Insurance Plan" class="form-control select-chosen input-md" id="insurance-chosen">
+                  <option></option>
+                  <option value="null">
+                    I don't want to use my insurance
+                  </option>
+                  <option value="add-insurance">Add Insurance Information</option>
+                  {{!-- <option>
+                    Add Insurance Information
+                  </option> --}}
+                </select>
+                <div class="help-block animation-slideDown">
+                  Please select your Insurance Plan!
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-action">
+              <div class="btn-container col-md-offset-4 col-md-8">
+                <p id="payment-error-txt" style="display:none;color:#e74c3c;">The selected insurance plan are not accepted by this therapist. Please choose another one.</p>
+                <button type="button" class="btn btn-info btn-large" data-toggle="modal" data-target="#ins-eligibility-check" id="verify-insurance-btn">
+                  Verify Insurance Coverage
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="verify-result col-md-offset-4 col-md-6" id="verified-result">
+                <div class="confirmation display-none" style="color:#3c763d;">
+                  <p>
+                    Congratulations! Your session with {{therapist.first_name}} {{therapist.last_name}} is eligible for coverage by insurance plan.
+                  </p>
+                  {{!-- <a href="javascript:void(0)">
+                    View insurance details.
+                  </a> --}}
+                </div>
+                <div class="not-verified display-none" style="color:#e74c3c;">
+                  <p>
+                    Something went wrong! Your insurance coverage could not be verified by our system. Please call 1-800-611-0821 and one of our team members will assist you in completing this booking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="block-section-title">
+            <h3>
+              Send {{therapist.first_name}} a Message (optional)
+            </h3>
+          </div> -->
+          <form class="request-appt-form">
+            <!-- <div class="form-group form-group-md">
+              <textarea placeholder="Enter a message" class="form-control pgh-input"></textarea>
+            </div> -->
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="term-cb"/>
+                I agree to the <a href="/site/terms" target="_blank" class="text-primary">Cancellation Policy and Terms and Privacy of eTherapi</a>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="rules-cb"/>
+                I agree to {{therapist.first_name}} {{therapist.last_name}}'s <a href="#" data-toggle="modal" data-target="#view-intake-modal" class="text-primary">Practice Rules, Consent to Treatment and Notice of Privacy Practices</a>
+              </label>
+            </div>
+            <div id="err-stripe-msg" style="text-align:left;">You must agree to all the policies, terms, rules and consents above before booking appointment.</div>
+            <div class="form-group form-action">
+              <button type="button" class="btn btn-info btn-large" id="request-appointment-btn">
+                Request Appointment
+              </button>
+            </div>
+            <p class="notice">
+              A hold will be placed on your card for the total amount displayed. The provider will have 24 hours to reply to your request.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="aside-content col-md-4">
+      <div class="widget user-info">
+        <div class="widget-advanced">
+          <div class="widget-header text-center">
+            <h3>
+              <p class="user-name">
+                <a href="/therapist/{{therapist.therapist_id}}/profile">
+                  {{therapist.first_name}} {{therapist.last_name}}
+                </a>
+              </p>
+              <small class="info-brief">
+                {{convertLicenseName license.0.license_type 0}}
+              </small>
+            </h3>
+          </div>
+          <div class="widget-main">
+            <div class="widget-image-container">
+              <img src="{{checkAvatar120 therapist.picture_filelink.url therapist.gender}}" alt="Patient Avatar" class="img-circle widget-icon" />
+            </div>
+            <div class="info-detail text-center">
+              <span>
+                <i class="icon-clock2 integr-icon">
+                </i>
+                {{convertTimeDate time.appointment.date time.appointment.start_time}}, {{convertTimeHour time.appointment.date time.appointment.start_time}} to {{convertTimeHour time.appointment.date time.appointment.end_time}}
+              </span>
+            </div>
+            <div class="info-detail text-center">
+              <span class="appt-policy include-popover popover-group text-info">
+                <span>
+                  Cancellation Policy
+                </span>
+                <i class="gi gi-circle_info">
+                </i>
+                <div class="popover top default-popover">
+                  <div class="arrow">
+                  </div>
+                  <div class="pop-over-content">
+                    You can cancel your appointment free of charge up to 24 hours before the appointment time. After that, your therapist might apply a cancellation fee.
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block fee-info">
+        <div class="block-title">
+          <h2>
+            Total
+          </h2>
+        </div>
+        <div class="block-content">
+          <div class="row data-row">
+            <div class="col-md-7 col-xs-7">
+              <span class="description">
+                Session fee
+              </span>
+            </div>
+            <div class="col-md-5 col-xs-5 text-right">
+              <span class="price">
+                {{#if fee}}${{fee}}{{else}}$00{{/if}}
+              </span>
+            </div>
+          </div>
+          <div class="row data-row" id="estimated-coverage-row" style="display:none;">
+            <div class="col-md-7 col-xs-7">
+              <span class="description">
+                Estimated Insurance Coverage
+              </span>
+            </div>
+            <div class="col-md-5 col-xs-5 text-right">
+              <span class="price" id="insurance-fee">
+                $00
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="block-footer" id="total-row">
+          <div class="row">
+            <div class="col-md-7 col-xs-7">
+              <span class="description">
+                Total
+              </span>
+            </div>
+            <div class="col-md-5 col-xs-5 text-right">
+              <span class="price" id="total-amount">
+                ${{fee}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div tabindex="-1" role="dialog" aria-hidden="false" class="general-modal modal in" id="view-intake-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">
+          ×
+        </button>
+        <modal-title>
+          Practice Rules, Privacy Practices and Consent to Treatment
+        </modal-title>
+      </div>
+      <div class="modal-body">
+        <p class="therapist-consent"></p>
+      </div>
+    </div>
+  </div>
+</div>

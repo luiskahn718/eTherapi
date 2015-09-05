@@ -1,0 +1,48 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  %div
+    = f.label :Account_Type
+    %br/
+    As a Therapist
+    = radio_button_tag  :account_type, :therapist
+    or As a Patient
+    = radio_button_tag  :account_type, :patient
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true
+  %div
+    = f.label :password
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  %div
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+
+  %div
+    %h3=params[:accnt_type]
+    = f.label :last_name
+    %br/
+    =f.text_field :last_name
+    %br/
+    = f.label :first_name
+    %br/
+    =f.text_field :first_name
+    %br/
+  %div
+    = f.label :security_question_id
+    %i (Select a security question and provide the answer)
+    %br/
+    = f.collection_select :security_question_id, SecurityQuestion.all, :id, :name, :include_blank => "Select a Question"
+    %br
+    = f.label :security_question_answer
+    %br/
+    = f.text_field :security_question_answer
+
+
+    =f.hidden_field :account_type, value: params[:account_type]
+  %div= f.submit "Sign up"
+= render "shared/links"

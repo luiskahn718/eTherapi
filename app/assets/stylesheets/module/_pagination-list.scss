@@ -1,0 +1,31 @@
+.pagination {
+
+  // re-group the general properties
+  li a,
+  li {
+    background-color: #f2f4f8;
+  }
+
+  li a:hover,
+  .active a:link,
+  .active a:hover {
+    background-color: #0099d8;
+  }
+
+  // style list-item of pagination
+  li {
+    display: inline-block;
+    vertical-align: middle;
+
+    a {
+      color: #0099d8;
+    }
+  }
+
+  // style link in the active case
+  .active {
+    a {
+      color: #fff;
+    }
+  }
+}

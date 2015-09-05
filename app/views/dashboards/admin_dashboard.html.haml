@@ -1,0 +1,23 @@
+%h1 Administrator Dashboard
+%div{:class => "panel panel-default"}
+  %h2 Reset User Password
+  = form_tag admin_reset_password_users_path, :method => 'get' do
+    = field_set_tag do
+      = label_tag :user_id, 'User : '
+      = select_tag :user_id, options_from_collection_for_select(User.all, "user_id", "email"), include_blank: true
+      %br
+      = label_tag :password, "New password"
+      %br/
+      = password_field_tag :password
+      = label_tag :password_confirmation, "Confirm new password"
+      %br/
+      = password_field_tag :password_confirmation
+      %br
+      = submit_tag 'Reset'  
+
+%div{:class => "panel panel-default"}
+  %h2 Expired Licenses
+  
+
+%div{:class => "panel panel-default"}
+  %h2 Approve Therapist

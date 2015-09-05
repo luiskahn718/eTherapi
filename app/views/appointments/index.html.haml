@@ -1,0 +1,128 @@
+#appointments-layout
+  .appointment-listview
+    / %article.main-content
+    .content-header
+      .header-section
+        %h1
+          Appointments
+          %i.icon-calendar6
+    / tab navigation
+    - if current_user.account_type.downcase == 'therapist'
+      %ul.nav.nav-tabs{"data-toggle" => "tabs"}
+        %li
+          %a{href: "#tab-calendar"} Calendar View
+        %li.active
+          %a{href: "#tab-listview"} List View
+    .tab-content
+      / calendar tab
+      .tab-pane#tab-calendar
+      / list view tab
+      .list-view.row.tab-pane.active#tab-listview
+        / The list view navigation
+        .aside-content.affix-menu-nav.col-md-3.slave-nav
+          %ul.list-group.nav
+            %li{target: '.upcoming-section'}
+              %a.list-group-item.upcoming-section{href: "#upcoming-section"}
+                %h4.list-group-item-heading Upcoming
+            %li{target: '.request-section'}
+              - if current_user.account_type.downcase == 'therapist'
+                %a.list-group-item.request-section{href: "#request-section"}
+                  %h4.list-group-item-heading Requests
+              - if current_user.account_type.downcase == 'patient'
+                %a.list-group-item.request-section{href: "#request-section"}
+                  %h4.list-group-item-heading Pending Requests
+            %li{target: '.past-cancel-section'}
+              %a.list-group-item.past-cancel-section{href: "#past-cancel-section"}
+                %h4.list-group-item-heading Past or Canceled
+        / The list view content
+        - if current_user.account_type.downcase == 'patient'
+          -patient = 'patient-appointment'
+        - else
+          -patient = ''
+        .listview-content.col-md-9.pri-content{:class => patient}
+          - if current_user.account_type.downcase == 'patient'
+            .btn-container
+              %a{href:"/", class:"btn btn-info btn-large"} Schedule New Appointment
+
+          / upcoming confirmed appointments
+          #upcoming-section.block.upcoming-appt
+            .block-title
+              %h2 Upcoming Appointments
+            .appointment-content-wrap.clearfix
+              .block-data-wrap
+                %header.block-data-header
+                  .status-col.col-style
+                    .cell-wrapper
+                      %span.cell Status
+                  .user-col.col-style
+                    .cell-wrapper
+                      - if current_user.account_type.downcase == 'therapist'
+                        %span.cell Patient Name
+                      - if current_user.account_type.downcase == 'patient'
+                        %span.cell Therapist Name
+                  .date-col.col-style
+                    .cell-wrapper
+                      %span.cell Date
+                  .time-col.col-style
+                    .cell-wrapper
+                      %span.cell Time
+                  .options-col.col-style
+                    .cell-wrapper
+                      %span{class:"cell"} Options
+                #upcoming-list.block-data
+          / Appointment requests
+          #request-section.block.request-appt
+            .block-title
+              - if current_user.account_type.downcase == 'therapist'
+                %h2 Appointment Requests
+              - if current_user.account_type.downcase == 'patient'
+                %h2 Pending Appointment Requests
+            .appointment-content-wrap.clearfix
+              .block-data-wrap
+                %header.block-data-header
+                  .status-col.col-style
+                    .cell-wrapper
+                      %span.cell Status
+                  .user-col.col-style
+                    .cell-wrapper
+                      - if current_user.account_type.downcase == 'therapist'
+                        %span.cell Patient Name
+                      - if current_user.account_type.downcase == 'patient'
+                        %span.cell Therapist Name
+                  .date-col.col-style
+                    .cell-wrapper
+                      %span.cell Date
+                  .time-col.col-style
+                    .cell-wrapper
+                      %span.cell Time
+                  .options-col.col-style
+                    .cell-wrapper
+                      %span{class:"cell"} Options
+                #appointment-request-list.block-data
+          / Past and canceled appointments
+          #past-cancel-section.block.past-appointment
+            .block-title
+              %h2 Past or Canceled Appointments
+            .appointment-content-wrap.clearfix
+              .block-data-wrap
+                %header.block-data-header
+                  .status-col.col-style
+                    .cell-wrapper
+                      %span.cell Status
+                  .user-col.col-style
+                    .cell-wrapper
+                      - if current_user.account_type.downcase == 'therapist'
+                        %span.cell Patient Name
+                      - if current_user.account_type.downcase == 'patient'
+                        %span.cell Therapist Name
+                  .date-col.col-style
+                    .cell-wrapper
+                      %span.cell Date
+                  .time-col.col-style
+                    .cell-wrapper
+                      %span.cell Time
+                  - if current_user.account_type.downcase == 'therapist'
+                    .payment-col.col-style
+                      .cell-wrapper
+                        %span.cell Payment
+                #past-appointment-list.block-data

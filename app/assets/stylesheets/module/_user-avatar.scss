@@ -1,0 +1,51 @@
+// define the user-avatar for file upload
+.user-avatar-section {
+  min-width: 400px;
+
+  .img-rounded {
+    width: 120px;
+    height: 120px;
+    float: left;
+  }
+
+  .avatar-action {
+    float: left;
+  }
+
+
+  .user-avatar-upload {
+    > a {
+      @include normal-font;
+      font-size: 16px;
+      color: #fff;
+      padding: 8px 28px;
+    }
+  }
+
+  .user-avatar-delete {
+    text-align: center;
+
+    > a {
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #f31100;
+    }
+  }
+
+}
+
+.sidebar-user-avatar,
+.user-avatar-section .img-rounded {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// define class avatar-container used in patient-profile.html and therapist-edit-profile.html
+.l-user {
+  .avatar-container {
+    margin-left: 20px;
+    margin-top: 38px;
+  }
+}

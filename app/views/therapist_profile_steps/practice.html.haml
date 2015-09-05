@@ -1,0 +1,9 @@
+-#Therapist Practice Template
+%h1 Tell us a little about your practice
+= @therapist.therapist_license.build
+= @therapist.therapist_speciality.build
+= render layout: 'form' do | therapist_form |
+  %h3 Licenses
+  = render :partial => "shared/therapist_profile_license", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+  %h3 Speciality
+  = render :partial => "shared/therapist_profile_speciality", :locals => {:therapist => @therapist, :therapist_form => therapist_form}

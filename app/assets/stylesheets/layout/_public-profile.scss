@@ -1,0 +1,44 @@
+.public-layout {
+
+  > header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .main-content {
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+}
+
+
+.top-banner {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  background-image: url("../images/banner/public-profile-banner.png");
+  height: 240px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.public-nav {
+  li {
+    margin-left: 30px !important;
+    &:last-child {
+      margin-right: 15px;
+    }
+
+    button {
+      margin-top: 6px;
+      padding: 8px 28px;
+    }
+  }
+  a {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,317 @@
+<!--define the insurance-detail-modal-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="insurance-detail-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Insurance Information</modal-title>
+         </div>
+         <div class="modal-body">
+            <form method="post" class="form-horizontal form-bordered clearfix">
+               <!--Coverage Verified -->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coverage Verified</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{coverage_verified}}</p>
+                  </div>
+               </div>
+               <!--Coverage Checked on -->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coverage Checked on</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.create_at}}</p>
+                  </div>
+               </div>
+               <!--name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Health insurance name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{health_insurance_name}}</p>
+                  </div>
+               </div>
+               <!--Insurance ID-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Insurance ID</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{insurance_ID}}</p>
+                  </div>
+               </div>
+               <!--Plan Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Plan Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{plan_name}}</p>
+                  </div>
+               </div>
+               <!--Copay-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Copay</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.copay}}</p>
+                  </div>
+               </div>
+               <!--Coinsurance-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Coinsurance</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.coinsurance}}</p>
+                  </div>
+               </div>
+               <!--Deductible Remaining-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Deductible Remaining</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.deductible}}</p>
+                  </div>
+               </div>
+               <!--Relationship-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Relationship to the policyhoder</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_relationship}}</p>
+                  </div>
+               </div>
+               <!--First Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder First Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_first_name}}</p>
+                  </div>
+               </div>
+
+               <!--Last Name-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder Last Name</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_last_name}}</p>
+                  </div>
+               </div>
+               <!--Birth Date-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder Birth Date</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_dob}}</p>
+                  </div>
+               </div>
+               <!--policyholder's Address-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's Address</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_address1}}</p>
+                  </div>
+               </div>
+               <!--City-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's City</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_city}}</p>
+                  </div>
+               </div>
+               <!--State-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's State</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_state_cde}}</p>
+                  </div>
+               </div>
+               <!--Zip Code-->
+               <div class="form-group">
+                  <label class="col-md-6 control-label">Policyholder's Zip Code</label>
+                  <div class="col-md-6">
+                     <p class="date form-control-static">{{eligible.subscriber_zip_cde}}</p>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="patient-view-appt">
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        {{#if past_appointment}}
+        Patient Receipt
+        {{else}}
+        Appointment Details
+        {{/if}}
+        <i class="icon-calendar6">
+        </i>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="aside-content col-md-4">
+      <div class="widget user-info">
+        <div class="widget-advanced">
+          <div class="widget-header name-content text-center">
+            <h3>
+              <a href="/therapist/{{therapist_id}}/profile" class="user-name">
+                {{therapist.first_name}} {{therapist.last_name}}
+              </a>
+            </h3>
+          </div>
+          <div class="widget-main">
+            <div class="widget-image-container">
+              <a href="/therapist/{{therapist_id}}/profile">
+                <img src="{{checkAvatar65 therapist.picture_filelink.url therapist.gender}}" alt="Patient Avatar" class="img-circle widget-icon" />
+              </a>
+            </div>
+            <div class="contact-detail">
+              <span>
+                <i class="icon-calendar6 integr-icon">
+                </i>
+                {{convertTimeDate date start_time}}, {{convertTimeHour date start_time}}-{{convertTimeHour date end_time 'A' therapist_declared_duration start_time}}
+              </span>
+            </div>
+            <div class="contact-detail">
+              <span>
+                <i class="{{showUIStatus status}} integr-icon">
+                </i>
+                {{status status}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pri-content-def col-md-8">
+      <div class="block">
+        <div class="block-title">
+          <h2>
+            Charges
+          </h2>
+        </div>
+        <div class="block-data-wrap">
+          <header class="block-data-header">
+            <div class="description-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  Description
+                </span>
+              </div>
+            </div>
+            <div class="price-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  Price
+                </span>
+              </div>
+            </div>
+          </header>
+          <div class="block-data">
+            <div class="data-row">
+              <div class="description-col more-data col-style">
+                <div class="cell-wrapper">
+                  <div class="cell">
+                    {{#if session.service_provided_notes}}
+                    <p>
+                      {{convertCPT session.service_provided_notes}} - {{#if session.therapist_declared_duration}}{{session.therapist_declared_duration}} minutes{{else}}{{duration}} minutes{{/if}}
+                    </p>
+                    {{else}}
+                    <p>
+                      <span>
+                        {{convertTimeDate date start_time}} Appointment with {{therapist.first_name}} {{therapist.last_name}}
+                      </span>
+                    </p>
+                    {{/if}}
+                    <p>
+                      <span class="notice">
+                        CPT Codes:
+                      </span>
+                      {{convertCPT session.cpt_codes}}
+                    </p>
+                    <p>
+                      <span class="notice">
+                        Diagnosis Codes
+                      </span> (ICD10):
+                      {{convertCPT session.icd10_codes}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="price-col col-style">
+                <div class="cell-wrapper">
+                  <span class="cell">
+                  {{#if session.changed_fee_amt}}
+                  ${{totalApt session.changed_fee_amt estimated_insurance_adjustment}}
+                  {{else}}
+                  ${{totalApt processed_amt estimated_insurance_adjustment}}
+                  {{/if}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{#if patient_ins_eligibility_id}}
+          <div class="block-data">
+            <div class="data-row">
+              <div class="description-col col-style">
+                <div class="cell-wrapper">
+                  <span class="cell">
+                    Estimated Insurance Coverage
+                  </span>
+                </div>
+              </div>
+              <div class="price-col col-style">
+                <div class="cell-wrapper">
+                  <span class="cell">
+                  {{checkIns estimated_insurance_adjustment}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+          <div class="block-data-footer">
+            <div class="description-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  {{#if apptProcessed}}
+                  Total
+                  {{else}}
+                  {{#unless cancel_over_24}}Total{{else}}Total (Not Charged){{/unless}}
+                  {{/if}}
+                </span>
+              </div>
+            </div>
+            <div class="price-col col-style">
+              <div class="cell-wrapper">
+                <span class="cell">
+                  {{#if session.changed_fee_amt}}
+                  ${{convertNumb session.changed_fee_amt}}
+                  {{else}}
+                  ${{convertNumb processed_amt}}
+                  {{/if}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-details">
+          <p>
+            <i class="fa fa-credit-card integr-icon">
+            </i>
+            <span class="notice">
+              Payment amount
+            </span>
+            of ${{#if session.changed_fee_amt}}{{convertNumb session.changed_fee_amt}}{{else}}{{convertNumb processed_amt}}{{/if}} {{#if apptProcessed}}processed{{else}}authorized{{/if}} on {{authDate processed_auth_date}} ({{retrieve.card.type}} XXXX-XXXX-XXXX-{{retrieve.card.last4}})
+          </p>
+          {{#if patient_ins_eligibility_id}}
+          <p>
+            <i class="hi hi-ok-sign integr-icon">
+            </i>
+            <span class="notice">
+              Insurance eligibility verified on
+            </span>
+            {{authDate processed_auth_date}}.
+            <a href="#" class="text-primary" data-toggle="modal" data-target="#insurance-detail-modal" >View Insurance Details.</a>
+          </p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

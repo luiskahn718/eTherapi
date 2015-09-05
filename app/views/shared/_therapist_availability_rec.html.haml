@@ -1,0 +1,51 @@
+.field
+  = therapist_form.fields_for :therapist_availability_rec do |recurring_availability_form|
+    .field
+      = recurring_availability_form.label :start_date
+      = recurring_availability_form.date_select :start_date, start_year: Date.today.year, end_year: 2050, include_blank: true
+    .field
+      = recurring_availability_form.label :end_date
+      = recurring_availability_form.date_select :end_date, start_year: Date.today.year, end_year: 2050, include_blank: true
+      
+    .field
+      = recurring_availability_form.label :start_time
+      = recurring_availability_form.time_select :start_time, start_year: Date.today.year, end_year: 2050, include_blank: true
+    .field
+      = recurring_availability_form.label :end_time
+      = recurring_availability_form.time_select :end_time, start_year: Date.today.year, end_year: 2050, include_blank: true
+    .field
+      = recurring_availability_form.label :recurring_type
+      = recurring_availability_form.select :recurring_type, options_for_select([["Select One", ""], ["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]], :selected => recurring_availability_form.object.recurring_type)
+    .field
+      = recurring_availability_form.label :daily_every_no_days
+      = recurring_availability_form.select :daily_every_no_days, options_for_select([["Select One", ""], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]], :selected => recurring_availability_form.object.daily_every_no_days)
+    .field
+      = recurring_availability_form.label :daily_every_weekday
+      = recurring_availability_form.check_box :daily_every_weekday
+    .field
+      = recurring_availability_form.label :weekly_sunday
+      = recurring_availability_form.check_box :weekly_sunday
+    .field
+      = recurring_availability_form.label :weekly_monday
+      = recurring_availability_form.check_box :weekly_monday
+    .field
+      = recurring_availability_form.label :weekly_tuesday
+      = recurring_availability_form.check_box :weekly_tuesday
+    .field
+      = recurring_availability_form.label :weekly_wednesday
+      = recurring_availability_form.check_box :weekly_wednesday
+    .field
+      = recurring_availability_form.label :weekly_thursday
+      = recurring_availability_form.check_box :weekly_thursday
+    .field
+      = recurring_availability_form.label :weekly_friday
+      = recurring_availability_form.check_box :weekly_friday
+    .field
+      = recurring_availability_form.label :weekly_saturday
+      = recurring_availability_form.check_box :weekly_saturday    
+    .field
+      = recurring_availability_form.hidden_field :id
+    = recurring_availability_form.link_to_remove "Remove this availability"
+    %p
+  %p
+    = therapist_form.link_to_add "Add a recurring availability", :therapist_availability_rec

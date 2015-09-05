@@ -1,0 +1,52 @@
+<div class="status-col col-style text-warning">
+  <div class="cell-wrapper"><span class="cell {{statusUI status}}">{{status status}}</span></div>
+</div>
+<div class="user-col col-style">
+  <div class="user-infor">
+     <div class="sidebar-user-avatar"><a {{#if isTherapist }}href="/therapist/patient/{{patient_id}}" {{else}} href="/therapist/{{therapist_id}}/profile" {{/if}}>
+      <img src="{{#if isTherapist}}{{checkAvatar32 patient.picture_filelink.thumb.url patient.gender}}{{else}}{{checkAvatar32 therapist.picture_filelink.thumb.url therapist.gender}}{{/if}}" alt="" /></a></div>
+     <div class="avatar-name cell-wrapper">
+      <span class="cell">
+        {{#if isTherapist}}
+         <a href="/therapist/patient/{{patient_id}}" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+      {{else}}
+        <a href="/therapist/{{therapist_id}}/profile" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+      {{/if}}
+      </span>
+    </div>
+  </div>
+</div>
+<div class="date-col col-style">
+  <div class="cell-wrapper"><span class="cell">{{convertTimeDate date start_time}}</span></div>
+</div>
+<div class="time-col col-style">
+  <div class="cell-wrapper"><span class="cell">{{convertTimeHour date start_time}}</span></div>
+</div>
+<div class="col-style options-col ">
+  <div class="cell-wrapper">
+     <div class="cell">
+      {{#if isTherapist}}
+      <button data-toggle="modal" data-target="#confirm-modal" type="button" class="btn btn-action btn-success">Confirm</button>
+      {{else}}
+      <a type="button" class="btn btn-action btn-info" href="/appointments/{{id}}/edit">
+        View Details
+      </a>
+      {{/if}}
+
+      <div class="option-link-wrap">
+
+        {{#if isTherapist}}
+        <a data-toggle="modal" data-target="#decline-modal" href="" class="text-danger decline-appointment">Decline</a>
+        {{else}}
+        <a data-toggle="modal" data-target="#pt-pending-cancel" href="#" class="text-danger cancel-btn">
+          Cancel
+        </a>
+        {{/if}}
+
+        <a href="javascript:void(0)" class="text-danger request-del-btn" id="request-del-{{id}}" style="display:none;"></a>
+        <a href="javascript:void(0)" class="text-danger request-cancel-btn" id="request-cancel-{{id}}" style="display:none;"></a>
+      </div>
+
+    </div>
+  </div>
+</div>

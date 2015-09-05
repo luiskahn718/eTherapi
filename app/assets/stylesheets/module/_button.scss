@@ -1,0 +1,25 @@
+// set default font for general button
+.btn {
+  @include normal-font;
+  font-size: 16px;
+}
+.btn-large {
+  padding: 8px 30px;
+}
+// define buttons in the summary note prepayment
+.summary-container {
+  // style the width of two buttons: process-payment and save-detail
+  .process-payment,
+  .save-detail {
+    button {
+      width: 186px;
+      line-height: 26px;
+    }
+  }
+  // style position of save-session-btn
+  .save-session-btn {
+    margin: 20px 0 20px 20px;
+    line-height: 26px;
+    padding: 6px 20px;
+  }
+}

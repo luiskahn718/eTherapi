@@ -1,0 +1,37 @@
+.detail-component-list {
+  .left-content {
+    width: 48%;
+  }
+
+  .right-content {
+    width: 52%;
+  }
+  .block-title > h2,
+  ul {
+    padding-left: 20px;
+  }
+
+  .block-title {
+    h2 {
+      color: #394263;
+    }
+  }
+
+  .medium-title {
+    padding: 10px 0 10px 20px;
+    color: #585858;
+  }
+
+  ul {
+    li {
+      @include normal-font;
+      font-size: 14px;
+      color: #000;
+    }
+
+    i {
+      margin-right: 6px;
+    }
+  }
+
+}

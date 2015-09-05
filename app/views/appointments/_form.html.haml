@@ -1,0 +1,25 @@
+= simple_form_for(@appointment) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.hidden_field :owner_id, :value => current_user.id
+    
+    - if @user.is_patient?
+      = f.input :therapist_id, collection: @therapists, :label_method =>"display_name"
+      = f.hidden_field :patient_id, :value => @profile.id
+    - if @user.is_therapist?
+      = f.input :patient_id, collection: @patients, :label_method =>"display_name"
+      = f.hidden_field :therapist_id, :value => @profile.id
+      
+    = f.input :date
+    = f.input :start_time
+    = f.input :end_time
+    = f.input :session_type, 
+              :collection => @session_type, 
+              :label_method => :last, 
+              :value_method => :first,
+              :as => :radio_buttons
+    = f.input :note
+    = f.input :consent, :label => 'Consent : ', :as => :boolean
+    = f.hidden_field :status, :value => 'p'
+  .form-actions
+    = f.button :submit

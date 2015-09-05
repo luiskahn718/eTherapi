@@ -1,0 +1,41 @@
+// style form input
+.therapist-account {
+	.row {
+		margin: 0;
+	}
+
+	.block {
+		padding-bottom: 5px;
+		.btn {
+			min-height: 40px;
+			padding: 0 30px;
+		}
+		.notice {
+			margin-bottom: 15px;
+		}
+	}
+	
+	.standout-label {
+		margin-right: 10px;
+	}
+
+	.popover-group {
+		.popover {
+			width: 262px;
+	    padding: 18px 15px;
+	    top: -50%;
+		}
+	}
+}
+
+.general-modal {
+	.intake-input {
+		min-height: 400px;
+	}
+}
+#intake-forms-section {
+	min-height: 210px;
+	.form-group {
+		margin-top: 65px;
+	}
+}

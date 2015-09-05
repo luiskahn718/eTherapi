@@ -1,0 +1,217 @@
+<div tabindex="-1" role="dialog" aria-hidden="false" class="general-modal modal" id="profile-insurance-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">
+          ×
+        </button>
+        <modal-title>
+          Insurance Plan Information
+        </modal-title>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Health Insurance Name
+            </label>
+            <div class="col-md-6 set-width">
+              <select data-placeholder=" " class="select-chosen input-md" id="insurance_payer_id">
+                <option value="" selected="selected"></option>
+                {{#each insurance}}
+                <option value = {{id}}>
+                  {{payers_name}}
+                </option>
+                {{/each}}
+              </select>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Insurance Member ID #
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_id">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Insurance Plan Name
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="plan_name">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Social Security Number
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="ssn">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <p class="help-block error-message"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5 align-label">
+              Relationship to the Primary Policyholder
+            </label>
+            <div class="col-md-6 set-width">
+              <select data-placeholder=" " class="select-chosen" id="subscriber_relationship">
+                <option value="" selected="selected"></option>
+                <option value="self">
+                  Self
+                </option>
+                <option value="S">
+                  Spouse
+                </option>
+                <option value="D">
+                  Dependent
+                </option>
+                <option value="O">
+                  Other
+                </option>
+              </select>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder First Name
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_first_name">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-user7">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder Last Name
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_last_name">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-user7">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder Birth Date
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" placeholder="mm/dd/yyyy" date-date-format="mm/dd/yyyy" class="form-control input-md input-datepicker select-birthdate" id="subscriber_dob">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder Street Address
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_address1">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder's City
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_city">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder's State
+            </label>
+            <div class="col-md-6 set-width">
+              <select data-placeholder=" " class="select-chosen" id="subscriber_state_cde">
+                <option value="" selected="selected"></option>
+                {{#each state}}
+                <option value = {{name}}>
+                  {{name}}
+                </option>
+                {{/each}}
+              </select>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">
+              Policyholder's Zip Code
+            </label>
+            <div class="col-md-6 set-width">
+              <div class="input-group">
+                <input type="text" class="form-control input-md" id="subscriber_zipcode">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-5 set-width">
+              <button type="button" class="save-btn btn btn-info">
+                <span>
+                  Save Insurance
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

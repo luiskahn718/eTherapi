@@ -1,0 +1,395 @@
+// define the general modal
+.general-modal {
+    margin: 0;
+
+    .modal-header {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        modal-title {
+            @include light-font;
+            font-size: 24px;
+            line-height: 40px;
+        }
+    }
+
+    .modal-body {
+        // align center the send-button in confirm-modal
+        > .wrap-send-btn {
+            text-align: center;
+        }
+
+        .message-title {
+            margin-left: 15px;
+            margin-bottom: 6px;
+            @include normal-font;
+        }
+
+        .form-group {
+            border-bottom: 0;
+        }
+    }
+
+    .message-title {
+        strong {
+            @include bold-font;
+        }
+    }
+    textarea {
+        min-height: 130px;
+    }
+}
+
+.modal-body {
+    > p,
+    h3 {
+        @include normal-font;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 22px;
+        line-height: 30px;
+    }
+}
+
+// appointment modals
+#decline-modal {
+    .modal-body {
+        .form-group {
+            margin-top: -4px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// set margin for the process-button in the process-modal
+#summary-note-process-modal {
+    .wrap-send-btn {
+        > button {
+            margin-right: 10px;
+        }
+    }
+}
+
+#insurance-detail-modal {
+    .modal-body {
+        min-height: 500px;
+        padding-bottom: 50px;
+    }
+
+    .form-group {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        label,
+        p {
+            font-size: 13px;
+            word-wrap: break-word;
+        }
+
+        label {
+            @include bold-font;
+        }
+
+        p {
+            @include normal-font;
+        }
+    }
+}
+
+.link-confirm {
+    margin-left: 20px;
+}
+
+.general-modal{
+    .larger-bottom {
+        margin-bottom: 54px;
+    }
+}
+// positioning center for profile-upload-modal and th-intake-modal
+#profile-upload-modal,
+#th-intake-modal,
+#patient-add-card {
+    @include modal-center;
+}
+
+// define button in the upload profile modal
+#profile-upload-modal {
+    .save-btn {
+        padding: 10px 30px;
+        margin-left: 10px;
+    }
+}
+
+// define the profile-insurance-modal
+#profile-insurance-modal.general-modal {
+
+    .modal-dialog {
+        @include remove_translate;
+    }
+
+    .form-horizontal {
+        .control-label {
+            padding-top: 14px;
+        }
+    }
+    .align-label {
+        padding-top: 8px;
+    }
+
+    .set-width {
+        width: 52%;
+    }
+
+    .modal-dialog {
+        width: 640px;
+    }
+
+    .chosen-single {
+        height: 42px;
+    }
+
+    button {
+        padding: 10px 30px;
+    }
+
+    .form-group:last-child {
+        margin-bottom: 40px;
+        margin-top: 78px;
+    }
+
+}
+// style profile-insurance-modal
+#profile-insurance-modal.general-modal,
+#appointment-booking-modal.general-modal {
+    overflow: scroll;
+}
+
+
+// style appointment-booking-modal
+#appointment-booking-modal.general-modal {
+    .modal-dialog {
+        width: 1000px;
+    }
+    .modal-body {
+        .text-right,
+        p {
+            @include normal-font;
+            color: #000;
+        }
+        .text-right {
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        p {
+            width: 640px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+    }
+
+    .block {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+
+
+    .btn-large {
+        margin-right: 20px;
+    }
+}
+// style the show-video-modal
+#show-video-modal.general-modal {
+    .modal-header {
+        padding-bottom: 25px;
+    }
+    .modal-body {
+        height: 500px;
+    }
+}
+
+// login modal
+.login-register {
+    .modal-dialog {
+        width: 480px;
+    }
+    .modal-header {
+        background-color: #1ba4dc;
+        @include radius-position(top,left,3px);
+        @include radius-position(top,right,3px);
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            @include bold-font;
+            margin: 20px 0;
+        }
+    }
+    .modal-content {
+        border: none;
+    }
+    .form-bordered {
+        margin-top: -20px;
+        .form-group:last-child {
+            border-bottom: none;
+        }
+    }
+    .register-terms {
+        line-height: 30px;
+        margin-right: 10px;
+        float: left;
+    }
+    form {
+        > .form-group:last-child {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+    .form-actions {
+        button {
+            font-size: 13px;
+            margin-right: -8px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+    }
+}
+
+#login-modal,
+#signup-modal {
+    .form-actions {
+        button {
+            width: 120px;
+        }
+    }
+}
+
+// sign up modal
+#signup-modal {
+    // for user account type
+    .user-account-group {
+        padding-left: 22px;
+        color: #999;
+        // for error message
+        .help-block {
+            margin-left: -18px;
+            margin-top: 20px;
+            margin-bottom: -15px;
+        }
+    }
+    .user-account {
+        margin: 15px 0;
+        .radio-inline {
+            padding-top: 0px;
+        }
+    }
+    // for user first name and last name
+    .form-inline {
+        .form-group {
+            border: none;
+        }
+    }
+    .row {
+        border-bottom: 1px dashed #eaedf1;
+    }
+}
+
+// border top form group for login-register and reset-password-modal
+#reset-password-modal .form-bordered .form-group:first-child,
+.login-register .form-bordered .form-group:last-child {
+    border-top: 1px dashed #eaedf1;
+}
+
+// reset password modal
+#reset-password-modal {
+    .modal-body {
+        > p {
+            margin-top: 5px;
+            margin-bottom: 42px;
+        }
+    }
+    .form-actions {
+        button {
+            width: 140px;
+        }
+    }
+
+    .notify-email-status {
+        margin-top: 5px;
+        margin-bottom: 0;
+        color: #179d00;
+    }
+}
+
+// send message modal
+#send-message-modal {
+    .pgh-input {
+        min-height: 150px;
+    }
+}
+
+// media queries for register modal
+@media screen and (max-width: 768px) {
+    .login-register {
+        .modal-dialog {
+            width: 300px;
+            margin: 0 auto;
+        }
+    }
+}
+
+// define the appointment-booking-modal-none-login
+#sign-up-confirmation-modal {
+    .modal-dialog {
+        width: 640px;
+    }
+
+    .modal-header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .modal-body {
+        padding-bottom: 35px;
+    }
+
+    p {
+        width: 540px;
+        margin: 0 auto;
+        line-height: 1.8;
+
+        &:first-child {
+            margin-top: 4px;
+        }
+
+    }
+
+    .instruction {
+        @include bold-font;
+        font-size: 16px;
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
+    .sign-in-btn {
+        padding: 14px 70px;
+    }
+    .instruction,
+    .sign-in-btn {
+        display: none;
+    }
+}
+
+// insurance eligibility check modal - patient payment page
+#ins-eligibility-check {
+    .modal-dialog {
+        width: 640px;
+    }
+    .progress,
+    .progress-bar {
+        height: 30px;
+    }
+    .modal-body {
+        padding-right: 60px;
+        padding-left: 60px;
+        margin-bottom: 40px;
+    }
+}

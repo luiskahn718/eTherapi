@@ -1,0 +1,41 @@
+<div class="status-col col-style">
+   <div class="cell-wrapper"><span class="{{statusUI status}} cell">{{status status}}</span></div>
+</div>
+<div class="user-col col-style">
+   <div class="user-infor">
+      <div class="sidebar-user-avatar"><a {{#if isTherapist }}href="/therapist/patient/{{patient_id}}" {{else}} href="/therapist/{{therapist_id}}/profile" {{/if}}><img src="{{#if isTherapist}}{{checkAvatar32 patient.picture_filelink.thumb.url patient.gender}}{{else}}{{checkAvatar32 therapist.picture_filelink.thumb.url therapist.gender}}{{/if}}" alt="" /></a></div>
+      <div class="avatar-name cell-wrapper">
+         <span class="cell">
+            {{#if isTherapist}}
+               <a href="/therapist/patient/{{patient_id}}" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+            {{else}}
+              <a href="/therapist/{{therapist_id}}/profile" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+            {{/if}}
+         </span>
+       </div>
+   </div>
+</div>
+<div class="date-col col-style">
+   <div class="cell-wrapper"><span class="cell">{{convertTimeDate date start_time}}</span></div>
+</div>
+<div class="time-col col-style">
+   <div class="cell-wrapper"><span class="cell">{{convertTimeHour date start_time}}</span></div>
+</div>
+{{#if isTherapist}}
+<div class="payment-col col-style {{#if appointment_processed}}text-success{{else}}text-warning{{/if}}">
+   <div class="cell-wrapper"><span class="{{#if appointment_processed}}text-success{{else}}text-warning{{/if}} cell">{{#if appointment_processed}}Processed{{else}}Not processed{{/if}}</span></div>
+</div>
+{{/if}}
+<div class="options-col col-style">
+   <div class="cell-wrapper">
+      <div class="cell">
+         {{#if isTherapist}}
+         <a type="button" class="btn btn-info btn-action" href="/appointments/{{id}}/edit">View/Edit</a>
+         {{else}}
+         <a type="button" class="btn btn-info btn-action" href="/appointments/{{id}}/edit">
+         View Receipt
+         </a>
+         {{/if}}
+      </div>
+   </div>
+</div>

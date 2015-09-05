@@ -1,0 +1,14 @@
+%h1 Consents list
+- @consents.each do |c|
+    %strong ID:
+    = link_to "Edit #{c.id}", edit_therapist_consent_path(c.id)
+  
+    %strong version:
+    = c.version
+    %strong text:
+    = c.consent_text
+    %strong active:
+    = c.active
+%br
+= link_to 'Back', dashboards_path
+= link_to 'New', new_therapist_consent_path 

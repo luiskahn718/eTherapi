@@ -1,0 +1,172 @@
+/ Custom this files
+!!!
+%html
+  %head
+    %title Etherapi
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    %link(href="/favicon.ico" rel="shortcut icon")
+    = stylesheet_link_tag    "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", media: "all"
+    = stylesheet_link_tag    "main-homepage", media: "all"
+    = stylesheet_link_tag    "app", media: "all"
+    = stylesheet_link_tag    "homepage-for-therapist", media: "all"
+  %body
+    = yield
+    %nav.navbar.navbar-default.navbar-fixed-top.woof-header#main-homepage{role: "navigation"}
+      .navbar-header
+        %button.navbar-toggle{"data-target" => "#nav", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{href: "/"} eTherapi
+      #nav.collapse.navbar-collapse.nav-right
+        %ul.nav.navbar-nav
+          %li
+            %a{href: "javascript:void(0)", id: "contact-us-btn"} Contact us
+          %li
+            %a{href: "/site/therapist"} For Therapists
+          - if current_user
+            %li
+              %a{href: "/appointments"} Appointments
+            - if current_user.account_type.downcase == 'therapist'
+              %li
+                %a{href: "/therapist/#{current_user.getProfileable.user_id}/edit"} #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+            - if current_user.account_type.downcase == 'patient'
+              %li
+                %a{href: "/patient/#{current_user.getProfileable.user_id}/edit"} #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+            %li
+              %a.btn.btn-primary{href: "javascript:void(0)", id: 'logout-btn'} Logout
+          - else
+            %li
+              %a{href: "javascript:void(0)", class: "login-btn"} Login
+            %li
+              %a.btn.btn-primary{href: "javascript:void(0)", class: 'sign-up-btn'} Sign Up
+    #main-homepage-wrapper
+    #main-therapist-wrapper
+    .testimonial-wrapper
+      .container.inner
+        .section-title.text-center
+          %h2
+            what our
+            %strong customers
+            think
+          %span.icon
+            %span.icon-chat
+        .col-testi.text-center
+          .row
+            .col-md-12
+              #carousel-generic.carousel.slide{"data-ride" => "carousel"}
+                / Indicators
+                %ol.carousel-indicators
+                  %li.active{"data-slide-to" => "0", "data-target" => "#carousel-generic"}
+                  %li{"data-slide-to" => "1", "data-target" => "#carousel-generic"}
+                  %li{"data-slide-to" => "2", "data-target" => "#carousel-generic"}
+                  %li{"data-slide-to" => "3", "data-target" => "#carousel-generic"}
+                / Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    %blockquote
+                      %p Using eTherapi to do my pre-surgery psychological evaluations has improved my productivity and increased the number of patients i can see daily. The bariatric clinics that i work with can now easily set up appointment with the click of a button.
+                      %footer
+                        %img.img-circle{src: "/img/avatar.png"}/
+                        %strong Dr. Colleen Long,
+                        %cite{title: "Source Title"} Licensed Clinical Psychologist
+                  .item
+                    %blockquote
+                      %p eTherapi has given me the opportunity to conduct nutrition consultation for patients in an environment that preserves the personable face-to-face communication of an in-person appointment, while also allowing me the opportunity to maximize my availability in a manner that is most conductive to the patients schedules. there is great  value in the ease and the convenience of eTherapi’s online healthcare on their terms.
+                      %footer
+                        %img.img-circle{src: "/img/avatar-2.png"}/
+                        %strong Jennifer Fix,
+                        %cite{title: "Source Title"} Licensed Clinical Dietitian
+
+                  .item
+                    %blockquote
+                      %p By making therapists readily accessible online, eTherapi.com makes it easy for patients to receive the care they need when they need it most.
+                      %footer
+                        %img.img-circle{src: "/img/avatar-3.png"}/
+                        %strong Elias Aboujaoude, MD,
+                        %cite{title: "Source Title"} eTherapi Medical Director, <br>clinical associate professor and director of the OCD Clinic at Stanford University School of Medicine
+
+                  .item
+                    %blockquote
+                      %p The eTherapi platform makes it possible to seamlessly integrate behavioral health care with the physical health care to ensure  continuity of care.
+                      %footer
+                        %img.img-circle{src: "/img/avatar-4.png"}/
+                        %strong Jennifer Hoblyn, MD,
+                        %cite{title: "Source Title"} eTherapi Chief Medical Officer,<br> assistant professor of psychiatry and behavioral sciences at Stanford University School of Medicine
+    .brands
+      %ul
+        %li
+          %a{href: "http://www.forbes.com/sites/brucejapsen/2012/06/07/no-access-to-therapists-couch-tap-iphone-app-click-for-online-therapy/", target: "_blank"}
+            %img{alt: "business times", src: "/img/forbes.png"}/
+        %li
+          %a{href: "http://www.health2con.com/tv/company/etherapi/", target: "_blank"}
+            %img{alt: "business times", src: "/img/health2.0.png"}/
+        %li
+          %a{href: "http://www.treatmentmagazine.com/newswires/348-smart-money-money-backs-virtual-behavioral-healthcare-platforms.html", target: "_blank"}
+            %img{alt: "business times", src: "/img/treatment-magazine.png"}/
+        %li
+          %a{href: "http://www.bizjournals.com/sanfrancisco/print-edition/2012/07/06/dignity-pulls-back-curtain-on-new-deals.html", target: "_blank"}
+            %img{alt: "business times", src: "/img/business-times.png"}/
+        %li
+          %a{href: "http://www.psychologytoday.com/blog/compulsive-acts/201407/is-it-therapy-or-is-it-video-game-0", target: "_blank"}
+            %img{alt: "business times", src: "/img/psychology-today.png"}/
+    #contact-us-session.footer
+      .container
+        .row
+          .col-md-4
+            %h4 Contact us
+            .number 1-800-611-0821
+          .col-md-2
+            %h4 Company
+            %ul.footerlinks
+              //  %li
+              //  %a{href: "#"} About Us
+              %li
+                %a{href: "http://etherapi.com/blog/"} Blog
+              %li
+                %a{href: "#"} Contact Us
+              %li
+                %a{href: "/site/terms"} Terms and Privacy
+          .col-md-2
+            %h4 Discover
+            %ul.footerlinks
+              %li
+                %a{href: "/therapist/searchresult"} Find a therapist
+              %li
+                %a{href: "/site/therapist"} For Therapists
+              %li
+                %a.sign-up-btn{href: "#signup-modal", "data-toggle" => "modal", "data-target" => "#signup-modal"} Sign up
+              / %li
+              /   %a{href: "#"} Sitemap
+          .col-md-4
+            %h4 Join us on
+            %ul.nav
+              %li.tw
+                %a{href: "https://twitter.com/eTherapi", target: "_blank"}
+                  %i.icon-twitter
+              %li.fb
+                %a{href: "https://www.facebook.com/eTherapi", target: "_blank"}
+                  %i.icon-facebook
+              / %li.in
+              /  %a{href: "#"}
+              /    %i.icon-instagram
+              %li.rs
+                %a{href: "http://etherapi.com/blog/?feed=rss2"}
+                  %i.icon-rss
+              %li.gp
+                %a{href: "https://plus.google.com/103852054915902730618/"}
+                  %i.fa-google-plus.fa
+        %p.text-center
+          Online therapy is not appropriate for life-threatening emergencies. For life-threatening emergencies, please go to your nearest emergency room or call 911.
+          Also, the National Suicide Prevention Lifeline at 1-800-273-TALK (8255) is a free 24-hour hotline available to anyone in a suicidal crisis.
+    %script{src: "/assets/classie.js"}
+
+    = include_gon
+    = requirejs_include_tag "app"
+    = csrf_meta_tags

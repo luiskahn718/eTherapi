@@ -1,0 +1,213 @@
+/ Custom this files
+!!!
+%html
+  %head
+    %title Etherapi
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    %link(href="/favicon.ico" rel="shortcut icon")
+    = stylesheet_link_tag    "main", media: "all"
+    = stylesheet_link_tag    "homepage-for-therapist", media: "all"
+  %body{"data-spy"=> "scroll", "data-offset"=> "170", "data-target"=> ".affix-menu-nav"}
+    .page-container.l-user#main-layout-wrapper
+      = render :partial => 'layouts/header'
+      .main-container
+        .content-container.has-sidebar
+          .sub-header-wrap
+            .notice.themed-background-warning#sub-header-notification
+              %button.close{type: "button"} ×
+              %span.content
+                Join upcoming session with
+                %span.user-name John Patient
+            .sub-header-section
+
+          .main-content
+            = yield
+            .appointment-details-layout
+            .edit-therapist-profile
+            .therapist-patient-profile-wrapper
+            .account-info-wrapper
+            #patient-edit-profile-wrapper
+          / %footer.sub-footer
+          /   .pull-right
+          /     %i.fa.fa-heart.text-danger
+          /     Lovingly made in NYC  SF
+          /   .pull-left
+          /     2014
+          /     %a{href: "javascript:void(0)"} eTherapi
+          = render :partial => 'layouts/footer'
+        = render :partial => 'layouts/sidebar'
+
+      - if current_user.account_type.downcase == 'therapist'
+
+
+        #confirm-modal.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} ×
+                %modal-title Congratulations!
+              .modal-body.larger-bottom
+                %h3
+                  The appointment with
+                  %span.patient-name
+                  was successfully confirmed
+                .wrap-send-btn.display-none
+                  %button.btn.btn-info{type: "submit"}
+                    %span
+                      %i.gi.gi-envelope.integr-icon>
+                      Send
+                      %span.patient-name
+                      a Message
+        / Modals for Appointment request decline
+        #decline-modal.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} ×
+                %modal-title Are you sure?
+              .modal-body
+                %form.form-horizontal{enctype: "multipart/form-data", method: "post"}
+                  %h3
+                    Are you sure you want to decline this appointment request from
+                    = succeed "?" do
+                      %span.patient-name
+                  .form-group.display-none
+                    .message-title
+                      %strong Message
+                      (optional)
+                    .col-md-12
+                      %textarea.form-control
+                  .form-action
+                    %button.btn.btn-info.decline-request-btn{type: "button"} Yes, Decline Request
+                    %a.text-danger.link-confirm{"data-dismiss" => "modal", href: "javascript:void(0)"} No, go back
+        / Modals for Appointment request cancel
+        #cancel-modal.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} ×
+                %modal-title Are you sure?
+              .modal-body
+                %h3
+                  Are you sure you want to cancel this appointment with
+                  = succeed "?" do
+                    %span.patient-name
+                %form.form-horizontal{enctype: "multipart/form-data", method: "post"}
+                  .form-group.display-none
+                    .message-title
+                      %strong Message
+                      (optional)
+                    .col-md-12
+                      %textarea.form-control
+                  .form-action
+                    %button.btn.btn-info.cancel-confirm-btn{type: "button"} Yes, Cancel Appointment
+                    %a.text-danger.link-confirm{"data-dismiss" => "modal", href: "javascript:void(0)"} No, go back
+        / Modal for successfully cancels an appointment
+        #cancel-success-modal.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} ×
+                %modal-title Appointment canceled
+              .modal-body.larger-bottom
+                %h3
+                  The appointment with
+                  %span.patient-name
+                  was canceled
+        / Modal for sucessfully declines a request
+        #decline-success-modal.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} ×
+                %modal-title Request declined
+              .modal-body.larger-bottom
+                %h3
+                  The appointment request from
+                  %span.patient-name
+                  was declined
+        / define the modal for showing video
+        #show-video-modal.general-modal.modal.fade{tabindex:"-1", role:"dialog", "aria-hidden" => "true"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"} &times;
+              .modal-body
+                %iframe{src:"", frameborder:"0", allowfullscreen:"true", width:"100%", height:"100%"}
+
+
+      - if current_user.account_type.downcase == 'patient'
+
+        / Modals for Appointment cancel
+        #pt-pending-cancel.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"}
+                  \×
+                %modal-title
+                  Are you sure?
+              .modal-body
+                %h3
+                  Are you sure you want to cancel this appointment request with
+                  = succeed "?" do
+                    %span.patient-name
+                %form.form-horizontal{enctype: "multipart/form-data", method: "post"}
+                  .form-actions
+                    %button.btn.btn-info.cancel-pending-btn{type: "button"}
+                      Yes, Cancel Request
+                    %a.text-danger.link-confirm{"data-dismiss" => "modal", href: "javascript:void(0)"}
+                      No, go back
+        / Modals for Appointment cancel
+        #pt-cancel.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"}
+                  \×
+                %modal-title
+                  Are you sure?
+              .modal-body
+                %h3
+                  Are you sure you want to cancel your appointment with
+                  = succeed "?" do
+                    %span.patient-name
+                  %h3 Cancellation charges may apply.
+                %form.form-horizontal{enctype: "multipart/form-data", method: "post"}
+                  .form-group.display-none
+                    .message-title
+                      %strong
+                        Message
+                      (optional)
+                    .col-md-12
+                      %textarea.form-control
+                  .form-actions
+                    %button.btn.btn-info.cancel-confirm-btn{type: "button"}
+                      Yes, Cancel Appointment
+                    %a.text-danger.link-confirm{"data-dismiss" => "modal", href: "javascript:void(0)"}
+                      No, go back
+        / Modal for successfully cancels an appointment
+        #pt-cancel-success.general-modal.modal{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"}
+                  \×
+                %modal-title
+                  Appointment canceled
+              .modal-body.larger-bottom
+                %h3
+                  The appointment with
+                  %span.patient-name
+                  was canceled
+    %script{src: "/assets/classie.js"}
+    /%script{src: "/assets/placeholders.min.js"}
+    = include_gon
+    = javascript_include_tag "https://js.stripe.com/v2/"
+    = requirejs_include_tag "app"
+    = csrf_meta_tags

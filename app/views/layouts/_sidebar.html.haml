@@ -1,0 +1,127 @@
+- if current_user
+  %aside.main-sidebar-user#main-sidebar
+    .sidebar-section.sidebar-user.clearfix
+      .sidebar-user-avatar.themed-background-snow
+        %a{href:"javascript:void(0)"}
+          - if current_user.getProfileable.picture_filelink?
+            %img{src:"#{current_user.getProfileable.picture_filelink}?#{Time.now.to_i}", alt:"user avatar", id:"sidebar-avatar"}/
+          - else
+            - if current_user.getProfileable.gender == 'M'
+              %img{src:"/images/user-avatar/Avatar-Male65x65.png", alt:"Male avatar", id:"sidebar-avatar"}/
+            - else
+              %img{src:"/images/user-avatar/Avatar-Female65x65.png", alt:"Female avatar", id:"sidebar-avatar"}/
+
+      .sidebar-username #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+      .edit-profile.text-primary
+        - if current_user.account_type.downcase == 'therapist'
+          %a{href:"/therapist/#{current_user.getProfileable.user_id}/edit", class:""} Edit Profile
+        - if current_user.account_type.downcase == 'patient'
+          %a{href:"/patient/#{current_user.getProfileable.user_id}/edit", class:""} Edit Profile
+       
+    %ul.sidebar-nav
+      %li
+        %a{href:"/"} 
+          %i.icon-house.integr-icon
+          Home
+      %li
+        %a#nav-appointment{href:"javascript:void(0);", class:"sidebar-nav-menu"} 
+          %i.fa.fa-angle-left.sidebar-nav-indicator
+          %i.icon-calendar6.integr-icon 
+          Appointments
+        %ul.scrollby-section
+          %li 
+            %a.upcoming-section{href:"/appointments#upcoming-section"} Upcoming
+          %li 
+            %a.request-section{href:"/appointments#request-section"} Requests
+          %li 
+            %a.past-cancel-section{href:"/appointments#past-cancel-section"} Past or Canceled
+
+      %li.display-none
+        %a{href:"javascript:void(0)"} 
+          /%span.badge.pull-right.item-notice 4
+          %i.icon-envelope4.integr-icon
+          Messages
+
+      - if current_user.account_type.downcase == 'therapist'
+        %li.display-none 
+          %a{href:"javascript:void(0)"} 
+            %i.icon-users4.integr-icon
+            Patients
+        %li.display-none
+          %a{href:"javascript:void(0)"} 
+            %i.icon-alarm3.integr-icon
+            Your Availability
+        %li.display-none 
+          %a{href:"javascript:void(0)"} 
+            %i.icon-creditcard.integr-icon
+            Billing
+
+      %li
+        %a{href:"javascript:void(0)", class:"sidebar-nav-menu", id:"nav-profile"} 
+          %i.fa.fa-angle-left.sidebar-nav-indicator
+          %i.icon-user8.integr-icon
+          Profile
+        - if current_user.account_type.downcase == 'therapist'
+          %ul.profile-scrollpy-section
+            %li 
+              %a.profile-pic-section{href:"/therapist/#{current_user.getProfileable.user_id}/edit#profile-pic-section"} Profile Picture and Video
+            %li 
+              %a.about-section{href:"/therapist/#{current_user.getProfileable.user_id}/edit#about-section"} About
+            %li 
+              %a.finances-section{href:"/therapist/#{current_user.getProfileable.user_id}/edit#finances-section"} Finances
+            %li 
+              %a.specialties-section{href:"/therapist/#{current_user.getProfileable.user_id}/edit#specialties-section"} Specialties and Expertise
+            %li 
+              %a.credentials-section{href:"/therapist/#{current_user.getProfileable.user_id}/edit#credentials-section"} Credentials
+
+        - if current_user.account_type.downcase == 'patient'
+          %ul.profile-scrollpy-section
+            %li 
+              %a.pt-pro-pic-section{href:"/patient/#{current_user.getProfileable.user_id}/edit#pt-pro-pic-section"} Profile Picture
+            %li 
+              %a.pt-contact-info-section{href:"/patient/#{current_user.getProfileable.user_id}/edit#pt-contact-info-section"} Contact Information
+            %li 
+              %a.pt-insurance-section{href:"/patient/#{current_user.getProfileable.user_id}/edit#pt-insurance-section"} Insurance
+            %li 
+              %a.pt-mh-section{href:"/patient/#{current_user.getProfileable.user_id}/edit#pt-mh-section"} Medical History
+      %li
+        %a{href:"javascript:void(0)", class:"sidebar-nav-menu", id:"nav-account"} 
+          %i.fa.fa-angle-left.sidebar-nav-indicator
+          %i.icon-archive2.integr-icon
+          Account
+        %ul.account-scrollby-section
+          - if current_user.account_type.downcase == 'therapist'
+            %li 
+              %a.account-info-section{href:"/profiles/#{current_user.getProfileable.user_id}#account-info-section"} Account Information
+            %li 
+              %a.practice-details-section{href:"/profiles/#{current_user.getProfileable.user_id}#practice-details-section"} Practice Details
+            %li 
+              %a.intake-forms-section{href:"/profiles/#{current_user.getProfileable.user_id}#intake-forms-section"} Intake Forms
+            %li 
+              %a.change-password-section{href:"/profiles/#{current_user.getProfileable.user_id}#change-password-section"} Change Password
+          - if current_user.account_type.downcase == 'patient'
+            %li 
+              %a.intake-forms-section{href:"/patient/#{current_user.getProfileable.patient_id}#billing-section"} Billing
+            %li 
+              %a.change-password-section{href:"/patient/#{current_user.getProfileable.patient_id}#change-password-section"} Change Password
+
+      - if current_user.account_type.downcase == 'patient'
+        %li 
+          %a{href:"/"} 
+            %i.icon-user-md.integr-icon
+            Search Therapists
+
+      %li.display-none
+        %a{href:"javascript:void(0)"} 
+          %i.icon-wand.integr-icon
+          Technical Support
+      %li.display-none 
+        %a{href:"javascript:void(0)"} 
+          %i.icon-dashboard2.integr-icon
+          Test your System
+      %li 
+        %a#nav-logout{href:"javascript:void(0)"} 
+          %i.icon-in-alt.integr-icon
+          Log Out
+- else 
+  %aside.main-sidebar-user#main-sidebar{style:"display:none;"}

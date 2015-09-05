@@ -1,0 +1,105 @@
+/ Custom this files
+!!!
+%html
+  %head
+    %title Etherapi
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    - if protect_against_forgery?
+      %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
+    %link(href="/favicon.ico" rel="shortcut icon")
+    = stylesheet_link_tag    "main", media: "all"
+    = stylesheet_link_tag    "homepage-for-therapist", media: "all"
+  %body
+    .page-container.public-layout
+      = render :partial => 'layouts/header'
+      .main-container
+        .content-container.full-width
+          .sub-header-wrap
+            .notice.themed-background-warning#sub-header-notification
+              %button.close{type: "button"} ×
+              %span.content
+                Join upcoming session with
+                %span.user-name John Patient
+            .sub-header-section
+          .main-content
+            .top-banner
+            = yield
+            .public-profile-container.container-fluid
+            #patient-payment-container
+            #terms-wrapper
+
+          / %footer.sub-footer
+          /   .pull-right
+          /     %i.fa.fa-heart.text-danger
+          /     Lovingly made in NYC & SF
+          /   .pull-left
+          /     2014 &copy;
+          /     %a{href:""} eTherapi
+          = render :partial => 'layouts/footer'
+        = render :partial => 'layouts/sidebarPublic'
+
+    #show-video-modal.general-modal.modal{tabindex:"-1", role:"dialog", "aria-hidden" => "true"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"} &times;
+          .modal-body
+            %iframe{src:"", frameborder:"0", allowfullscreen:"true", width:"100%", height:"100%"}
+    / message me modal
+    #send-message-modal.general-modal.modal{tabindex:"-1", role:"dialog", "aria-hidden" => "true"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"} &times;
+            %modal-title Send a message to Arthur Belriver
+          .modal-body
+            %form.form-horizontal{action:"", method:""}
+              / first name group
+              .form-group.form-group-md
+                %label{for:"", class:"control-label col-md-4"} First Name
+                .col-md-7
+                  .input-group
+                    %input{type:"text", class:"form-control input-md", placeholder:"e.g., Amanda"}/
+                    %span.input-group-addon.group-addon-lg
+                      %i.icon-user7
+              / last name group
+              .form-group.form-group-md
+                %label{for:"", class:"control-label col-md-4"} Last Name
+                .col-md-7
+                  .input-group
+                    %input{type:"text", class:"form-control input-md", placeholder:"e.g., Robinson"}/
+                    %span.input-group-addon.group-addon-lg
+                      %i.icon-user7
+              / email group
+              .form-group.form-group-md
+                %label{for:"", class:"control-label col-md-4"} Email Address
+                .col-md-7
+                  .input-group
+                    %input{type:"text", class:"form-control input-md", placeholder:"e.g., arobinson@mail.com"}/
+                    %span.input-group-addon.group-addon-lg
+                      %i.fa.fa-envelope
+              / phone group
+              .form-group.form-group-md
+                %label{for:"", class:"control-label col-md-4"} Phone Number
+                .col-md-7
+                  .input-group
+                    %input{type:"text", class:"form-control input-md", placeholder:"xxx-xxx-xxxx"}/
+                    %span.input-group-addon.group-addon-lg
+                      %i.icon-phone3
+              / message input group
+              .form-group
+                .message-title
+                  %strong Message
+                .col-md-12
+                  %textarea.form-control{name:"", class:"pgh-input"}
+              / action group
+              %button.btn.btn-info.btn-large{type:"button"} Send Message
+    %script{src: "/assets/classie.js"}
+
+
+    = include_gon
+    = requirejs_include_tag "app"
+    = csrf_meta_tags

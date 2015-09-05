@@ -1,0 +1,30 @@
+h4 Import Language
+
+= form_tag language_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+%hr/
+h4 Import State
+= form_tag state_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+%hr/
+h4 Import Country
+= form_tag country_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+%hr/
+h4 Import time zone
+= form_tag timezone_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+/ %hr/
+/ h4 Import insurrance company
+/ = form_tag insurance_company_imports_path, multipart: true do
+/   = file_field_tag :file
+/   = submit_tag "Import"
+%hr/
+h4 Import specialty
+= form_tag speciality_imports_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"

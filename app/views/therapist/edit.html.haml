@@ -1,0 +1,37 @@
+/ %h1 Therapist Account
+
+/ = javascript_include_tag "nested_form"
+/ = nested_form_for @therapist, url: therapist_path, :method => :put do |therapist_form|
+/   - if @therapist.errors.any?
+/     .error_messages
+/       %h2
+/         = pluralize(@therapist.errors.count, "error")
+/         prohibited this user from being saved:
+/       %ul
+/         - @therapist.errors.full_messages.each do |msg|
+/           %li= msg
+/   %div{:class => "panel panel-default"}          
+/     %h3 Account Information          
+/     = render :partial => "shared/therapist_profile_account", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+/   %div{:class => "panel panel-default"}    
+/     %h3 Languages
+/     = render :partial => "shared/therapist_profile_language", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+/   %div{:class => "panel panel-default"}    
+/     %h3 Address
+/     = render :partial => "shared/therapist_profile_address", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+/   %div{:class => "panel panel-default"}    
+/     %h3 Background
+/     = render :partial => "shared/therapist_profile_background", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+/   %div{:class => "panel panel-default"}
+/     %h3 Licenses
+/     = render :partial => "shared/therapist_profile_license", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+/   %div{:class => "panel panel-default"}    
+/     %h3 Speciality
+/     = render :partial => "shared/therapist_profile_speciality", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+    
+/   %div{:class => "panel panel-default"}    
+/     %h3 Accepted Insurance
+/     = render :partial => "shared/therapist_profile_insurance", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+
+/   .actions
+/     = therapist_form.submit "Save"

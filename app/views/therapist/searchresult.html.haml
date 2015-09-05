@@ -1,0 +1,20 @@
+#search-therapist-wrapper
+/ %h1 Therapist Search
+
+/ -@result.each do |therapist|
+/   %div{:class => "panel panel-default"}
+/     =image_tag(therapist.picture_filelink.to_s, size: "100x150")
+/     %h3
+/       = therapist.display_name
+/       ,
+/       = therapist.primary_speciality
+/     = therapist.therapist_profile.about_me
+/     %br
+/     $
+/     = therapist.therapist_profile.hourly_rate_max
+/     %br
+/     Insurance plans accepted
+/     %br
+    
+/     = link_to("View Profile", therapist_profile_path(therapist.therapist_id))
+

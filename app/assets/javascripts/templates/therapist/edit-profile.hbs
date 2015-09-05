@@ -1,0 +1,638 @@
+
+<div class="therapist-edit-profile">
+  <!--degine the content-header of the edit-profile page-->
+  <div class="content-header">
+    <div class="header-section">
+      <h1>Public Profile<i class="icon-user8"></i></h1>
+      <br /><small>The information on this page will be visible to users searching for therapists or psychiatrists on the eTherapi website.</small>
+    </div>
+  </div>
+  <!--define the content of edit-profile page-->
+  <div class="row">
+    <div class="edit-profile-nav slave-nav col-md-3 affix-menu-nav aside-content">
+      <!--define the list-group-->
+      <ul class="list-group nav">
+        <li target=".profile-pic-section">
+          <a href="#profile-pic-section" class="list-group-item profile-pic-nav profile-pic-section"><h4 class="list-group-item-heading">Profile Picture and Video</h4></a>
+        </li>
+        <li target=".about-section">
+          <a href="#about-section" class="list-group-item about-nav"><h4 class="list-group-item-heading about-section">About</h4></a>
+        </li>
+        <li target=".finances-section">
+          <a href="#finances-section" class="list-group-item finances-nav"><h4 class="list-group-item-heading finances-section">Finances</h4></a>
+        </li>
+        <li target=".specialties-section">
+          <a href="#specialties-section" class="list-group-item specialties-nav"><h4 class="list-group-item-heading specialties-section">Specialties and Expertise</h4></a>
+        </li>
+        <li target=".credentials-section">
+          <a href="#credentials-section" class="list-group-item credentials-nav"><h4 class="list-group-item-heading credentials-section">Credentials</h4></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="edit-profile-content listview-content col-md-9 pri-content">
+      
+      <div class="profile-button-group">
+        <a href="javascript:void(0);" class="btn btn-success view-profile-btn">View Profile</a>
+        <button type="button" class="btn btn-info save-edit-profile">Save Profile</button>
+      </div>
+
+      <div class="edit-profile-detail">
+        <!--define the picture-video block-->
+        <div class="picture-video block col-md-12" id="profile-pic-section">
+          <div class="block-title">
+            <h2>Profile Picture and Video</h2>
+          </div>
+          <form method="post" class="form-horizontal form-bordered">
+            <div class="avatar-container row no-gutter">
+              <div class="col-md-6 no-gutter">
+                <div class="user-avatar-section clearfix">
+                  <div class="user-avatar">
+                    <a href="javascript:void(0)" class="img-rounded">
+                      <img src="{{checkAvatar120 picture_filelink.url gender}}?{{currentTime}}" alt="avatar" id="real-avt"/>
+                    </a>
+                  </div>
+                  <div class="avatar-action">
+                    <div class="user-avatar-upload">
+                      <button data-toggle="modal" data-target="#profile-upload-modal" type="button" class="btn btn-info change-avatar">Upload New Picture</button>
+                    </div>
+                    <div class="user-avatar-delete"><a href="javascript:void(0)" class="text-danger" id="del-avatar-btn">Delete picture</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form method="post" class="introduction-video form-horizontal form-bordered">
+            <div class="title">Introduction Video</div>
+            <div class="record-video row no-gutter">
+              <div class="col-md-12 no-gutter">
+                <a href="https://www.youtube.com/my_webcam" target="_blank" class="btn btn-info record-btn">Record an introduction video using YouTube</a>
+              </div>
+              <div class="col-md-12 no-gutter">
+                <label class="control-label">Enter the link to your introduction YouTube video.</label>
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., https://www.youtube.com/watch?v=AopXAyul7yY" class="form-control medium-form-control" value="{{therapist_profile_attributes.youtube_link}}" id="youtube-url"/><span class="input-group-addon group-addon-lg"><i class="fa fa-youtube-play"></i></span>
+                </div>
+                <div class="help-block animation-slideDown">Please enter a valid Youtube URL!</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--define the about block-->
+        <div class="about block col-md-12" id="about-section">
+          <div class="block-title">
+            <h2>About</h2>
+          </div>
+          <form method="post" class="form-horizontal form-bordered">
+            <div class="title">Bio</div>
+            <div class="form-group">
+              <div class="editor-group col-xs-12">
+                <textarea rows="10" class="form-control textarea-editor" value="{{therapist_profile_attributes.about_me}}" id="about-me-txt"></textarea>
+              </div>
+            </div>
+            <div class="title language-title">Languages Spoken</div>
+            <div class="form-group">
+              <div class="include-popover language-spoken col-md-12">
+                <!--define the select-chosen-multiple -->
+                <div class="chosen-wrapper col-md-6 no-gutter">
+                  <select data-placeholder="Select" class="form-control input-md" id="language-spoken-txt" multiple>
+                    {{#each language_cdes}}
+                      <option value="{{language}}--{{language_code}}" {{checkMulLang language_code ../therapist_language_attributes}}>{{language}}</option>
+                    {{/each}}
+                  </select>
+                  <div class="popover right">
+                    <div class="arrow"></div>
+                    <div class="pop-over-content">Click to select among the options provided.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--define the price block-->
+        <div class="price block col-md-12" id="finances-section">
+          <div class="block-title">
+            <h2>Finances</h2>
+          </div>
+          <form method="post" class="form-horizontal form-bordered">
+            <div class="title">Pricing</div>
+            <!--form-group include select cash and time-->
+            <div class="pricing form-group">
+              <div class="col-md-7">
+                <div class="cash col-md-5">
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-usd"></i>
+                    </div>
+                    <input type="text" class="form-control valid medium-form-control" value="{{therapist_profile_attributes.hourly_rate_max}}" id="pricing-txt"/>
+                  </div>
+                  <div class="help-block animation-slideDown">Fee must be an integer number!</div>
+                </div>
+                <div class="solid-text col-md-2">for up to</div>
+                <div class="time col-md-5">
+                  <select class="select-chosen form-control" id="duration-chosen">
+                    <option value="0" {{checkSelectedChosen session_duration 0}}>0 minute</option>
+                    <option value="15" {{checkSelectedChosen session_duration 15}}>15 minutes</option>
+                    <option value="30" {{checkSelectedChosen session_duration 30}}>30 minutes</option>
+                    <option value="45" {{checkSelectedChosen session_duration 45}}>45 minutes</option>
+                    <option value="60" {{checkSelectedChosen session_duration 60}}>60 minutes</option>
+                    <option value="75" {{checkSelectedChosen session_duration 75}}>75 minutes</option>
+                    <option value="90" {{checkSelectedChosen session_duration 90}}>90 minutes</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pricing-offer col-md-7">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" {{checkCheckbox therapist_profile_attributes.sliding_scale}} id="sliding-scale-cb"/><span>I offer a sliding scale - Let patients contact me for details</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!--subtitle for block-->
+            <div class="title cancellation-title">Cancellation</div>
+            <!--form-group include checkbox and popover-->
+            <div class="cancellation include-popover form-group">
+              <div class="col-md-12">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" {{checkCheckbox therapist_profile_attributes.charge_for_cancellation}} id="cancel-cb"/><span>Charge a cancellation fee if a client cancels with less than 24 hours notice</span>
+                  </label>
+                  <div class="popover right">
+                    <div class="arrow"></div>
+                    <div class="pop-over-content">You will be given the option to charge the client up to the session amount after the late cancellation occurs.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="title">Insurance Plans Accepted</div>
+            <div class="insurance-plan form-group">
+              <div class="include-popover col-md-12">
+                <!--define the select-chosen-multiple-->
+                <div class="chosen-wrapper col-md-6 no-gutter">
+                  <select data-placeholder="Add Insurance" class="form-control input-md" id="insurance-txt" multiple>
+                    {{#each insurance_payers_name}}
+                      <option value="{{payers_name}}--{{id}}" {{checkMulInsurances id ../therapist_accept_insurance_attributes}}>{{payers_name}}</option>
+                    {{/each}}
+                  </select>
+                  <div class="popover right">
+                    <div class="arrow"></div>
+                    <div class="pop-over-content">Click to select among the options provided.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--define the Expertise and Specialties block-->
+        <div class="expertise block col-md-12" id="specialties-section">
+          <div class="block-title">
+            <h2>Specialties and Expertise</h2>
+          </div>
+          <form method="post" class="specialties-form form-horizontal form-bordered">
+            <div class="form-group">
+              <div class="row no-gutter">
+                <div class="col-md-6">
+                  <div class="title">Specialties (up to 3)</div>
+                  <div class="specialties form-group">
+                    <div class="include-popover col-md-12 no-gutter">
+                      <!--define the select-chosen-multiple-->
+                      <div class="chosen-wrapper col-md-5 no-gutter speciality">
+                        <select data-placeholder="Select" class="form-control input-md" id="speciality-txt" multiple>
+                          <option></option>
+                          {{#each speciality}}
+                            <option value="{{name}}-{{speciality_id}}" {{checkMulChosen speciality_id ../specialityArr}}>{{name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                      <div class="popover right">
+                        <div class="arrow"></div>
+                        <div class="pop-over-content">Click to select among the options provided.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="title">Additional Expertise</div>
+                  <div class="additional-expertise form-group">
+                    <div class="include-popover col-md-12 no-gutter">
+                      <!--define the select-chosen-multiple-->
+                      <div class="chosen-wrapper col-md-5 no-gutter">
+                        <select data-placeholder="Select" class="form-control input-md" id="additional-txt" multiple>
+                          {{#each speciality}}
+                            <option value="{{name}}-{{speciality_id}}" {{checkMulChosen speciality_id ../addtionalArr}}>{{name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                      <div class="popover right">
+                        <div class="arrow"></div>
+                        <div class="pop-over-content">Click to select among the options provided.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="treatment form-group">
+              <div class="row no-gutter">
+                <div class="col-md-6">
+                  <div class="title">Treatment Approach</div>
+                  <div class="treatment-approach form-group">
+                    <div class="include-popover col-md-12 no-gutter">
+                      <!--define the select-chosen-multiple-->
+                      <div class="chosen-wrapper col-md-5 no-gutter">
+                        <div class="tagsinput col-md-9">
+                          <input type="text" value="{{therapist_profile_attributes.treatment_approach}}" class="input-tags treatment-tags" id="treatment-txt" placeholder="Type"/>
+                        </div>
+                      </div>
+                      <div class="popover right">
+                        <div class="arrow"></div>
+                        <div class="pop-over-content">Click to select among the options provided or enter additional ones.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="title">Demographics Served</div>
+                  <div class="demographic-served form-group">
+                    <div class="include-popover col-md-12 no-gutter">
+                      <!--define the select-chosen-multiple-->
+                      <div class="chosen-wrapper col-md-5 no-gutter">
+                        <div class="tagsinput col-md-9">
+                          <input type="text" value="{{therapist_profile_attributes.demographics_served}}" class="input-tags demographics-served" id="demographics-txt" placeholder="Type"/>
+                        </div>
+                      </div>
+                      <div class="popover right">
+                        <div class="arrow"></div>
+                        <div class="pop-over-content">Click to select among the options provided or enter additional ones.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--define the Credentials block-->
+        <div class="credential block col-md-12" id="credentials-section">
+          <div class="block-title">
+            <h2>Credentials</h2>
+          </div>
+          <form method="post" class="form-horizontal form-bordered">
+            <!--define the data table of license-->
+            <div class="title">License(s)</div>
+            <div class="license-group">
+              <div class="total-block-data">
+                <!--define the header columns of table-->
+                <header class="header-striped-row clearfix">
+                  <div class="state general-column">
+                    <div class="cell-wrapper">
+                      <div class="cell"><span>State</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="license-type general-column">
+                    <div class="cell-wrapper">
+                      <div class="cell"><span>License Type</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="license general-column">
+                    <div class="cell-wrapper">
+                      <div class="cell"><span>License #</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="expiration general-column">
+                    <div class="cell-wrapper">
+                      <div class="cell"><span>Expiration</span>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <!--data content-->
+                <div class="data-group license-list-data">
+
+                </div><a href="javascript:void(0)" class="add-more" id="add-license">+ Add another license</a>
+              </div>
+            </div>
+            <div class="title">Years in Practice</div>
+            <div class="practice form-group">
+              <div class="col-md-3">
+                <select data-placeholder="Select a Number" class="select-chosen form-control" id="experience-chosen">
+                    <option></option>
+                    <option value="1" {{checkSelectedChosen 1 therapist_profile_attributes.experience_years}}>
+                      1
+                    </option>
+                    <option value="2" {{checkSelectedChosen 2 therapist_profile_attributes.experience_years}}>
+                      2
+                    </option>
+                    <option value="3" {{checkSelectedChosen 3 therapist_profile_attributes.experience_years}}>
+                      3
+                    </option>
+                    <option value="4" {{checkSelectedChosen 4 therapist_profile_attributes.experience_years}}>
+                      4
+                    </option>
+                    <option value="5" {{checkSelectedChosen 5 therapist_profile_attributes.experience_years}}>
+                      5
+                    </option>
+                    <option value="6" {{checkSelectedChosen 6 therapist_profile_attributes.experience_years}}>
+                      6
+                    </option>
+                    <option value="7" {{checkSelectedChosen 7 therapist_profile_attributes.experience_years}}>
+                      7
+                    </option>
+                    <option value="8" {{checkSelectedChosen 8 therapist_profile_attributes.experience_years}}>
+                      8
+                    </option>
+                    <option value="9" {{checkSelectedChosen 9 therapist_profile_attributes.experience_years}}>
+                      9
+                    </option>
+                    <option value="10" {{checkSelectedChosen 10 therapist_profile_attributes.experience_years}}>
+                      10
+                    </option>
+                    <option value="11" {{checkSelectedChosen 11 therapist_profile_attributes.experience_years}}>
+                      11
+                    </option>
+                    <option value="12" {{checkSelectedChosen 12 therapist_profile_attributes.experience_years}}>
+                      12
+                    </option>
+                    <option value="13" {{checkSelectedChosen 13 therapist_profile_attributes.experience_years}}>
+                      13
+                    </option>
+                    <option value="14" {{checkSelectedChosen 14 therapist_profile_attributes.experience_years}}>
+                      14
+                    </option>
+                    <option value="15" {{checkSelectedChosen 15 therapist_profile_attributes.experience_years}}>
+                      15
+                    </option>
+                    <option value="16" {{checkSelectedChosen 16 therapist_profile_attributes.experience_years}}>
+                      16
+                    </option>
+                    <option value="17" {{checkSelectedChosen 17 therapist_profile_attributes.experience_years}}>
+                      17
+                    </option>
+                    <option value="18" {{checkSelectedChosen 18 therapist_profile_attributes.experience_years}}>
+                      18
+                    </option>
+                    <option value="19" {{checkSelectedChosen 19 therapist_profile_attributes.experience_years}}>
+                      19
+                    </option>
+                    <option value="20" {{checkSelectedChosen 20 therapist_profile_attributes.experience_years}}>
+                      20
+                    </option>
+                    <option value="21" {{checkSelectedChosen 21 therapist_profile_attributes.experience_years}}>
+                      21
+                    </option>
+                    <option value="22" {{checkSelectedChosen 22 therapist_profile_attributes.experience_years}}>
+                      22
+                    </option>
+                    <option value="23" {{checkSelectedChosen 23 therapist_profile_attributes.experience_years}}>
+                      23
+                    </option>
+                    <option value="24" {{checkSelectedChosen 24 therapist_profile_attributes.experience_years}}>
+                      24
+                    </option>
+                    <option value="25" {{checkSelectedChosen 25 therapist_profile_attributes.experience_years}}>
+                      25
+                    </option>
+                    <option value="26" {{checkSelectedChosen 26 therapist_profile_attributes.experience_years}}>
+                      26
+                    </option>
+                    <option value="27" {{checkSelectedChosen 27 therapist_profile_attributes.experience_years}}>
+                      27
+                    </option>
+                    <option value="28" {{checkSelectedChosen 28 therapist_profile_attributes.experience_years}}>
+                      28
+                    </option>
+                    <option value="29" {{checkSelectedChosen 29 therapist_profile_attributes.experience_years}}>
+                      29
+                    </option>
+                    <option value="30" {{checkSelectedChosen 30 therapist_profile_attributes.experience_years}}>
+                      30
+                    </option>
+                    <option value="31" {{checkSelectedChosen 31 therapist_profile_attributes.experience_years}}>
+                      31
+                    </option>
+                    <option value="32" {{checkSelectedChosen 32 therapist_profile_attributes.experience_years}}>
+                      32
+                    </option>
+                    <option value="33" {{checkSelectedChosen 33 therapist_profile_attributes.experience_years}}>
+                      33
+                    </option>
+                    <option value="34" {{checkSelectedChosen 34 therapist_profile_attributes.experience_years}}>
+                      34
+                    </option>
+                    <option value="35" {{checkSelectedChosen 35 therapist_profile_attributes.experience_years}}>
+                      35
+                    </option>
+                    <option value="36" {{checkSelectedChosen 36 therapist_profile_attributes.experience_years}}>
+                      36
+                    </option>
+                    <option value="37" {{checkSelectedChosen 37 therapist_profile_attributes.experience_years}}>
+                      37
+                    </option>
+                    <option value="38" {{checkSelectedChosen 38 therapist_profile_attributes.experience_years}}>
+                      38
+                    </option>
+                    <option value="39" {{checkSelectedChosen 39 therapist_profile_attributes.experience_years}}>
+                      39
+                    </option>
+                    <option value="40" {{checkSelectedChosen 40 therapist_profile_attributes.experience_years}}>
+                      40
+                    </option>
+                    <option value="41" {{checkSelectedChosen 41 therapist_profile_attributes.experience_years}}>
+                      41
+                    </option>
+                    <option value="42" {{checkSelectedChosen 42 therapist_profile_attributes.experience_years}}>
+                      42
+                    </option>
+                    <option value="43" {{checkSelectedChosen 43 therapist_profile_attributes.experience_years}}>
+                      43
+                    </option>
+                    <option value="44" {{checkSelectedChosen 44 therapist_profile_attributes.experience_years}}>
+                      44
+                    </option>
+                    <option value="45" {{checkSelectedChosen 45 therapist_profile_attributes.experience_years}}>
+                      45
+                    </option>
+                    <option value="46" {{checkSelectedChosen 46 therapist_profile_attributes.experience_years}}>
+                      46
+                    </option>
+                    <option value="47" {{checkSelectedChosen 47 therapist_profile_attributes.experience_years}}>
+                      47
+                    </option>
+                    <option value="48" {{checkSelectedChosen 48 therapist_profile_attributes.experience_years}}>
+                      48
+                    </option>
+                    <option value="49" {{checkSelectedChosen 49 therapist_profile_attributes.experience_years}}>
+                      49
+                    </option>
+                    <option value="50" {{checkSelectedChosen 50 therapist_profile_attributes.experience_years}}>
+                      50
+                    </option>
+                    <option value="51" {{checkSelectedChosen 51 therapist_profile_attributes.experience_years}}>
+                      51
+                    </option>
+                    <option value="52" {{checkSelectedChosen 52 therapist_profile_attributes.experience_years}}>
+                      52
+                    </option>
+                    <option value="53" {{checkSelectedChosen 53 therapist_profile_attributes.experience_years}}>
+                      53
+                    </option>
+                    <option value="54" {{checkSelectedChosen 54 therapist_profile_attributes.experience_years}}>
+                      54
+                    </option>
+                    <option value="55" {{checkSelectedChosen 55 therapist_profile_attributes.experience_years}}>
+                      55
+                    </option>
+                    <option value="56" {{checkSelectedChosen 56 therapist_profile_attributes.experience_years}}>
+                      56
+                    </option>
+                    <option value="57" {{checkSelectedChosen 57 therapist_profile_attributes.experience_years}}>
+                      57
+                    </option>
+                    <option value="58" {{checkSelectedChosen 58 therapist_profile_attributes.experience_years}}>
+                      58
+                    </option>
+                    <option value="59" {{checkSelectedChosen 59 therapist_profile_attributes.experience_years}}>
+                      59
+                    </option>
+                    <option value="60" {{checkSelectedChosen 60 therapist_profile_attributes.experience_years}}>
+                      60
+                    </option>
+                    <option value="61" {{checkSelectedChosen 61 therapist_profile_attributes.experience_years}}>
+                      61
+                    </option>
+                    <option value="62" {{checkSelectedChosen 62 therapist_profile_attributes.experience_years}}>
+                      62
+                    </option>
+                    <option value="63" {{checkSelectedChosen 63 therapist_profile_attributes.experience_years}}>
+                      63
+                    </option>
+                    <option value="64" {{checkSelectedChosen 64 therapist_profile_attributes.experience_years}}>
+                      64
+                    </option>
+                    <option value="65" {{checkSelectedChosen 65 therapist_profile_attributes.experience_years}}>
+                      65
+                    </option>
+                    <option value="66" {{checkSelectedChosen 66 therapist_profile_attributes.experience_years}}>
+                      66
+                    </option>
+                    <option value="67" {{checkSelectedChosen 67 therapist_profile_attributes.experience_years}}>
+                      67
+                    </option>
+                    <option value="68" {{checkSelectedChosen 68 therapist_profile_attributes.experience_years}}>
+                      68
+                    </option>
+                    <option value="69" {{checkSelectedChosen 69 therapist_profile_attributes.experience_years}}>
+                      69
+                    </option>
+                    <option value="70" {{checkSelectedChosen 70 therapist_profile_attributes.experience_years}}>
+                      70
+                    </option>
+                </select>
+              </div>
+            </div>
+            <!--define the data table of schools block-->
+            <div class="school-block-title title">Schools and Degrees</div>
+            <div class="include-popover school-degree form-group">
+              <div class="total-block-data">
+
+                <!--data content-->
+                <div class="data-group school-list-data">
+
+                </div><a href="javascript:void(0)" class="add-more" id="add-school">+ Add School and Degree</a>
+              </div>
+              <div class="popover right">
+                <div class="arrow"></div>
+                <div class="pop-over-content">It's best if you use this format: School Name: Degree - Degree year</div>
+              </div>
+            </div>
+            <!--defiine the Professional Association block-->
+            <div class="association-block-title title">Professional Associations</div>
+            <div class="association form-group">
+              <div class="total-block-data">
+
+                <!--data content-->
+                <div class="data-group professional-list-data">
+
+                </div><a href="javascript:void(0)" class="add-more" id="add-professional-asscociation">+ Add Professional Association</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="profile-button-group">
+        <a href="javascript:void(0);" class="btn btn-success view-profile-btn">View Profile</a>
+        <button type="button" class="btn btn-info save-edit-profile">Save Profile</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!--define the modal for profile upload-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal" id="profile-upload-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+        <modal-title>Upload Image</modal-title>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="original-size col-md-6 no-gutter">
+            <div class="original-upload-photo">
+              <div class="cropMain"></div>
+              <div class="cropSlider"></div>
+              {{!-- <button class="cropButton">Crop</button> --}}
+            </div>
+            {{!-- <div class="col-md-12 no-gutter"> --}}
+              {{!-- <div class="small-illustration"><span><i class="fa fa-picture-o"></i></span>
+              </div> --}}
+              {{!-- <div class="slider-wrapper">
+                <div class="slider slider-horizontal">
+                  <div class="slider-track">
+                    <div class="slider-selection"></div>
+                    <div class="slider-handle round"></div>
+                    <div class="slider-handle round hide"></div>
+                  </div>
+                </div>
+              </div> --}}
+              {{!-- <div class="large-illustration"><span><i class="fa fa-picture-o fa-2x"></i></span>
+              </div> --}}
+            {{!-- </div> --}}
+          </div>
+          <div class="crop-size col-md-6 no-gutter">
+            <div class="crop-photo">
+              <p><span>Preview</span>
+              </p>
+              <div class="photo-wrapper-crop">
+                <img src="{{checkAvatar120 picture_filelink.url gender}}" alt="user avatar" id="preview-avatar" class="img-rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="wrap-send-btn">
+          <div class="upload-btn btn btn-success" style="position:relative;">
+            <span>Upload Picture</span>
+            <input type="file" id="uploadfile" style="width: 100%;
+height: 100%;
+position: absolute;
+right: 0;
+top: 0;
+opacity: 0;">
+          </div>
+          <button type="button" class="save-btn btn btn-info" id="save-crop-avt"><span>Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/bootstrap-wysihtml5.js"></script>
+<script src="/assets/typeahead.js"></script>

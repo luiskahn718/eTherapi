@@ -1,0 +1,21 @@
+// define input
+.form-group-md .chosen-single,
+.input-md {
+	height: 42px;
+}
+
+.form-group-md {
+	.control-label {
+		padding-top: 12px;
+	}
+
+	.chosen-single {
+		padding-top: 2px;
+	}
+}
+
+input[type="text"],
+input[type="password"] {
+	padding-top: 0;
+	padding-bottom: 0;
+}

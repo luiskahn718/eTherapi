@@ -1,0 +1,68 @@
+.field
+  = patient_form.label :first_name
+  %br
+  = patient_form.text_field :first_name
+  
+.field
+  = patient_form.label :last_name
+  %br
+  = patient_form.text_field :last_name
+  
+.field
+  = patient_form.label :middle_name
+  %br
+  = patient_form.text_field :middle_name
+
+.field
+  = patient_form.label :nick_name
+  %br
+  = patient_form.text_field :nick_name
+
+.field
+  = patient_form.label :date_of_birth
+  %br
+  = patient_form.date_select :date_of_birth, start_year: 1900, end_year: Date.today.year, include_blank: true
+
+.field
+  = patient_form.label :ssn
+  %br
+  = patient_form.text_field :ssn
+
+.field
+  = patient_form.label :language
+  %br
+  = patient_form.collection_select(:language, LanguageCde.all, :language_code, :language, :include_blank => "Select a Language" )
+
+.field
+  = patient_form.label :gender
+  %br
+  = patient_form.select :gender, options_for_select([["Select One", ""], ["Male", "M"], ["Female", "F"]], :selected => patient_form.object.gender)
+  
+.field
+  = patient_form.label :timezone
+  %br
+  = patient_form.collection_select(:timezone, TimezoneCde.all, :id, :name, :include_blank => "Select a TimeZone" )
+.field
+  = patient_form.label :phone_work
+  %br
+  = patient_form.text_field :phone_work
+
+.field
+  = patient_form.label :phone_home
+  %br
+  = patient_form.text_field :phone_home
+
+.field
+  = patient_form.label :phone_mobile
+  %br
+  = patient_form.text_field :phone_mobile
+
+.field
+  = patient_form.label :medical_history
+  %br
+  = patient_form.text_field :medical_history
+
+.field
+  = patient_form.label :picture_filelink
+  %br
+  = patient_form.text_field :picture_filelink

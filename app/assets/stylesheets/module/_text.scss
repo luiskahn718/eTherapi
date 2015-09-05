@@ -1,0 +1,49 @@
+// placeholder text for input
+.placeholder-text {
+	font-size: 15px;
+}
+
+.add-more,
+.add-more:hover {
+  color: #1ba4dc;
+}
+
+.add-more {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.form-group {
+	.control-label {
+		@include semi-bold-font;
+	}
+}
+
+.large-title,
+.medium-title,
+.super-large-title {
+  @include bold-font;
+}
+
+
+// define the title
+.large-title {
+  font-size: 24px;
+}
+
+.medium-title {
+  font-size: 18px;
+}
+
+.super-large-title {
+  font-size: 48px;
+}
+
+// set the height for form-control
+.medium-form-control {
+  height: 40px;
+}
+

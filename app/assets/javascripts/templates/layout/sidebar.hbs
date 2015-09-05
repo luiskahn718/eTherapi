@@ -1,0 +1,226 @@
+{{!-- <aside class="main-sidebar-user" id="main-sidebar"> --}}
+  <div class="section">
+    <div class="sidebar-section sidebar-user clearfix">
+      <div class="sidebar-user-avatar themed-background-snow">
+        <a href="javascript:void(0)">
+          <img src="{{checkAvatar65 profile.picture_filelink.url profile.gender}}" alt="user avatar"
+        </a>
+      </div>
+      <div class="sidebar-username">
+        {{user.first_name}} {{user.last_name}}
+      </div>
+      <div class="edit-profile text-primary">
+        {{#if isTherapist}}
+          <a href="/therapist/{{user.user_id}}/edit">
+            Edit Profile
+          </a>
+        {{else}}
+          <a href="/patient/{{user.user_id}}/edit">
+            Edit Profile
+          </a>
+        {{/if}}
+      </div>
+    </div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="/">
+          <i class="icon-house integr-icon">
+          </i>
+          Home
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-nav-menu" href="javascript:void(0);" id="nav-appointment">
+          <i class="fa fa-angle-left sidebar-nav-indicator">
+          </i>
+          <i class="icon-calendar6 integr-icon">
+          </i>
+          Appointments
+        </a>
+        <ul class="scrollby-section">
+          <li>
+            <a class="upcoming-section" href="/appointments#upcoming-section">
+              Upcoming
+            </a>
+          </li>
+          <li>
+            <a class="request-section" href="/appointments#request-section">
+              Requests
+            </a>
+          </li>
+          <li>
+            <a class="past-cancel-section" href="/appointments#past-cancel-section">
+              Past or Canceled
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          {{!-- <span class="badge pull-right item-notice">
+            4
+          </span> --}}
+          <i class="icon-envelope4 integr-icon">
+          </i>
+          Messages
+        </a>
+      </li>
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          <i class="icon-users4 integr-icon">
+          </i>
+          Patients
+        </a>
+      </li>
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          <i class="icon-alarm3 integr-icon">
+          </i>
+          Your Availability
+        </a>
+      </li>
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          <i class="icon-creditcard integr-icon">
+          </i>
+          Billing
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-nav-menu" href="javascript:void(0)" id="nav-profile">
+          <i class="fa fa-angle-left sidebar-nav-indicator">
+          </i>
+          <i class="icon-user8 integr-icon">
+          </i>
+          Profile
+        </a>
+        <ul class="profile-scrollpy-section">
+          {{#if isTherapist}}
+            <li>
+              <a class="profile-pic-section" href="/therapist/{{user.user_id}}/edit#profile-pic-section">
+                Profile Picture and Video
+              </a>
+            </li>
+            <li>
+              <a class="about-section" href="/therapist/{{user.user_id}}/edit#about-section">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="finances-section" href="/therapist/{{user.user_id}}/edit#finances-section">
+                Finances
+              </a>
+            </li>
+            <li>
+              <a class="specialties-section" href="/therapist/{{user.user_id}}/edit#specialties-section">
+                Specialties and Expertise
+              </a>
+            </li>
+            <li>
+              <a class="credentials-section" href="/therapist/{{user.user_id}}/edit#credentials-section">
+                Credentials
+              </a>
+            </li>
+
+          {{else}} 
+            <li>
+              <a class="pt-pro-pic-section" href="/patient/{{user.user_id}}/edit#pt-pro-pic-section">
+                Profile Picture
+              </a>
+            </li>
+            <li>
+              <a class="pt-contact-info-section" href="/patient/{{user.user_id}}/edit#pt-contact-info-section">
+                Contact Information
+              </a>
+            </li>
+            <li>
+              <a class="pt-insurance-section" href="/patient/{{user.user_id}}/edit#pt-insurance-section">
+                Insurance
+              </a>
+            </li>
+            <li>
+              <a class="pt-mh-section" href="/patient/{{user.user_id}}/edit#pt-mh-section">
+                Medical History
+              </a>
+            </li>
+          {{/if}}
+        </ul>
+      </li>
+      <li>
+        <a class="sidebar-nav-menu" href="javascript:void(0)" id="nav-account">
+          <i class="fa fa-angle-left sidebar-nav-indicator">
+          </i>
+          <i class="icon-archive2 integr-icon">
+          </i>
+          Account
+        </a>
+        <ul class="account-scrollby-section">
+          {{#if isTherapist}}
+            <li>
+              <a class="account-info-section" href="/profiles/{{user.user_id}}#account-info-section">
+                Account Information
+              </a>
+            </li>
+            <li>
+              <a class="practice-details-section" href="/profiles/{{user.user_id}}#practice-details-section">
+                Practice Details
+              </a>
+            </li>
+            <li>
+              <a class="intake-forms-section" href="/profiles/{{user.user_id}}#intake-forms-section">
+                Intake Forms
+              </a>
+            </li>
+            <li>
+              <a class="change-password-section" href="/profiles/{{user.user_id}}#change-password-section">
+                Change Password
+              </a>
+            </li>
+          {{else}}
+            <li>
+              <a class="intake-forms-section" href="/patient/{{user.user_id}}#billing-section">
+                Billing
+              </a>
+            </li>
+            <li>
+              <a class="change-password-section" href="/patient/{{user.user_id}}#change-password-section">
+                Change Password
+              </a>
+            </li>
+
+          {{/if}}
+        </ul>
+      </li>
+      {{#unless isTherapist}}
+        <li>
+          <a href="/">
+            <i class="icon-user-md integr-icon">
+            </i>
+            Search Therapists
+          </a>
+        </li>
+      {{/unless}}
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          <i class="icon-wand integr-icon">
+          </i>
+          Technical Support
+        </a>
+      </li>
+      <li class="display-none">
+        <a href="javascript:void(0)">
+          <i class="icon-dashboard2 integr-icon">
+          </i>
+          Test your System
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" id="nav-logout">
+          <i class="icon-in-alt integr-icon">
+          </i>
+          Log Out
+        </a>
+      </li>
+    </ul>
+  </div>
+{{!-- </aside> --}}

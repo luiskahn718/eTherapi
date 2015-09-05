@@ -1,0 +1,108 @@
+<div class="page-container" id="l-therapist">
+   <header class="main-header navbar navbar-default navbar-fixed-top" id="main-header">
+   </header>
+
+   <div class="main-container">
+      <div class="content-container has-sidebar">
+         <div class="appointments-layout"></div>
+         <div class="appointment-details-layout"></div>
+         <div class="edit-therapist-profile"></div>
+         <div class="therapist-patient-profile-wrapper"></div>
+         <div class="account-info-wrapper"></div>
+         <footer class="sub-footer">
+            <div class="pull-right"><i class="fa fa-heart text-danger"></i> Lovingly made in NYC & SF</div>
+            <div class="pull-left">2014 &copy; <a href="javascript:void(0)">eTherapi</a></div>
+         </footer>
+      </div>
+      <aside class="main-sidebar-user" id="main-sidebar">
+      </aside>
+   </div>
+</div>
+<!--Modals for Appointment request confirm-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="confirm-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Congratulations!</modal-title>
+         </div>
+         <div class="modal-body larger-bottom">
+            <h3>The appointment with <span class="patient-name"></span> was successfully confirmed</h3>
+            <div class="wrap-send-btn"><button type="submit" class="btn btn-info"><span><i class="gi gi-envelope integr-icon"></i>Send <span class="patient-name"></span> a Message</span></button></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--Modals for Appointment request decline-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="decline-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Are you sure?</modal-title>
+         </div>
+         <div class="modal-body">
+            <form method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+               <h3>Are you sure you want to decline this appointment request from <span class="patient-name"></span>?</h3>
+               <div class="form-group">
+                  <div class="message-title"><strong>Message</strong> (optional)</div>
+                  <div class="col-md-12"><textarea class="form-control"></textarea></div>
+               </div>
+               <div class="form-group"><button type="button" class="btn btn-info decline-request-btn">Yes, Decline Request</button><a href="javascript:void(0)" class="text-danger link-confirm" data-dismiss="modal">No, go back</a></div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!--Modals for Appointment request cancel-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="cancel-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Are you sure?</modal-title>
+         </div>
+         <div class="modal-body">
+            <h3>Are you sure you want to cancel this appointment with <span class="patient-name"></span>?</h3>
+            <form method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+               <div class="form-group">
+                  <div class="message-title"><strong>Message</strong> (optional)</div>
+                  <div class="col-md-12"><textarea class="form-control"></textarea></div>
+               </div>
+               <div class="form-group"><button type="button" class="btn btn-info cancel-confirm-btn">Yes, Cancel Appointment</button><a href="javascript:void(0)" class="text-danger link-confirm" data-dismiss="modal">No, go back</a></div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!--Modal for successfully cancels an appointment-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="cancel-success-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Appointment cancelled</modal-title>
+         </div>
+         <div class="modal-body larger-bottom">
+            <h3>The appointment with <span class="patient-name"></span> was cancelled</h3>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<!--Modal for sucessfully declines a request-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal fade" id="decline-success-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <modal-title>Request declined</modal-title>
+         </div>
+         <div class="modal-body larger-bottom">
+            <h3>The appointment request from <span class="patient-name"></span> was declined</h3>
+         </div>
+      </div>
+   </div>
+</div>

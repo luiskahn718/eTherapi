@@ -1,0 +1,85 @@
+/*
+** for Therapist
+*/
+
+.main-sidebar-user {
+  width: 240px;
+  background-color: #0c2530;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .sidebar-user-avatar{
+    width: 70px;
+    height: 70px;
+    padding: 3px;
+    margin-left: -86px;
+  }
+
+  .sidebar-user-avatar,
+  .sidebar-user-avatar img {
+    @include radius(50%);
+  }
+
+  .sidebar-section {
+    margin-top: 10px;
+    padding-left: 108px;
+    background-color: #0c2530;
+  }
+ 
+  .sidebar-username {
+    color: #fff;
+    @include semi-bold-font;
+    font-size: 18px; 
+    margin-top: 16px;
+    word-wrap: break-word;
+    min-width: 122px;
+  }
+
+  .edit-profile {
+    margin-top: -2px;
+    text-decoration: none;
+    @include light-font;
+    font-size: 14px;
+  }
+
+  .sidebar-nav {
+    margin-top: 5px;
+    @include normal-font;
+    a {
+      padding-left: 15px;
+      color: #b7b7b7;
+    }
+    .active {
+      padding-left: 10px;
+      color: #fff;
+    }
+  }
+ 
+  .item-notice {
+    position: relative;
+    top: 8px;
+  }
+}
+
+// sidebar navigation has submenu
+.sidebar-nav {
+  ul {
+    a {
+      font-size: 13px;
+    }
+  }
+  a {
+    &.active {
+      .sidebar-nav-indicator {
+        @include rotate(0deg);
+      }
+    }
+    
+    &.active.open {
+      .sidebar-nav-indicator {
+        @include rotate(-90deg);
+      }
+    }
+  }
+}

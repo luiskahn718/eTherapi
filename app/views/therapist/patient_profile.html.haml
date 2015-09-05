@@ -1,0 +1,53 @@
+/ %h1 Therapist Profile
+/ %div{:class => "panel panel-default"}
+/   %h2
+/     = @patient.display_name
+/   %br
+/   %div{:class => "panel panel-default"}
+/     %h2 Notes
+/     = form_for @patient_note do |f|
+/       .form-inputs
+/         = f.hidden_field :id, :value => @patient_note.id
+/         = f.hidden_field :therapist_id, :value => @therapist.therapist_id
+/         = f.hidden_field :patient_id, :value => @patient.patient_id
+/         = f.hidden_field :note_type, :value => 'patient'
+/         = f.text_area :note
+/       .form-actions
+/         = f.button :submit
+/     %br
+/   %div{:class => "panel panel-default"}
+/     Gender : 
+/     = @patient.gender
+/     %br/
+/     Date of Birth : 
+/     = @patient.date_of_birth
+/     %br/
+/     Phone : 
+/     = @patient.phone_home
+/     %br/
+/     email : 
+/     = @patient.user.email
+/     %br/
+/   %div{:class => "panel panel-default"}
+/     %h2 Upcoming appointments
+/     - appt = Appointment.where(:therapist_id => @therapist.therapist_id, :patient_id => @patient.patient_id)
+/     - appt.each do |a|
+/       - if a.status =='c' || a.status =='p' 
+/         = a.date
+/         |
+/         = a.start_time
+/         |
+/         = a.status
+/         %br/
+/   %div{:class => "panel panel-default"}
+/     %h2 Notes
+/     - notes = Note.where(:therapist_id => @therapist.therapist_id, :patient_id => @patient.patient_id)
+/     - notes.each do |n|
+/       = n.note_type
+/       |
+/       = n.note_datetime
+/       |
+/       = n.note
+/       %br/
+    
+/     

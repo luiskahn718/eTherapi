@@ -1,0 +1,23 @@
+%h1 Therapist Dashboard
+%table{:border => "1", :width => "100%"}
+  %tbody
+    %tr
+      %td
+        %h3 My Patients
+        - if !@my_patients.blank? 
+          - @my_patients.each do |patient|
+            = patient.display_name
+            = link_to("Request Appointment", new_appointment_path(patient_id: patient.id))
+            |
+            = link_to("Message", new_conversation_path(recipient: patient.user_id))
+            |
+            = link_to("Patient Profile", therapist_patient_path(patient_id: patient.patient_id))
+            %br
+                            
+      %td
+        %h3 My Appointments
+        - if !@my_appointments.blank?
+          = render @my_appointments 
+      %td
+        %h3 My Messages
+        = render @conversations

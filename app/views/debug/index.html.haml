@@ -1,0 +1,29 @@
+%h1 DEBUG DASHBOARD
+%table{:style=>"border: 0px; width: 100%", :border=>"1"}
+  %tr
+    %td
+      %li
+        = link_to('therapist with confirm and pending appointment', therapist_with_confirm_and_pending_appointment_debug_index_path)
+        |
+        = link_to 'LOGIN', login_with_therapist_with_confirm_and_pending_appointment_debug_index_path
+      %li
+        = link_to('therapist with all cancel request upcomming appointment', therapist_with_all_cancel_request_upcomming_appointment_debug_index_path)
+        |
+        = link_to 'LOGIN', login_with_therapist_with_all_cancel_request_upcomming_appointment_debug_index_path
+      %li
+        = link_to('therapist with canceled appoitment over 24h', therapist_with_canceled_appoitment_over_24h_debug_index_path)
+        |
+        = link_to 'LOGIN', login_with_therapist_with_canceled_appoitment_over_24h_debug_index_path
+      %li
+        = link_to('therapist with canceled appoitment in 24h', therapist_with_canceled_appoitment_in_24h_debug_index_path)
+        |
+        = link_to 'LOGIN', login_with_therapist_with_canceled_appoitment_in_24h_debug_index_path
+
+  %tr
+    %td
+      %li
+        = link_to 'normal_patient_with_request_upcomming_cancle_appointment', normal_patient_with_request_upcomming_cancle_appointment_debug_index_path
+        |
+        = link_to('LOGIN', login_with_normal_patient_with_request_upcomming_cancle_appointment_debug_index_path)
+
+

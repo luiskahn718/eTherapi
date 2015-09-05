@@ -1,0 +1,114 @@
+%h1 Menus
+%table{:style=>"border: 1px; width: 100%", :border=>"1"}
+  %tr
+    %td
+      Navigation    
+    %td
+      All users
+    %td
+      Therapist
+    %td
+      Patient
+    %td
+      Admininstrator
+    %td
+      Guests
+    %td
+      About
+      
+  %tr
+    %td
+      %li
+        = link_to 'Home', root_path
+      - if user_signed_in?
+        %li
+          = link_to('Logout', destroy_user_session_path, :method=>'delete')
+      - else
+        %li
+          = link_to('Login', new_user_session_path)
+        %li
+          = link_to 'Sign up', new_user_registration_path(:account_type => 'Therapist')
+    %td
+      - if user_signed_in?
+        %li
+          = link_to('Dashboard', dashboards_path)
+        %li
+          = link_to('Edit account/Change Password', edit_user_registration_path)
+    %td
+      - if user_signed_in?
+        - if current_user.is_therapist?
+          %li
+            = link_to('Therapist Profile Edit', edit_therapist_path(current_user))
+          %li
+            = link_to('Therapist Profile wizard', therapist_profile_steps_path)
+          - if !current_user.getProfileable.therapist_id.blank?            
+            %li
+              = link_to("View Public Profile", therapist_profile_path(current_user.getProfileable.therapist_id))              
+          %li
+            = link_to('Invite Patient', new_user_invitation_path)
+          %li
+            = link_to('Availability settings', availability_index_path)
+          %li
+            = link_to('Request an Appointment', new_appointment_path)
+          %li
+            = link_to('View my Appointments', appointments_path)
+          %li
+            = link_to('View pending Appointments', pending_appointments_path)
+          %li
+            = link_to('View My Conversations', conversations_path)
+          %li
+            = link_to('Consents', therapist_consents_path)
+            
+      
+    %td
+      - if user_signed_in?
+        - if current_user.is_patient?
+          %li
+            = link_to('Patient Profile Edit', edit_patient_path(current_user))      
+          %li
+            = link_to('Patient Profile wizard', patient_profile_steps_path)
+          %li
+            = link_to('View my Appointments', appointments_path)
+          %li
+            = link_to('View pending Appointments', pending_appointments_path)
+          %li
+            = link_to('View My Conversations', conversations_path)
+          
+      
+    %td
+      - if user_signed_in?
+        - if current_user.is_admin?
+          = link_to 'Active Admin', admin_dashboard_path
+    %td
+      %li
+        = link_to('Search', therapist_searchform_path)
+      %li
+        = link_to('Forgot Password', new_user_password_path)
+      %li
+        = link_to('Password reset email', edit_user_password_path)
+      %li
+        = link_to('User Confirmation', new_user_confirmation_path)
+    %td
+      %li
+        = link_to "About", site_about_path
+      %li
+        = link_to "FAQ", site_faq_path
+      %li
+        = link_to "Terms and Conditions", site_terms_path
+      %li
+        = link_to "Security", site_security_path
+      %li
+        = link_to "Support", site_support_path
+      %li
+        = link_to "Press", site_press_path
+      %li 
+        = link_to "Contact", site_contact_path
+      %li
+        = link_to "Blog", site_blog_path 
+      %li
+        = link_to "Privacy", site_privacy_path
+      %li
+        = link_to "Pricing", site_pricing_path
+      %li
+        = link_to "Site Map", site_map_path
+                 

@@ -1,0 +1,63 @@
+%table{:style=>"border: 1px; width: 100%", :border=>"1"}
+  %tr
+    %td{:style=>"width: 50%"}
+      %b Address
+    %td{:style=>"width: 50%"}
+      %b Mailing address
+  %tr
+    %td
+      .field
+        = therapist_form.label :address1
+        %br/
+        = therapist_form.text_field :address1
+        
+      .field
+        = therapist_form.label :address2
+        %br/
+        = therapist_form.text_field :address2
+        
+      .field
+        = therapist_form.label :city
+        %br/
+        = therapist_form.text_field :city
+    
+      .field
+        = therapist_form.label :state_cde
+        %br/
+        = therapist_form.collection_select(:state_cde, StateCde.all, :id, :name, :include_blank => "Select a State" )
+      .field
+        = therapist_form.label :zipcode
+        %br/
+        = therapist_form.text_field :zipcode
+      .field
+        = therapist_form.label :country_cde
+        %br/
+        = therapist_form.collection_select(:country_cde, CountryCde.all, :id, :name, :include_blank => "Select a Country" )
+    %td
+      .field
+        = therapist_form.label :mail_address1
+        %br/
+        = therapist_form.text_field :mail_address1
+        
+      .field
+        = therapist_form.label :mail_address2
+        %br/
+        = therapist_form.text_field :mail_address2
+        
+      .field
+        = therapist_form.label :mail_city
+        %br/
+        = therapist_form.text_field :mail_city
+    
+      .field
+        = therapist_form.label :mail_state_cde
+        %br/
+        = therapist_form.collection_select(:mail_state_cde, StateCde.all, :id, :name, :include_blank => "Select a State" )
+      .field
+        = therapist_form.label :mail_zipcode
+        %br/
+        = therapist_form.text_field :mail_zipcode
+      .field
+        = therapist_form.label :mail_country_cde
+        %br/
+        = therapist_form.collection_select(:mail_country_cde, CountryCde.all, :id, :name, :include_blank => "Select a Country" )

@@ -1,0 +1,38 @@
+<div class="status-col col-style text-success">
+   <div class="cell-wrapper"><span class="cell {{statusUI status}}">{{status status}}</span></div>
+</div>
+<div class="user-col col-style">
+   <div class="user-infor">
+      <div class="sidebar-user-avatar"><a {{#if isTherapist }}href="/therapist/patient/{{patient_id}}" {{else}} href="/therapist/{{therapist_id}}/profile" {{/if}}><img src="{{#if isTherapist}}{{checkAvatar32 patient.picture_filelink.thumb.url patient.gender}}{{else}}{{checkAvatar32 therapist.picture_filelink.thumb.url therapist.gender}}{{/if}}" alt="" /></a></div>
+      <div class="avatar-name cell-wrapper">
+         <span class="cell">
+           {{#if isTherapist}}
+               <a href="/therapist/patient/{{patient_id}}" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+            {{else}}
+               <a href="/therapist/{{therapist_id}}/profile" >{{#if isTherapist}}{{patient_name}}{{else}}{{therapist_name}}{{/if}}</a>
+            {{/if}}
+         </span>
+      </div>
+   </div>
+</div>
+<div class="date-col col-style">
+   <div class="cell-wrapper"><span class="cell">{{convertTimeDate date start_time}}</span></div>
+</div>
+<div class="time-col col-style">
+   <div class="cell-wrapper"><span class="cell">{{convertTimeHour date start_time}}</span></div>
+</div>
+<div class="col-style options-col">
+   <div class="cell-wrapper">
+      <div class="cell">
+         <a href="/session_log/join/{{id}}" class="btn btn-warning btn-action">
+            Go to Session
+         </a>
+         <a type="button" class="btn btn-info btn-action" href="/appointments/{{id}}/edit">{{#if isTherapist}}View/Edit{{else}}View Details{{/if}}
+         </a>
+         <div class="option-link-wrap">
+            <a data-toggle="modal" data-target="{{#if isTherapist}}#cancel-modal{{else}}#pt-cancel{{/if}}" href="#" class="text-danger cancel-btn">Cancel</a>
+            <a href="javascript:void(0)" class="text-danger up-del-btn" id="up-del-{{id}}" style="display:none;"></a>
+         </div>
+      </div>
+   </div>
+</div>

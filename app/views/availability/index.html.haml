@@ -1,0 +1,28 @@
+%h1 Availabilities Setup
+
+= javascript_include_tag "nested_form"
+= nested_form_for @therapist, url: availability_path(@therapist.therapist_id), :method => :put do |therapist_form|
+  .field
+    = therapist_form.hidden_field :first_name
+
+  - if @therapist.errors.any?
+    .error_messages
+      %h2
+        = pluralize(@therapist.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @therapist.errors.full_messages.each do |msg|
+          %li= msg
+  %table{:border => "1", :valign => :top}
+    %tbody
+      %tr
+        %td
+          %h3 Availability          
+          = render :partial => "shared/therapist_availability", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+          %h3 Recurring Availability 
+          = render :partial => "shared/therapist_availability_rec", :locals => {:therapist => @therapist, :therapist_form => therapist_form}
+          .actions
+            = therapist_form.submit "Save"
+        %td
+          %h3 Current Avalability
+          = render :partial => "shared/therapist_availability_list", :locals => {:therapist => @therapist, :therapist_form => therapist_form}

@@ -1,0 +1,20 @@
+/ %h1 Patient Account
+
+/ = javascript_include_tag "nested_form"
+/ = nested_form_for @patient, url: patient_path, :method => :put do |patient_form|
+/   - if @patient.errors.any?
+/     .error_messages
+/       %h2
+/         = pluralize(@patient.errors.count, "error")
+/         prohibited this user from being saved:
+/       %ul
+/         - @patient.errors.full_messages.each do |msg|
+/           %li= msg
+/   %h3 Account Information          
+/   = render :partial => "shared/patient_profile_account", :locals => {:patient => @patient, :patient_form => patient_form}
+/   %h3 Address
+/   = render :partial => "shared/patient_profile_address", :locals => {:patient => @patient, :patient_form => patient_form}
+/   %h3 Insurances
+/   = render :partial => "shared/patient_profile_insurance", :locals => {:patient => @patient, :patient_form => patient_form}
+/   .actions
+/     = patient_form.submit "Save"

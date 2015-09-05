@@ -1,0 +1,85 @@
+#profile-upload-modal {
+  .row {
+    margin: 0;
+  }
+
+  .modal-footer {
+    text-align: left;
+  }
+
+  .fa {
+    color: #d7d7d7;
+  }
+
+
+}
+
+
+// style the original image and crop image sections
+.original-size {
+  margin-top: 5px;
+  width: 55%;
+  min-height: 347px;
+}
+.crop-size {
+  width: 45%;
+}
+
+.photo-wrapper,
+.photo-wrapper-crop {
+  width: 220px;
+  height: 220px;
+}
+
+.photo-wrapper {
+  text-align: center;
+}
+
+.photo-wrapper-crop {
+  .img-rounded {
+    border-radius: 0;
+  }
+}
+
+.original-upload-photo {
+  position: absolute;
+  z-index: 999;
+  display: inline-block;
+}
+
+.crop-photo {
+  padding-left: 20px;
+}
+
+.crop-container {
+  width: 290px;
+  height: 290px;
+}
+
+// style slider
+.slider-wrapper {
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.small-illustration,
+.large-illustration,
+.slider-wrapper {
+  float: left;
+}
+.small-illustration {
+  margin-top: 22px;
+}
+
+.large-illustration {
+  margin-top: 16px;
+}
+
+.cropSlider {
+  padding-left: 10px;
+}
+
+
+
+

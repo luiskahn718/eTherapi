@@ -1,0 +1,81 @@
+- if current_user
+  %header.main-header.navbar.navbar-default.navbar-fixed-top#main-header.logged-in
+    .navbar-header.logo-wrapper
+      %h1 
+        %a{href:"/", id:"main-logo"}etherapi
+    - if current_user.account_type.downcase == 'therapist'
+      %form{action:"", class:"navbar-form navbar-left header-form"}
+        .form-group.search-client
+          %select{class:"form-control select-chosen input-search", id:"search-patient-txt"}
+            %option{value:""} Search Patients
+        %button{class:"btn add-client display-none", type:"button"}
+          %i.hi.hi-plus
+          Add Patient
+
+    %ul.public-nav.nav.navbar-nav.pull-right
+      %li
+        %a{href:"/site/therapist"} Contact us
+      %li
+        %a{href:"/site/therapist"} For Therapists
+      %li
+        %a{href:"/"} Search Therapists
+      %li
+        %a#login{href:"#login-modal", "data-toggle" => "modal", "data-target" => "#login-modal"} Log in
+      %li
+        %button#signUp.btn.btn-info{type:"button", "data-toggle" => "modal", "data-target" => "#signup-modal"} Sign up
+
+    %ul.private-nav.nav.navbar-nav.pull-right
+      %li
+        %a{href:"/"}
+          %i.icon-house.integr-icon
+          Home
+      %li
+        %a{href:"/appointments"}
+          %i.icon-calendar6.integr-icon
+          Appointments
+      / %li
+      /   %a{href:"javascript:void(0)"}
+      /     /%span.badge.pull-right.item-notice 4
+      /     %i.icon-envelope4.integr-icon
+      /     Messages
+      %li.user-menu 
+        %a{href:"javascript:void(0)"}
+          %span#header-username #{current_user.getProfileable.first_name} #{current_user.getProfileable.last_name}
+          %i.fa.fa-bars.fa-fw.integr-rev-icon
+- else
+  %header.main-header.navbar.navbar-default.navbar-fixed-top#main-header
+    .navbar-header.logo-wrapper
+      %h1 
+        %a{href:"/", id:"main-logo"}etherapi
+    %form{action:"", class:"navbar-form navbar-left header-form"}
+
+    %ul.public-nav.nav.navbar-nav.pull-right
+      %li
+        %a{href:"/site/therapist"} Contact us
+      %li
+        %a{href:"/site/therapist"} For Therapists
+      %li
+        %a{href:"/"} Search Therapists
+      %li
+        %a#login{href:"#login-modal", "data-toggle" => "modal", "data-target" => "#login-modal"} Log in
+      %li
+        %button#signUp.btn.btn-info{type:"button", "data-toggle" => "modal", "data-target" => "#signup-modal"} Sign up
+
+    %ul.private-nav.nav.navbar-nav.pull-right
+      %li
+        %a{href:"/"}
+          %i.icon-house.integr-icon
+          Home
+      %li
+        %a{href:"/appointments"}
+          %i.icon-calendar6.integr-icon
+          Appointments
+      / %li
+      /   %a{href:"javascript:void(0)"}
+      /     /%span.badge.pull-right.item-notice 4
+      /     %i.icon-envelope4.integr-icon
+      /     Messages
+      %li.user-menu 
+        %a{href:"javascript:void(0)"}
+          %span#header-username
+          %i.fa.fa-bars.fa-fw.integr-rev-icon

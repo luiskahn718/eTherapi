@@ -1,0 +1,5 @@
+%h1 Tell us a little more about yourself.
+= render layout: 'form' do | patient_form |
+  %h3 Address          
+  = render :partial => "shared/patient_profile_address", :locals => {:patient => @patient, :patient_form => patient_form}
+

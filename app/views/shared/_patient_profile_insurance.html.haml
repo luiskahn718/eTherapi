@@ -1,0 +1,49 @@
+.field
+  = patient_form.fields_for :patient_insurance do |insurance_form|
+    .field
+      = insurance_form.label :policy_number
+      = insurance_form.text_field :policy_number
+    .field
+      = insurance_form.label :group_number
+      = insurance_form.text_field :group_number
+    .field
+      = insurance_form.label :group_name
+      = insurance_form.text_field :group_name
+    .field
+      = insurance_form.label :seq
+      = insurance_form.select :seq, options_for_select([["Select One", ""], ["Primary", "1"], ["Secondary", "2"], ["Tertiary", "3"], ["Other", "9"]])        
+    .field
+      = insurance_form.label :subscriber_last_name
+      = insurance_form.text_field :subscriber_last_name
+    .field
+      = insurance_form.label :subscriber_first_name
+      = insurance_form.text_field :subscriber_first_name
+    .field
+      = insurance_form.label :subscriber_dob
+      = insurance_form.date_select :subscriber_dob, start_year: 1900, end_year: Date.today.year, include_blank: true
+    .field
+      = insurance_form.label :subscriber_address1
+      = insurance_form.text_field :subscriber_address1
+    .field
+      = insurance_form.label :subscriber_address2
+      = insurance_form.text_field :subscriber_address2
+    .field
+      = insurance_form.label :subscriber_city
+      = insurance_form.text_field :subscriber_city
+    .field
+      = insurance_form.label :subscriber_state_cde
+      = insurance_form.collection_select(:subscriber_state_cde, StateCde.all, :id, :name, :include_blank => "Select a State" )
+    .field
+      = insurance_form.label :subscriber_zipcode
+      = insurance_form.text_field :subscriber_zipcode
+    .field
+      = insurance_form.label :subscriber_country_cde
+      = insurance_form.collection_select(:subscriber_country_cde, CountryCde.all, :id, :name, :include_blank => "Select a Country" )
+    .field
+      = insurance_form.label :subscriber_relationship
+      = insurance_form.text_field :subscriber_relationship
+      
+
+    = insurance_form.link_to_remove "Remove this insurance"
+    %p
+  = patient_form.link_to_add "Add an insurance", :patient_insurance

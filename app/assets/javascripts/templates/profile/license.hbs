@@ -1,0 +1,57 @@
+<!--the data of state header-->
+<div class="state general-column">
+  <div class="cell-wrapper state-group form-group">
+    <div class="cell">
+      <select data-placeholder="Select" class="select-chosen form-control state-chosen">
+        <option></option>
+        {{#each state_cdes}}
+        <option value="{{abbreviation}}" {{checkSelectedChosen abbreviation ../state}}>{{abbreviation}}</option>
+        {{/each}}
+      </select>
+      <p class="help-block error-message">Please select state!</p>
+    </div>
+  </div>
+</div>
+<!--the data of License Type header-->
+<div class="license-type general-column">
+  <div class="cell-wrapper select-license form-group">
+    <div class="cell">
+      <select class="select-chosen license-type-chosen" data-placeholder="Choose a License Type">
+        <option value=""></option>
+        {{#each license_type_cdes}}
+        <option value="{{abbreviation_id}}" {{checkSelectedChosen abbreviation_id ../license_type}}>{{name}}</option>
+        {{/each}}
+      </select>
+      <p class="help-block error-message">Please select license type!</p>
+    </div>
+  </div>
+</div>
+<!--the data of License header-->
+<div class="license general-column">
+  <div class="cell-wrapper license-number form-group">
+    <div class="cell error-control">
+      <div class="input-group">
+        <input type="text" class="form-control license-num medium-form-control" value="{{license_number}}" name="license_number"/><span class="input-group-addon group-addon-lg"><i class="icon-vcard2"></i></span>
+      </div>
+      <p class="help-block error-message error-number">Please enter a number!</p>
+    </div>
+  </div>
+</div>
+<!--the data of expiration header-->
+<div class="expiration general-column">
+  <div class="cell-wrapper form-group seclect-date">
+    <div class="cell">
+      <div class="input-group">
+        <input type="text" placeholder="mm/dd/yyyy" date-date-format="mm/dd/yyyy" class="form-control input-datepicker expiration-time medium-form-control" /><span class="input-group-addon group-addon-lg"><i class="icon-calendar6"></i></span>
+      </div>
+      <p class="help-block error-message">Please select date!</p>
+    </div>
+  </div>
+</div>
+<!--the end of row-->
+<div class="end-row general-column">
+  <div class="cell-wrapper form-group">
+    <div class="cell"><a href="javascript:void(0)" class="del-btn"><i class="icon-cancel"></i></a>
+    </div>
+  </div>
+</div>

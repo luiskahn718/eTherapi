@@ -1,0 +1,351 @@
+
+<div class="row">
+  <div class="personal-detail col-md-7">
+    <!--define user-avatar-->
+    <div class="avatar-container row no-gutter">
+      <div class="user-avatar-section clearfix">
+        <div class="user-avatar">
+          <a class="img-rounded">
+            <img src="{{checkAvatar120 picture_filelink gender}}" alt="avatar">
+          </a>
+          <div class="hidden-box">
+          </div>
+        </div>
+        <div class="avatar-action">
+          <div class="user-name large-title">
+            <a href="javascript:void(0)">
+              {{therapist_user_profile.first_name}} {{therapist_user_profile.last_name}} 
+            </a>
+            <span class="group-addon-lg">
+              <i data-toggle="tooltip" data-placement="top" title="" class="icon-location">
+              </i>
+            </span>
+          </div>
+          <div class="user-status">
+            {{getTheFirstLiscense}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--define user history-->
+    <div class="history">
+      <div class="large-title">
+        About {{therapist_user_profile.first_name}} {{therapist_user_profile.last_name}}
+      </div>
+      <p class='about-me'></p>
+      
+    </div>
+    <div class="specialties detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Specialties
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="medium-title">
+          Areas of Focus
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+              {{#each speciality}}
+              <li class="col-md-6 col-xs-6 no-gutter">
+                <i class="fa-check fa icon-arrow-right10">
+                </i>
+                {{name}}
+              </li>
+              {{/each}}
+            </ul>
+           
+          </div>
+        </div>
+        <div class="medium-title">
+          Additional Expertise
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+              {{#each therapist_profile_attributes.additional_expertise}}
+              <li class="col-md-6 col-xs-6 no-gutter">
+                <i class="fa icon-arrow-right10">
+                </i>
+                {{name}}
+              </li>
+              {{/each}}
+            </ul>
+            
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="treatment-approach detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Treatment Approach
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            {{!-- <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+                {{#each therapist_profile_attributes.treatment_approach}}
+                <li class="col-md-6 col-xs-6 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{this}}
+                </li>
+                {{/each}}
+              </ul>
+            {{!-- </div> --}}
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="demographics-served detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Demographics Served
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            {{!-- <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+                {{#each therapist_profile_attributes.demographics_served}}
+                <li class="col-md-6 col-xs-6 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{this}}
+                </li>
+                {{/each}}
+              </ul>
+            {{!-- </div> --}}
+            
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="language-spoken detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Languages Spoken
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+           {{!--  <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+                {{#each therapist_language_attributes}}
+                <li class="col-md-6 col-xs-6 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{language}}
+                </li>
+                {{/each}}
+              </ul>
+            {{!-- </div> --}}
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="credentials detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Credentials
+        </h2>
+        <h2 class="check-sign pull-right">
+          <i class="fa fa-check-circle">
+          </i>
+          Background Checked
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="medium-title">
+          Years in Practice
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            <div class="left-content col-md-6 no-gutter">
+              <ul class="fa-ul list-li-push">
+                <li>
+                  <i class="fa-check fa icon-arrow-right10">
+                  </i>
+                  {{therapist_profile_attributes.experience_years}} years
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="medium-title">
+          Licenses
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            {{!-- <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item">
+                {{#each therapist_license_atrributes}}
+                <li class="col-md-12 col-xs-12 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{this}}
+                </li>
+                {{/each}}
+              </ul>
+            {{!-- </div> --}}
+          </div>
+        </div>
+        <div class="medium-title">
+          Education
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            {{!-- <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+                {{#each therapist_profile_attributes.education}}
+                <li class="col-md-12 col-xs-12 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{this}}
+                </li>
+                {{/each}}
+                
+              </ul>
+            {{!-- </div> --}}
+          </div>
+        </div>
+        <div class="medium-title">
+          Additional Credentials
+        </div>
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            {{!-- <div class="left-content col-md-6 no-gutter"> --}}
+              <ul class="fa-ul list-li-push show-item col-md-12 no-gutter">
+                {{#each therapist_profile_attributes.prof_memberships}}
+                <li class="col-md-12 col-xs-12 no-gutter">
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{this}}
+                </li>
+                {{/each}}
+              </ul>
+            {{!-- </div> --}}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="relative-info col-md-3">
+    <div class="video-container">
+      <a href="#show-video-modal" data-toggle="modal" data-target="#show-video-modal" class="video-show"></a>
+      <iframe src="{{therapist_profile_attributes.youtube_link}}" allowfullscreen="true" frameborder="0" width="100%" height="100%">
+      </iframe>
+      <div class="hidden-box">
+      </div>
+    </div>
+    <form class="form-horizontal">
+      <div class="tips-info">
+        <div class="cash">
+          <i class="fa fa-dollar">
+          </i>
+          {{therapist_profile_attributes.hourly_rate_max}}
+        </div>
+        <div class="time">
+          <i data-toggle="tooltip" data-placement="top" title="" class="icon-clock3" data-original-title="Session Duration">
+          </i>
+          {{session_duration}} minutes
+        </div>
+
+        <div class="calendarium">
+          
+          {{#if therapist_profile_attributes.sliding_scale}}
+            <i class="icon-calendar6">
+            </i>
+            Sliding scale available
+          {{/if}}
+          
+        </div>
+      </div>
+
+      <a type="button" href="mailto:{{email}}"  class="message-me-btn btn btn-success">Message Me</a>
+      <button type="button" data-toggle="modal" data-target="#appointment-booking-modal" class="btn btn-info">Request Appointment</button>
+      <div class="tips-info display-none">
+        <div class="time-tips">
+          Next available time
+        </div>
+        <div class="date-info">
+          Mar 10, 2014 at 10am
+        </div>
+      </div>
+    </form>
+    <div class="insurance-plan detail-component-list block">
+      <div class="block-title">
+        <h2>
+          Insurance Plans Accepted
+        </h2>
+      </div>
+      <form class="form-horizontal form-bordered">
+        <div class="form-group no-gutter">
+          <div class="row no-gutter">
+            <div class="col-md-12 no-gutter">
+              <ul class="fa-ul list-li-push">
+                {{#each therapist_accept_insurance_attributes}}
+                <li>
+                  <i class="fa icon-arrow-right10">
+                  </i>
+                  {{payers_name}}
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--define the appointment-booking-modal-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal hidden-calendar" id="appointment-booking-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">
+          &times;
+        </button>
+        <modal-title>
+          Select a date and a time for your appointment with {{therapist_user_profile.first_name}} {{therapist_user_profile.last_name}}
+        </modal-title>
+      </div>
+      <div class="modal-body">
+        <p>
+          {{therapist_user_profile.first_name}}'s preferred appointment times are displayed in blue, but you can request any time that is not ready booked (grey color).
+        </p>
+        <div class="block block-alt-noborder full">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="calendar" class="calendar-container">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          Times are shown in local time ({{timezone}}).
+        </div>
+        <div class="text-left">
+          <button type="button" class="btn btn-info btn-large" id="schedule-appointment-btn">
+            <span>
+              Request Appointment
+            </span>
+          </button>
+          <a href="javascript:void(0)" class="text-danger" id="cancel-appointment-btn">
+            Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/jquery-ui.js"></script>

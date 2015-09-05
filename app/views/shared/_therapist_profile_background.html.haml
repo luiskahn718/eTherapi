@@ -1,0 +1,90 @@
+.field
+  = therapist_form.fields_for :therapist_profile do |profile_form|
+    .field
+      = profile_form.label :tag_line
+      %br/
+      = profile_form.text_field :tag_line
+    .field
+      = profile_form.label :about_me
+      %br/
+      = profile_form.text_field :about_me
+    .field
+      = profile_form.label :education
+      %br/
+      = profile_form.text_field :education
+    .field
+      = profile_form.label :school
+      %br/
+      = profile_form.text_field :school
+    .field
+      = profile_form.label :prof_memberships
+      %br/
+      = profile_form.text_field :prof_memberships
+    .field
+      = profile_form.label :experience_years
+      %br/
+      = profile_form.text_field :experience_years
+    .field
+      = profile_form.label :hourly_rate_min
+      %br/
+      = profile_form.text_field :hourly_rate_min
+    .field
+      = profile_form.label :hourly_rate_max
+      %br/
+      = profile_form.text_field :hourly_rate_max
+    .field
+      = profile_form.label :interview_dt
+      %br/
+      = profile_form.date_select :interview_dt, start_year: 2010, end_year: 2050, include_blank: true
+    .field
+      = profile_form.label :emergency_contact_person
+      %br/
+      = profile_form.text_field :emergency_contact_person
+    .field
+      = profile_form.label :emergency_contact_ph_number
+      %br/
+      = profile_form.text_field :emergency_contact_ph_number
+    .field
+      = profile_form.label :emergency_contact_rel
+      %br/
+      = profile_form.text_field :emergency_contact_rel
+    .field
+      = profile_form.label :sliding_scale
+      %br/
+      = profile_form.text_field :sliding_scale
+    .field
+      = profile_form.label :accept_new_patient
+      %br/
+      = profile_form.check_box  :accept_new_patient
+    .field
+      = profile_form.label :viewable_on_search
+      %br/
+      = profile_form.check_box  :viewable_on_search
+    .field
+      = profile_form.label :treatment_approach
+      %br/
+      = profile_form.text_field :treatment_approach
+      Hint : Use comma delimited list
+    .field
+      = profile_form.label :client_focus
+      Hint : Use comma delimited list
+      %br/
+      = profile_form.text_field :client_focus
+    .field
+      = profile_form.label :demographics_served
+      Hint : Use comma delimited list
+      %br/
+      = profile_form.text_field :demographics_served
+    .field
+      = profile_form.label :youtube_link
+      %br/
+      = profile_form.text_field :youtube_link
+    .field
+      = profile_form.label :web_uri_link
+      %br/
+      = profile_form.text_field :web_uri_link
+    .field
+      = profile_form.label :hear_about_us_id
+      %br/
+      = profile_form.collection_select(:hear_about_us_id, HearAboutUsCde.all, :id, :hear_about_us, :include_blank => "Select an option" ) 
+

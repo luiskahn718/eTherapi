@@ -1,0 +1,31 @@
+.calendar-container {
+
+  .fc-state-hover,
+  .fc-state-down,
+  .fc-state-active,
+  .fc-state-disabled {
+    background-color: #1ba4dc !important;
+  }
+
+
+  .fc-state-hover {
+    background-position: 0 !important;
+  }
+
+  .fc-state-active,
+  .fc-state-hover,
+  .fc-state-down {
+    color: #fff !important;
+  }
+}
+
+.fc-state-default {
+  background-image: none!important;
+  background-repeat: none !important;
+
+}
+
+.fc-button {
+  height: 34px !important;
+  padding: 3px 10px !important;
+}

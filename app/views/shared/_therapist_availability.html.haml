@@ -1,0 +1,17 @@
+.field
+  = therapist_form.fields_for :therapist_availability do |availability_form|
+    .field
+      = availability_form.label :date
+      = availability_form.date_select :date, start_year: Date.today.year, start_month: Date.today.month, end_year: 2050, include_blank: true
+    .field
+      = availability_form.label :start_time
+      = availability_form.time_select :start_time, include_blank: true
+    .field
+      = availability_form.label :end_time
+      = availability_form.time_select :end_time, include_blank: true
+    .field
+      = availability_form.hidden_field :id
+    = availability_form.link_to_remove "Remove this availability"
+    %p
+  %p
+    = therapist_form.link_to_add "Add a availability", :therapist_availability

@@ -1,0 +1,135 @@
+
+<div class="sub-header-wrap">
+   <div class="notice themed-background-warning"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><span>Join upcoming session with <span class="user-name">{{first_name}} {{last_name}}</div>
+   <div class="sub-header-section"></div>
+</div>
+<div class="main-content">
+   <div class="appointment-listview">
+      
+      <!--%article.main-content-->
+      <div class="content-header">
+         <div class="header-section">
+            <h1>Appointments
+              <i class="icon-calendar6">
+              </i>
+           </h1>
+         </div>
+      </div>
+      <!--tab navigation-->
+      <ul class="nav nav-tabs" data-toggle="tabs">
+         <li><a href="#tab-calendar">Calendar View</a></li>
+         <li class="active"><a href="#tab-listview">List View</a></li>
+      </ul>
+      <div class="tab-content">
+         <!--calendar tab-->
+         <div class="tab-pane" id="tab-calendar"></div>
+         <!--list view tab-->
+         <div class="list-view row tab-pane active" id="tab-listview">
+            <!--The list view navigation-->
+            <div class="affix-menu-nav col-md-3">
+               <div class="listview-nav">
+                  <ul class="nav nav-pills nav-stacked">
+                     <li><a href="#upcoming-section" class="upcoming-section">Upcoming</a></li>
+                     <li><a href="#request-section" class="request-section">Requests</a></li>
+                     <li><a href="#past-cancel-section" class="past-cancel-section">Past or Cancelled</a></li>
+                  </ul>
+               </div>
+            </div>
+            <!--The list view content-->
+            <div class="listview-content col-md-9">
+               <!--upcoming confirmed appointments-->
+               <div class="block upcoming-appt" id="upcoming-section">
+                  <div class="block-title">
+                     <h2>Upcoming Appointments</h2>
+                  </div>
+                  <div class="appointment-content-wrap clearfix">
+                     <div class="block-data-wrap">
+                        <header class="block-data-header">
+                           <div class="status-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Status</span></div>
+                           </div>
+                           <div class="user-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Patient Name</span></div>
+                           </div>
+                           <div class="date-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Date</span></div>
+                           </div>
+                           <div class="time-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Time</span></div>
+                           </div>
+                           <div class="options-col col-style">
+                              <div class="cell-wrapper">
+                                 <span class="cell">Options</span>
+                              </div>
+                           </div>
+                        </header>
+                        <div class="block-data" id="upcoming-list">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--Appointment requests-->
+               <div class="block request-appt" id="request-section">
+                  <div class="block-title">
+                     <h2>Appointment Requests</h2>
+                  </div>
+                  <div class="appointment-content-wrap clearfix">
+                     <div class="block-data-wrap">
+                        <header class="block-data-header">
+                           <div class="status-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Status</span></div>
+                           </div>
+                           <div class="user-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Patient Name</span></div>
+                           </div>
+                           <div class="date-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Date</span></div>
+                           </div>
+                           <div class="time-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Time</span></div>
+                           </div>
+                           <div class="options-col col-style">
+                              <div class="cell-wrapper">
+                                 <span class="cell">Options</span>
+                              </div>
+                           </div>
+                        </header>
+                        <div class="block-data" id="appointment-request-list">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--Past and canceled appointments-->
+               <div class="block {{#if isTherapist}}past-appointment{{/if}}" id="past-cancel-section">
+                  <div class="block-title">
+                     <h2>Past or Cancelled Appointments</h2>
+                  </div>
+                  <div class="appointment-content-wrap clearfix">
+                     <div class="block-data-wrap">
+                        <header class="block-data-header">
+                           <div class="status-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Status</span></div>
+                           </div>
+                           <div class="user-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Patient Name</span></div>
+                           </div>
+                           <div class="date-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Date</span></div>
+                           </div>
+                           <div class="time-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Time</span></div>
+                           </div>
+                           <div class="action-dir-col col-style">
+                              <div class="cell-wrapper"><span class="cell">Payment</span></div>
+                           </div>
+                        </header>
+                        <div class="block-data"id="past-appointment-list">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

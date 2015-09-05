@@ -1,0 +1,15 @@
+.field
+= therapist_form.fields_for :therapist_language do |license_form|
+  .field
+    = license_form.label :language_cde
+    = license_form.collection_select :language_cde, LanguageCde.all, :language_code, :language, :include_blank => "Select a Language"
+  .field
+    = license_form.label :proficiency
+    = license_form.text_field :proficiency
+  .field
+    = license_form.hidden_field :id
+
+  = license_form.link_to_remove "Remove this language"
+%p
+  = therapist_form.link_to_add "Add a language", :therapist_language
+  %br

@@ -1,0 +1,449 @@
+
+<div class="patient-profile">
+  <!--degine the content-header of the edit-profile page-->
+  <div class="content-header">
+    <div class="header-section subtitle">
+      <h1>
+        Profile
+        <i class="icon-user8">
+        </i>
+      </h1>
+      <small>
+        The information on this page will be visible only to your therapist of choice.
+      </small>
+    </div>
+  </div>
+  <!--define the content of edit-profile page-->
+  <div class="row no-gutter">
+    <div class="edit-profile-nav slave-nav no-gutter aside-content affix-menu-nav col-md-3">
+      <!--define the list-group-->
+      <ul class="list-group nav">
+        <li target=".pt-pro-pic-section">
+          <a href="#pt-pro-pic-section" class="list-group-item pt-pro-pic-section">
+            <h4 class="list-group-item-heading">
+              Profile Picture and Video
+            </h4>
+          </a>
+        </li>
+        <li target=".pt-contact-info-section">
+          <a href="#pt-contact-info-section" class="list-group-item pt-contact-info-section">
+            <h4 class="list-group-item-heading">
+              Contact Information
+            </h4>
+          </a>
+        </li>
+        <li target=".pt-insurance-section">
+          <a href="#pt-insurance-section" class="list-group-item pt-insurance-section">
+            <h4 class="list-group-item-heading">
+              Insurance
+            </h4>
+          </a>
+        </li>
+        <li target=".pt-mh-section">
+          <a href="#pt-mh-section" class="list-group-item pt-mh-section">
+            <h4 class="list-group-item-heading">
+              Medical History
+            </h4>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="pri-content edit-profile-content listview-content col-md-9">
+      
+      <div class="profile-button-group">
+        <button type="button" class="btn btn-info save-patient-profile">
+          Save Profile
+        </button>
+      </div>
+      
+      <div class="edit-profile-detail">
+        <!--define the picture-video block-->
+        <div class="picture-video block col-md-12" id="pt-pro-pic-section">
+          <div class="block-title">
+            <h2>
+              Profile Picture
+            </h2>
+          </div>
+          <form method="post" class="form-bordered">
+            <div class="avatar-container row no-gutter">
+              <div class="col-md-6 no-gutter">
+                <div class="user-avatar-section clearfix">
+                  <div class="user-avatar">
+                    <a href="javascript:void(0)" class="img-rounded">
+                      <img src="{{checkAvatar120 picture_filelink.url gender}}?{{currentTime}}" alt="avatar" id="real-avt"/>
+                    </a>
+                  </div>
+                  <div class="avatar-action">
+                    <div class="user-avatar-upload">
+                      <button data-toggle="modal" data-target="#profile-upload-modal" type="button" class="btn btn-info change-avatar">
+                        Upload New Picture
+                      </button>
+                    </div>
+                    <div class="user-avatar-delete">
+                      <a href="javascript:void(0)" class="text-danger" id="del-avatar-btn">
+                        Delete picture
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contact-information block col-md-12" id="pt-contact-info-section">
+          <div class="block-title">
+            <h2>
+              Contact Information
+            </h2>
+          </div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                First Name
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., Amanda" class="form-control input-md" value="{{first_name}}" id="first_name"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-user7">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Last Name
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., Robison" class="form-control input-md" value="{{last_name}}" id="last_name"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-user7">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                I am
+              </label>
+              <div class="col-md-5">
+                <select data-placeholder="Gender" class="select-chosen" id="gender">
+                  <option selected="selected"></option>
+                  <option value="M" {{checkChosenGender 'M' gender}}>
+                    Male
+                  </option>
+                  <option value="F" {{checkChosenGender 'F' gender}}>
+                    Female
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Date of Birth
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="mm/dd/yyyy" data-date-format="mm/dd/yyyy" class="form-control input-datepicker input-md" id="date_of_birth"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-vcard2">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Email Address
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., arobinson@mail.com" class="form-control input-md" value="{{mail_address1}}" id="mail_address1"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-envelope4">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Phone Number
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="xxx-xxx-xxxx" class="form-control input-md" value="{{phone_home}}" id="phone_home"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-phone7">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Street Address
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., 123 Main St. " class="form-control input-md" value="{{address1}}" id="address1"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-pin">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                City
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., New York " class="form-control input-md" value="{{city}}" id="city"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-pin">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                State
+              </label>
+              <div class="col-md-5">
+                <select class="select-chosen" id="state_cde">
+                  <option></option>
+                  {{#each stateCode}}
+                  <option value="{{state_id}}" {{checkSelectedChosen state_id ../state_cde}}>{{name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Zip Code
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., 10018 " class="form-control input-md" value="{{zipcode}}" id="zipcode"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-pin">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Country
+              </label>
+              <div class="col-md-5">
+                <select class="select-chosen" id="country_cde">
+                  <option></option>
+                  {{#each countryCode}}
+                  <option value="{{country_id}}" {{checkSelectedChosen country_id ../country_cde}}>{{name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            {{!-- <div class="form-group">
+              <label class="control-label col-md-4">
+                Timezone
+              </label>
+              <div class="col-md-5">
+                <select data-placeholder="Choose a Timezone" class="select-chosen">
+                  <option selected="selected">
+                  </option>
+                  <option value="USA">
+                    USA
+                  </option>
+                  <option value="Australia">
+                    Australia
+                  </option>
+                  <option value="Australia">
+                    India
+                  </option>
+                </select>
+              </div>
+            </div> --}}
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Emergency Contact Full Name
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" placeholder="e.g., Alan Rotlif" class="form-control input-md" value="{{emergency_contact_name}}"  id="emergency_contact_name"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-user7">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-4">
+                Emergency Contact Phone Number
+              </label>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input type="text" class="form-control input-md" value="{{emergency_contact_phone_no}}" id="emergency_contact_phone_no"/>
+                  <span class="input-group-addon group-addon-lg">
+                    <i class="icon-phone7">
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="insurance-status block col-md-12" id="pt-insurance-section">
+          <div class="block-title">
+            <h2>
+              Insurance
+            </h2>
+          </div>
+          <form class="form-horizontal">
+            <div class="total-block-data">
+              <!--define the header columns of table-->
+              <header class="header-striped-row col-md-12 no-gutter">
+                <div class="general-column col-md-3 col-xs-3">
+                  <div class="cell-wrapper">
+                    <div class="cell">
+                      <span>
+                        Insurance Name
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="general-column col-md-2 col-xs-2">
+                  <div class="cell-wrapper">
+                    <div class="cell">
+                      <span>
+                        Insurance ID
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="general-column col-md-2 col-xs-2">
+                  <div class="cell-wrapper">
+                    <div class="cell">
+                      <span>
+                        Plan Name
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="general-column">
+                  <div class="cell-wrapper">
+                    <div class="cell">
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <!--data content-->
+              <div class="data-group">
+                <!--data row-->
+              </div>
+              <a data-toggle="modal" data-target="#profile-insurance-modal" href="#profile-insurance-modal" class="add-more">
+                + Add Insurance Plan Information
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="medical-history block col-md-12" id="pt-mh-section">
+          <div class="block-title">
+            <h2>
+              Relevant Medical History (Optional)
+            </h2>
+          </div>
+          <form>
+            <div class="form-group patient-problem include-popover">
+              <textarea cols="30" rows="8" class="form-control" placeholder="Enter here your medical history." id="medical_history">{{medical_history}}</textarea>
+              <div class="popover left">
+                <div class="arrow">
+                </div>
+                <div class="pop-over-content">
+                  Please enter here previous diagnoses, reasons for seeking therapy, current medications and any other historical information that might be useful for your therapist. Also, let your therapist know if you are receiving other forms of mental health care.
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-actions">
+              <button type="button" class="btn btn-info save-patient-profile">
+                Save Profile
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!--define the modal for profile upload-->
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal" id="profile-upload-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+        <modal-title>Upload Image</modal-title>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="original-size col-md-6 no-gutter">
+            <div class="original-upload-photo">
+              <div class="cropMain"></div>
+              <div class="cropSlider"></div>
+              {{!-- <button class="cropButton">Crop</button> --}}
+            </div>
+            {{!-- <div class="col-md-12 no-gutter"> --}}
+              {{!-- <div class="small-illustration"><span><i class="fa fa-picture-o"></i></span>
+              </div> --}}
+              {{!-- <div class="slider-wrapper">
+                <div class="slider slider-horizontal">
+                  <div class="slider-track">
+                    <div class="slider-selection"></div>
+                    <div class="slider-handle round"></div>
+                    <div class="slider-handle round hide"></div>
+                  </div>
+                </div>
+              </div> --}}
+              {{!-- <div class="large-illustration"><span><i class="fa fa-picture-o fa-2x"></i></span>
+              </div> --}}
+            {{!-- </div> --}}
+          </div>
+          <div class="crop-size col-md-6 no-gutter">
+            <div class="crop-photo">
+              <p><span>Preview</span>
+              </p>
+              <div class="photo-wrapper-crop">
+                <img src="{{checkAvatar120 picture_filelink.url gender}}" alt="user avatar" id="preview-avatar" class="img-rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="wrap-send-btn">
+          <div class="upload-btn btn btn-success" style="position:relative;">
+            <span>Upload Picture</span>
+            <input type="file" id="uploadfile" style="width: 100%;
+height: 100%;
+position: absolute;
+right: 0;
+top: 0;
+opacity: 0;">
+          </div>
+          <button type="button" class="save-btn btn btn-info" id="save-crop-avt"><span>Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

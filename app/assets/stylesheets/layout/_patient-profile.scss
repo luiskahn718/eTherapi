@@ -1,0 +1,120 @@
+.patient-profile {
+  .block-title {
+    h2 {
+      padding-left: 20px;
+    }
+  }
+  // set width for the left navbar
+  .edit-profile-nav {
+    width: 24%;
+  }
+  // set width for the content of patient-profile
+  .edit-profile-content {
+    width: 76%;
+    padding-bottom: 40px;
+  }
+  // move button to the right side
+  .profile-button-group {
+    text-align: right;
+  }
+
+  // style the margin of block
+  .picture-video {
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+    .avatar-action {
+      margin-left: 30px;
+      margin-top: 30px;
+    }
+
+    .user-avatar-delete {
+      margin-top: 15px;
+    }
+  }
+
+  // margin link
+  .add-more {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    float: right;
+  }
+
+  .form-horizontal {
+    label {
+      margin-top: 4px;
+      @include semi-bold-font;
+      font-size: 13px;
+      color: #000;
+    }
+  }
+
+  .chosen-single {
+    height: 42px;
+  }
+
+  button {
+    padding: 8px 30px;
+  }
+
+  .text-danger {
+    @include normal-font;
+    font-size: 13px;
+  }
+
+  // style popover
+  .popover {
+    padding: 10px;
+    left: -280px;
+    right: auto;
+    width: 260px
+  }
+
+  // style blocks
+  .contact-information {
+    .form-horizontal {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      > .col-md-5 {
+        width: 40%;
+      }
+    }
+  }
+
+  .insurance-status {
+    .block-title {
+      margin-bottom: 8px;
+    }
+  }
+
+  .medical-history {
+    textarea {
+      height: 190px;
+    }
+
+    button {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  // style the general-table
+  .header-striped-row,
+  .striped-row {
+    border-bottom: 1px solid #ebedf2;
+    line-height: 34px;
+  }
+  .striped-row {
+    border-top: 1px solid #ebedf2;
+  }
+  .general-column {
+    &:last-child {
+      float: right;
+    }
+  }
+}
+#gender .chosen-search {
+  display: none;
+}

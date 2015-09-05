@@ -1,0 +1,225 @@
+<div class="therapist-patient-profile">
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        Patient Profile
+        <i class="icon-users4">
+        </i>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 aside-content">
+      <div class="widget user-info">
+        <div class="widget-advanced">
+          <div class="widget-header text-center">
+            <h3>
+              <p class="user-name">
+                {{first_name}} {{last_name}}
+              </p>
+              <small class="info-brief">
+                {{genderYearOld gender date_of_birth}}
+              </small>
+            </h3>
+          </div>
+          <div class="widget-main">
+            <div class="widget-image-container">
+              <img src="{{checkAvatar65 picture_filelink.thumb.url gender}}" alt="Patient Avatar" class="img-circle widget-icon" />
+            </div>
+            <div class="contact-detail">
+              <span>
+                <i class="icon-phone7 integr-icon">
+                </i>
+                {{phone_home}}
+              </span>
+            </div>
+            <div class="contact-detail">
+              <span>
+                <i class="gi gi-envelope integr-icon">
+                </i>
+                {{mail_address1}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="patient-status cell-wrapper">
+        <span class="cell">
+          Inactive Patient
+        </span>
+        <label class="switch switch-primary">
+          <input type="checkbox" checked="checked" />
+          <span>
+          </span>
+        </label>
+        <span class="cell active">
+          Active Patient
+        </span>
+      </div>
+    </div>
+    <div class="col-md-8 pri-content-def">
+      <div class="block info-detail">
+        <div class="block-title">
+          <h2>
+            Patient Information
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              First Name
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{first_name}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Last Name
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{last_name}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Gender
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{gender gender}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Birth Date
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{convertTimeFormat date_of_birth}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Email Address
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{mail_address1}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Phone Number
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{phone_mobile}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Location
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{address1}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Timezone
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>
+              {{timezone}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Emergency contact full name
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>{{emergency_contact_name}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4 info-property">
+            <p>
+              Emergency phone number
+            </p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>{{emergency_contact_phone_no}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">
+          <h2 class="standout-title">
+            Patient Medical History
+          </h2>
+        </div>
+        <p>{{medical_history}}</p>
+      </div>
+      <div class="block">
+        <div class="block-title">
+          <h2>
+            Presenting Problems and Treatment Planning
+          </h2>
+        </div>
+        <form>
+          <div class="form-group patient-problem include-popover">
+            <textarea cols="30" rows="8" class="form-control" placeholder="Enter your intake notes here." id="tp-intake-note">{{note.note}}</textarea>
+            <div class="popover right">
+              <div class="arrow">
+              </div>
+              <div class="pop-over-content">
+                Use this space to record Intake Diagnosis Codes, Presenting Problems, Treatment Plan Objective, prescribed frequency of treatment, current mental status and recommendations.
+              </div>
+            </div>
+            <div class="popover top">
+              <div class="arrow">
+              </div>
+              <div class="pop-over-content">
+                Use this space to record Intake Diagnosis Codes, Presenting Problems, Treatment Plan Objective, prescribed frequency of treatment, current mental status and recommendations.
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-actions">
+            <button type="button" class="btn btn-info" id="save-intake-note">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.request-search {
+  margin-top: 90px;
+  margin-bottom: 150px;
+  .request-search-content {
+    position: relative;
+    width: 785px;
+    margin: 0 auto;
+    padding: 10px 0;
+    list-style-type: none;
+
+    background-color: rgba(255,255,255,.3);
+    @include radius(4px);
+    @include box-shadow(0 2px 5px rgba(0,0,0,.3));
+
+    > li {
+      display: block;
+      float: left;
+      width: 145px;
+      margin-left: 10px;
+
+      &:last-child {
+        margin-right: 10px;
+      }
+
+    }
+  }
+
+
+  .chosen-single,
+  input {
+    height: 40px;
+  }
+
+  .request-search-content > li,
+  input {
+    margin-top: 0;
+  }
+
+  .search-btn-wrap {
+    position: relative;
+    width: 785px;
+    margin: 0 auto;
+    margin-top: 15px;
+    text-align: right;
+
+    > a {
+      padding: 10px 92px;
+    }
+  }
+
+}

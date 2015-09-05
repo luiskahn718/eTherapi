@@ -1,0 +1,10 @@
+= simple_form_for(@therapist_consent) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.hidden_field :therapist_id, :value => @therapist_consent.therapist_id
+    = f.hidden_field :id, :value => @therapist_consent.id
+    = f.input :version
+    = f.input :consent_text
+    = f.input :active
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,38 @@
+.data-group {
+
+  .striped-row {
+    clear: left;
+    border-bottom: 1px solid #ebedf2;
+    @include clearfix();
+    &:nth-child(odd) {
+      background-color: #f8faff;
+    }
+  }
+
+  .cell-wrapper,
+  .cell {
+    width: 100%;
+    display: block;
+  }
+
+
+  .cell {
+    vertical-align: middle;
+  }
+
+}
+
+.general-column {
+  float: left;
+  box-sizing: border-box;
+  margin-right: 1%;
+  padding: 10px 10px;
+}
+
+header {
+  .general-column {
+    @include normal-font;
+    font-size: 16px;
+    color: #000;
+  }
+}

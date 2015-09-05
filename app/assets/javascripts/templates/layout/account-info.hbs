@@ -1,0 +1,340 @@
+<div class="therapist-account">
+  <!--sub header-->
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        Account Settings
+        <i class="icon-archive2">
+        </i>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="aside-content affix-menu-nav col-md-3 slave-nav">
+      <ul class="list-group nav">
+        <li target=".account-info-section">
+          <a href="#account-info-section" class="list-group-item account-info-section">
+            <h4 class="list-group-item-heading">Account Information</h4>
+          </a>
+        </li>
+        <li target=".practice-details-section">
+          <a href="#practice-details-section" class="list-group-item practice-details-section">
+            <h4 class="list-group-item-heading">Practice Details</h4>
+          </a>
+        </li>
+        <li target=".intake-forms-section">
+          <a href="#intake-forms-section" class="list-group-item intake-forms-section">
+            <h4 class="list-group-item-heading">Intake Forms</h4>
+          </a>
+        </li>
+        <li target=".change-password-section">
+          <a href="#change-password-section" class="list-group-item change-password-section">
+            <h4 class="list-group-item-heading">Change Password</h4>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9 account-content pri-content">
+      <div class="block block-form" id="account-info-section">
+        <div class="block-title">
+          <h2>
+            Account Information (required)
+          </h2>
+        </div>
+        <form class="form-horizontal">
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Provider First Name
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., Amanda" class="form-control input-md" value="{{first_name}}" id="first_name"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-user7">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Provider Last Name
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., Robison" class="form-control input-md" value="{{last_name}}" id="last_name"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-user7">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Email Address
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., arobinson@mail.com" class="form-control input-md" value="{{email}}" id="email"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="fa fa-envelope">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-action">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="button" class="btn btn-info" id="save-acc-info-btn">
+                Save Account Information
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="block block-form" id="practice-details-section">
+        <div class="block-title">
+          <h2>
+            Practice Details (required)
+          </h2>
+        </div>
+        <form class="form-horizontal">
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Street Address
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., 123 Main St." class="form-control input-md" id="address1"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              City
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., New York" class="form-control input-md"  id="city"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              State
+            </label>
+            <div class="col-md-5">
+              <select class="select-chosen" id="pd-state-txt" data-placeholder="e.g., NY">
+                <option value=""></option>
+                {{#each stateCode}}
+                <option value="{{state_id}}" {{checkSelectedChosen state_id ../state_cde}}>{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Zip Code
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="e.g., 10018" class="form-control input-md" id="zipcode"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-pin">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Country
+            </label>
+            <div class="col-md-5">
+              <select data-placeholder="Choose a Country" class="form-control select-chosen input-md" id="country_cde">
+                <option></option>
+                {{#each countryCode}}
+                <option value="{{country_id}}" {{checkSelectedChosen country_id ../country_cde}}>{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Phone Number
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="xxx-xxx-xxxx" class="form-control input-md" id="phone_home" />
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-phone3">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              National Provider Identifier (NPI)
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" class="form-control input-md"  id="npi_no"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md display-none">
+            <label class="control-label col-md-4">
+              Employer Identification Number (EIN)
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="text" id="ein_no" placeholder="xx-xxxxxxx" class="form-control input-md">
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-4 text-center notice display-none">Or</div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Social Security Number
+            </label>
+            <div class="include-popover popover-group col-md-5">
+              <div class="input-group">
+                <input type="text" placeholder="xxx-xx-xxxx" class="form-control input-md" id="pd_ssn"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="icon-vcard2">
+                  </i>
+                </span>
+              </div>
+              <div class="popover right default-popover">
+                <div class="arrow">
+                </div>
+                <div class="pop-over-content">
+                  Your social security number will be used only for taxpayer identification and payment processing.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-action">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="button" class="btn btn-info" id="save-practice-details-btn">
+                Save Practice Details
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="block"  id="intake-forms-section">
+        <div class="block-title">
+          <h2>
+            Intake Forms
+          </h2>
+        </div>
+        <div class="form-group">
+          <span class="control-label standout-label">
+            Practice Rules, Consent to Treatment, Notice of Privacy Practices
+          </span>
+          <button class="btn btn-info" id="intake-btn">
+            View/Edit
+          </button>
+        </div>
+      </div>
+      <div class="block block-form" id="change-password-section">
+        <div class="block-title">
+          <h2>
+            Change Password
+          </h2>
+        </div>
+        <form class="form-horizontal">
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              New Password
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="password" class="form-control input-md" id="pwd-txt"/>
+                <span class="input-group-addon group-addon-lg">
+                  <i class="fa fa-asterisk">
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-group-md">
+            <label class="control-label col-md-4">
+              Confirm New Password
+            </label>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="password" class="form-control input-md" id="confirm-pwd-txt" />
+                <span class="input-group-addon group-addon-lg">
+                  <i class="fa fa-asterisk">
+                  </i>
+                </span>
+              </div>
+              <div class="help-block animation-slideDown" id="pwd-error-txt"></div>
+            </div>
+          </div>
+          <div class="form-group form-action">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="button" class="btn btn-info" id="save-pwd-btn">
+                Save Password
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div tabindex="-1" role="dialog" aria-hidden="true" class="general-modal modal" id="th-intake-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" aria-hidden="true" class="close">
+          &times;
+        </button>
+        <modal-title>
+          Practice Rules
+        </modal-title>
+      </div>
+      <div class="modal-body">
+        <p>
+          Copy and paste your Practice Rules, Consent to Treatment and Notice of Privacy Practices below. Patients will be asked to agree at the time of their first appointment.
+        </p>
+        <form method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <textarea class="form-control intake-input" id="intake-txt" value="{{consent.consent_text}}">{{consent.consent_text}}</textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-info btn-large" id="update-consent-btn">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/bootstrap-wysihtml5.js"></script>
